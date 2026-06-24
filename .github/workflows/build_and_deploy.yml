@@ -16,14 +16,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v7
 
+      - name: Install pnpm
+        run: npm install -g pnpm
+
       - name: Install Node.js
         uses: actions/setup-node@v6
         with:
           node-version: 24.x
           cache: "pnpm"
-
-      - name: Install pnpm
-        run: npm install -g pnpm
 
       - name: Install NPM packages
         run: pnpm i --frozen-lockfile
