@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --color-wc-red: #c8102e;
+  --color-wc-gold: #ffcd00;
+  --color-wc-green: #3cac3b;
+  --color-wc-blue: #2a398d;
+  --color-wc-dark: #0a2f1a;
+  --color-wc-emerald: #064e3b;
+}
