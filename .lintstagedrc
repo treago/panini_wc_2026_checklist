@@ -1,3 +1,7 @@
 {
-  "**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}": ["pnpm lint", "pnpm format"]
+  "**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}": [
+    "pnpm lint",
+    "pnpm format",
+    "pnpm type-check"
+  ]
 }

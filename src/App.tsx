@@ -3,6 +3,7 @@ import { AuthButton } from "./components/AuthButton";
 import Checklist from "./components/Checklist";
 import { useCollection } from "./hooks/useCollection";
 import { useAuth } from "./hooks/useAuth";
+import { FifaCardsData } from "./types";
 
 export default function App() {
   const { user } = useAuth();
@@ -39,7 +40,7 @@ export default function App() {
       <div className="mx-auto max-w-7xl px-6 py-8">
         <Checklist
           title={data.meta.title}
-          items={data}
+          items={data as FifaCardsData}
           section="all"
           collection={collection}
           updateCard={updateCard}
