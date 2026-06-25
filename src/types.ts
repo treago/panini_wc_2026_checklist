@@ -1,37 +1,125 @@
+// ============================================================
+// FIFA World Cup 2026 Adrenalyn XL — Types
+// Matches JSON structure: { meta, special, countries }
+// ============================================================
+
 export type Card = {
   id: number;
   name: string;
   position: string;
 };
 
-export type CountriesData = {
-  [country: string]: Card[];
+// ------------------------------------------------------------------
+// Meta
+// ------------------------------------------------------------------
+
+export type Meta = {
+  title: string;
+  publisher: string;
+  total_cards: number;
 };
+
+// ------------------------------------------------------------------
+// Special categories (keys match JSON exactly)
+// ------------------------------------------------------------------
+
+export type SpecialCards = {
+  "Golden Ballers": Card[];
+  "Fan Favourites": Card[];
+  Icons: Card[];
+  Logos: Card[];
+  Contenders: Card[];
+  "Top Keepers": Card[];
+  "Defensive Rocks": Card[];
+  "Midfield Maestros": Card[];
+  "Goal Machines": Card[];
+  "Master Rookies": Card[];
+  "Official Emblem": Card[];
+  "Official Mascot": Card[];
+  "Eternos 22": Card[];
+};
+
+// Subset type for the 514–630 special-only JSON
+export type SpecialCards514to630 = Omit<
+  SpecialCards,
+  "Golden Ballers" | "Fan Favourites" | "Icons" | "Logos"
+>;
+
+// ------------------------------------------------------------------
+// Countries
+// ------------------------------------------------------------------
+
+export type Country =
+  | "Algeria"
+  | "Argentina"
+  | "Australia"
+  | "Austria"
+  | "Belgium"
+  | "Brazil"
+  | "Canada"
+  | "Cape Verde"
+  | "Colombia"
+  | "Croatia"
+  | "Curaçao"
+  | "Ecuador"
+  | "Egypt"
+  | "England"
+  | "France"
+  | "Germany"
+  | "Ghana"
+  | "Haiti"
+  | "Iran"
+  | "Ivory Coast"
+  | "Japan"
+  | "Jordan"
+  | "Korea Republic"
+  | "Mexico"
+  | "Morocco"
+  | "Netherlands"
+  | "New Zealand"
+  | "Norway"
+  | "Panama"
+  | "Paraguay"
+  | "Portugal"
+  | "Qatar"
+  | "Saudi Arabia"
+  | "Scotland"
+  | "Senegal"
+  | "South Africa"
+  | "Spain"
+  | "Switzerland"
+  | "Tunisia"
+  | "United States"
+  | "Uruguay"
+  | "Uzbekistan";
+
+export type CountriesData = Record<Country, Card[]>;
+
+// ------------------------------------------------------------------
+// Root JSON shapes
+// ------------------------------------------------------------------
 
 export type FifaCardsData = {
-  GOLDEN_BALLERS: Card[];
-  FAN_FAVOURITES: Card[];
-  ICONS: Card[];
-  LOGOS: Card[];
-  CONTENDERS: Card[];
-  TOP_KEEPERS: Card[];
-  DEFENSIVE_ROCKS: Card[];
-  MIDFIELD_MAESTROS: Card[];
-  GOAL_MACHINES: Card[];
-  MASTER_ROOKIES: Card[];
-  OFFICIAL_EMBLEM: Card[];
-  OFFICIAL_MASCOT: Card[];
-  ETERNOS_22: Card[];
-  COUNTRIES: CountriesData;
+  meta: Meta;
+  special: SpecialCards;
+  countries: CountriesData;
 };
 
-// Helper types
-export type ChecklistProps = {
-  title: string;
-  items: FifaCardsData;
-};
+// ------------------------------------------------------------------
+// Helper / UI types
+// ------------------------------------------------------------------
+
+export type SpecialCategory = keyof SpecialCards;
 
 export type CardValue = {
   owned: boolean;
   quantity: number;
+};
+
+/** Keyed by card id */
+export type CollectionState = Record<number, CardValue>;
+
+export type ChecklistProps = {
+  title: string;
+  data: FifaCardsData;
 };

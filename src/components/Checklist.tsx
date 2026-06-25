@@ -2,6 +2,8 @@ import { useCallback, useMemo, useState, useDeferredValue } from "react";
 import type { Card, CardValue, FifaCardsData } from "../types";
 import type { Collection } from "../hooks/useCollection";
 import { CardItem } from "./CardItem";
+import { GroupHeader } from "./GroupHeader";
+import { ChecklistHeader } from "./ChecklistHeader";
 
 type Props = {
   title: string;
@@ -9,6 +11,13 @@ type Props = {
   section?: "all" | "special" | "countries";
   collection: Collection;
   updateCard: (id: number, value: CardValue) => void;
+};
+
+type Group = {
+  label: string;
+  code: string;
+  cards: Card[];
+  type: "special" | "countries";
 };
 
 export default function Checklist({
@@ -22,40 +31,32 @@ export default function Checklist({
   const deferredQuery = useDeferredValue(query);
   const [currentSection, setCurrentSection] = useState(section);
 
-  // Structural mapping of flat JSON into standardized UI groups
-  const groupedData = useMemo(() => {
-    const groups: {
-      country: string;
-      code: string;
-      cards: Card[];
-      type: "special" | "countries";
-    }[] = [];
+  // Build UI groups from the new { special, countries } structure
+  const groupedData = useMemo<Group[]>(() => {
+    const groups: Group[] = [];
 
-    const addGroup = (
-      key: string,
-      cards: Card[],
-      type: "special" | "countries",
-    ) => {
-      const codeMatch = key.match(/\((.+?)\)/);
-      const code = codeMatch ? codeMatch[1] : key.slice(0, 3).toUpperCase();
-
-      const cleanName = key
-        .replace(/\s*\(.+?\)/, "")
-        .replace(/_/g, " ")
-        .trim();
-
-      groups.push({ country: cleanName, code, cards: [...cards], type });
+    const toCode = (key: string) => {
+      const match = key.match(/\((.+?)\)/);
+      return match ? match[1] : key.slice(0, 3).toUpperCase();
     };
 
-    Object.entries(items).forEach(([key, value]) => {
-      if (key !== "COUNTRIES" && Array.isArray(value)) {
-        addGroup(key, value, "special");
-      }
-    });
+    // Special categories: "Golden Ballers", "Fan Favourites", etc.
+    for (const [key, cards] of Object.entries(items.special)) {
+      groups.push({
+        label: key,
+        code: toCode(key),
+        cards: [...cards],
+        type: "special",
+      });
+    }
 
-    if (items.COUNTRIES) {
-      Object.entries(items.COUNTRIES).forEach(([key, cards]) => {
-        addGroup(key, cards, "countries");
+    // Country sections: "Algeria", "Argentina", etc.
+    for (const [key, cards] of Object.entries(items.countries)) {
+      groups.push({
+        label: key,
+        code: toCode(key),
+        cards: [...cards],
+        type: "countries",
       });
     }
 
@@ -63,16 +64,15 @@ export default function Checklist({
   }, [items]);
 
   const handleUpdateCard = useCallback(
-    (id: number, value: CardValue) => {
-      updateCard(id, value);
-    },
+    (id: number, value: CardValue) => updateCard(id, value),
     [updateCard],
   );
 
-  // Filter by search query
-  const filteredGroups = useMemo(() => {
+  // Filter by search query (deferred so typing stays snappy)
+  const filteredGroups = useMemo<Group[]>(() => {
     const q = deferredQuery.toLowerCase().trim();
     if (!q) return groupedData;
+
     return groupedData
       .map((group) => ({
         ...group,
@@ -87,7 +87,7 @@ export default function Checklist({
   }, [groupedData, deferredQuery]);
 
   // Filter by active sub-tab
-  const displayedGroups = useMemo(() => {
+  const displayedGroups = useMemo<Group[]>(() => {
     if (currentSection === "all") return filteredGroups;
     return filteredGroups.filter((g) => g.type === currentSection);
   }, [filteredGroups, currentSection]);
@@ -97,55 +97,29 @@ export default function Checklist({
   return (
     <div className="space-y-16">
       {/* Header */}
-      <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-        <div className="flex items-center gap-3">
-          <h2 className="text-4xl font-black tracking-tighter text-white">
-            {title}
-          </h2>
-
-          {canSwitch && (
-            <div className="border-wc-gold/30 flex rounded-2xl border bg-zinc-900 p-1">
-              {(["all", "special", "countries"] as const).map((s) => (
-                <button
-                  key={s}
-                  onClick={() => setCurrentSection(s)}
-                  className={`rounded-xl px-5 py-1.5 text-sm font-semibold transition ${
-                    currentSection === s
-                      ? "bg-wc-red text-white shadow-lg"
-                      : "text-gray-400 hover:text-white"
-                  }`}
-                >
-                  {s.toUpperCase()}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-
-        <input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search number, player or position..."
-          className="border-wc-gold/30 focus:border-wc-gold focus:ring-wc-gold w-full rounded-2xl border bg-zinc-950 px-6 py-3.5 text-lg text-white outline-none placeholder:text-gray-500 focus:ring-1 sm:w-96"
-        />
-      </div>
+      <ChecklistHeader
+        items={items}
+        title={title}
+        query={query}
+        setQuery={setQuery}
+        currentSection={currentSection}
+        setCurrentSection={setCurrentSection}
+        canSwitch={canSwitch}
+      />
 
       {/* Groups */}
-      {displayedGroups.map(({ country, code, cards }) => (
-        <div key={country} className="scroll-mt-20">
-          <div className="border-wc-red mb-8 flex items-center gap-4 rounded-r-3xl border-l-8 bg-white px-6 py-4 shadow-sm">
-            <div className="text-wc-red text-4xl font-black tracking-widest uppercase">
-              {country}
-            </div>
-            <div className="text-2xl font-bold text-gray-600">({code})</div>
-            <div className="bg-wc-gold ml-auto rounded-2xl px-5 py-2 font-mono text-sm font-bold text-black">
-              {cards.length} CARDS
-            </div>
-          </div>
+      {displayedGroups.map(({ label, code, cards }) => (
+        <div key={label} className="scroll-mt-20">
+          <GroupHeader
+            label={label}
+            code={code}
+            cards={cards}
+            collection={collection}
+          />
 
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {cards.map((card) => {
-              // Use String(card.id) because Firestore stores map keys as strings
+              // Firestore stores map keys as strings
               const value = collection[String(card.id)] ?? {
                 owned: false,
                 quantity: 1,

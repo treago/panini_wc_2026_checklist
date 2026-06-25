@@ -1,702 +1,3033 @@
 {
-  "GOLDEN_BALLERS": [
-    { "id": 1, "name": "MESSI", "position": "Golden Baller" },
-    { "id": 2, "name": "VINÍCIUS JÚNIOR", "position": "Golden Baller" },
-    { "id": 3, "name": "SALAH", "position": "Golden Baller" },
-    { "id": 4, "name": "KANE", "position": "Golden Baller" },
-    { "id": 5, "name": "MBAPPÉ", "position": "Golden Baller" },
-    { "id": 6, "name": "SON", "position": "Golden Baller" },
-    { "id": 7, "name": "HAALAND", "position": "Golden Baller" },
-    { "id": 8, "name": "RONALDO", "position": "Golden Baller" },
-    { "id": 9, "name": "YAMAL", "position": "Golden Baller" }
-  ],
-  "FAN_FAVOURITES": [
-    { "id": 10, "name": "RAYAN AÏT-NOURI", "position": "Fan Favourite" },
-    { "id": 22, "name": "JULIÁN ÁLVAREZ", "position": "Fan Favourite" },
-    { "id": 34, "name": "HARRY SOUTTAR", "position": "Fan Favourite" },
-    { "id": 46, "name": "MARKO ARNAUTOVIC", "position": "Fan Favourite" },
-    { "id": 58, "name": "YOURI TIELEMANS", "position": "Fan Favourite" },
-    { "id": 70, "name": "MARQUINHOS", "position": "Fan Favourite" },
-    { "id": 82, "name": "JONATHAN DAVID", "position": "Fan Favourite" },
-    { "id": 94, "name": "VOZINHA", "position": "Fan Favourite" },
-    { "id": 106, "name": "LUIS DÍAZ", "position": "Fan Favourite" },
-    { "id": 118, "name": "IVAN PERIŠIĆ", "position": "Fan Favourite" },
-    { "id": 130, "name": "JURIÉN GAARI", "position": "Fan Favourite" },
-    { "id": 142, "name": "MOISÉS CAICEDO", "position": "Fan Favourite" },
-    { "id": 154, "name": "OMAR MARMOUSH", "position": "Fan Favourite" },
-    { "id": 166, "name": "JUDE BELLINGHAM", "position": "Fan Favourite" },
-    { "id": 178, "name": "OUSMANE DEMBÉLÉ", "position": "Fan Favourite" },
-    { "id": 190, "name": "JAMAL MUSIALA", "position": "Fan Favourite" },
-    { "id": 202, "name": "THOMAS PARTEY", "position": "Fan Favourite" },
-    { "id": 214, "name": "FRANTZDY PIERROT", "position": "Fan Favourite" },
-    { "id": 226, "name": "MEHDI TAREMI", "position": "Fan Favourite" },
-    { "id": 238, "name": "FRANCK KESSIÉ", "position": "Fan Favourite" },
-    { "id": 250, "name": "TAKUMI MINAMINO", "position": "Fan Favourite" },
-    { "id": 262, "name": "YAZAN AL-NAIMAT", "position": "Fan Favourite" },
-    { "id": 274, "name": "MIN-JAE KIM", "position": "Fan Favourite" },
-    { "id": 286, "name": "EDSON ÁLVAREZ", "position": "Fan Favourite" },
-    { "id": 298, "name": "YOUSSEF EN-NESYRI", "position": "Fan Favourite" },
-    { "id": 310, "name": "MEMPHIS DEPAY", "position": "Fan Favourite" },
-    { "id": 322, "name": "MARKO STAMENIC", "position": "Fan Favourite" },
-    { "id": 334, "name": "MARTIN ØDEGAARD", "position": "Fan Favourite" },
-    { "id": 346, "name": "MICHAEL AMIR MURILLO", "position": "Fan Favourite" },
-    { "id": 358, "name": "GUSTAVO GÓMEZ", "position": "Fan Favourite" },
-    { "id": 370, "name": "VITINHA", "position": "Fan Favourite" },
-    { "id": 382, "name": "ALMOEZ ALI", "position": "Fan Favourite" },
-    { "id": 394, "name": "FERAS ALBRIKAN", "position": "Fan Favourite" },
-    { "id": 406, "name": "SCOTT MCTOMINAY", "position": "Fan Favourite" },
-    { "id": 418, "name": "KALIDOU KOULIBALY", "position": "Fan Favourite" },
-    { "id": 430, "name": "LYLE FOSTER", "position": "Fan Favourite" },
-    { "id": 442, "name": "LAMINE YAMAL", "position": "Fan Favourite" },
-    { "id": 454, "name": "MANUEL AKANJI", "position": "Fan Favourite" },
-    { "id": 466, "name": "FERJANI SASSI", "position": "Fan Favourite" },
-    { "id": 478, "name": "WESTON MCKENNIE", "position": "Fan Favourite" },
-    { "id": 490, "name": "JOSÉ MARÍA GIMÉNEZ", "position": "Fan Favourite" },
-    { "id": 502, "name": "ABDUKODIR KHUSANOV", "position": "Fan Favourite" }
-  ],
-  "ICONS": [
-    { "id": 12, "name": "RIYAD MAHREZ", "position": "Icon" },
-    { "id": 24, "name": "LIONEL MESSI", "position": "Icon" },
-    { "id": 36, "name": "MATHEW RYAN", "position": "Icon" },
-    { "id": 48, "name": "DAVID ALABA", "position": "Icon" },
-    { "id": 60, "name": "KEVIN DE BRUYNE", "position": "Icon" },
-    { "id": 72, "name": "VINÍCIUS JÚNIOR", "position": "Icon" },
-    { "id": 84, "name": "ALPHONSO DAVIES", "position": "Icon" },
-    { "id": 96, "name": "RYAN MENDES", "position": "Icon" },
-    { "id": 108, "name": "JAMES RODRÍGUEZ", "position": "Icon" },
-    { "id": 120, "name": "LUKA MODRIĆ", "position": "Icon" },
-    { "id": 132, "name": "LEANDRO BACUNA", "position": "Icon" },
-    { "id": 144, "name": "ENNER VALENCIA", "position": "Icon" },
-    { "id": 156, "name": "MOHAMED SALAH", "position": "Icon" },
-    { "id": 168, "name": "HARRY KANE", "position": "Icon" },
-    { "id": 180, "name": "KYLIAN MBAPPÉ", "position": "Icon" },
-    { "id": 192, "name": "JOSHUA KIMMICH", "position": "Icon" },
-    { "id": 204, "name": "MOHAMMED KUDUS", "position": "Icon" },
-    { "id": 216, "name": "DUCKENS NAZON", "position": "Icon" },
-    { "id": 228, "name": "SARDAR AZMOUN", "position": "Icon" },
-    { "id": 240, "name": "SÉBASTIEN HALLER", "position": "Icon" },
-    { "id": 252, "name": "TAKEFUSA KUBO", "position": "Icon" },
-    { "id": 264, "name": "MUSA AL-TAAMARI", "position": "Icon" },
-    { "id": 276, "name": "HEUNG-MIN SON", "position": "Icon" },
-    { "id": 288, "name": "RAÚL JIMÉNEZ", "position": "Icon" },
-    { "id": 300, "name": "ACHRAF HAKIMI", "position": "Icon" },
-    { "id": 312, "name": "VIRGIL VAN DIJK", "position": "Icon" },
-    { "id": 324, "name": "CHRIS WOOD", "position": "Icon" },
-    { "id": 336, "name": "ERLING HAALAND", "position": "Icon" },
-    { "id": 348, "name": "ANIBAL GODOY", "position": "Icon" },
-    { "id": 360, "name": "MIGUEL ALMIRÓN", "position": "Icon" },
-    { "id": 372, "name": "CRISTIANO RONALDO", "position": "Icon" },
-    { "id": 384, "name": "HASAN AL-HAYDOS", "position": "Icon" },
-    { "id": 396, "name": "SALEM ALDAWSARI", "position": "Icon" },
-    { "id": 408, "name": "ANDREW ROBERTSON", "position": "Icon" },
-    { "id": 420, "name": "SADIO MANÉ", "position": "Icon" },
-    { "id": 432, "name": "RONWEN WILLIAMS", "position": "Icon" },
-    { "id": 444, "name": "RODRI", "position": "Icon" },
-    { "id": 456, "name": "GRANIT XHAKA", "position": "Icon" },
-    { "id": 468, "name": "ELLYES SKHIRI", "position": "Icon" },
-    { "id": 480, "name": "CHRISTIAN PULISIC", "position": "Icon" },
-    { "id": 492, "name": "FEDERICO VALVERDE", "position": "Icon" },
-    { "id": 504, "name": "ELDOR SHOMURODOV", "position": "Icon" }
-  ],
-  "LOGOS": [
-    { "id": 11, "name": "ALGERIA", "position": "Team Crest" },
-    { "id": 23, "name": "ARGENTINA", "position": "Team Crest" },
-    { "id": 35, "name": "AUSTRALIA", "position": "Team Crest" },
-    { "id": 47, "name": "AUSTRIA", "position": "Team Crest" },
-    { "id": 59, "name": "BELGIUM", "position": "Team Crest" },
-    { "id": 71, "name": "BRAZIL", "position": "Team Crest" },
-    { "id": 83, "name": "CANADA", "position": "Team Crest" },
-    { "id": 95, "name": "CAPE VERDE", "position": "Team Crest" },
-    { "id": 107, "name": "COLOMBIA", "position": "Team Crest" },
-    { "id": 119, "name": "CROATIA", "position": "Team Crest" },
-    { "id": 131, "name": "CURAÇAO", "position": "Team Crest" },
-    { "id": 143, "name": "ECUADOR", "position": "Team Crest" },
-    { "id": 155, "name": "EGYPT", "position": "Team Crest" },
-    { "id": 167, "name": "ENGLAND", "position": "Team Crest" },
-    { "id": 179, "name": "FRANCE", "position": "Team Crest" },
-    { "id": 191, "name": "GERMANY", "position": "Team Crest" },
-    { "id": 203, "name": "GHANA", "position": "Team Crest" },
-    { "id": 215, "name": "HAITI", "position": "Team Crest" },
-    { "id": 227, "name": "IRAN", "position": "Team Crest" },
-    { "id": 239, "name": "IVORY COAST", "position": "Team Crest" },
-    { "id": 251, "name": "JAPAN", "position": "Team Crest" },
-    { "id": 263, "name": "JORDAN", "position": "Team Crest" },
-    { "id": 275, "name": "KOREA REPUBLIC", "position": "Team Crest" },
-    { "id": 287, "name": "MEXICO", "position": "Team Crest" },
-    { "id": 299, "name": "MOROCCO", "position": "Team Crest" },
-    { "id": 311, "name": "NETHERLANDS", "position": "Team Crest" },
-    { "id": 323, "name": "NEW ZEALAND", "position": "Team Crest" },
-    { "id": 335, "name": "NORWAY", "position": "Team Crest" },
-    { "id": 347, "name": "PANAMA", "position": "Team Crest" },
-    { "id": 359, "name": "PARAGUAY", "position": "Team Crest" },
-    { "id": 371, "name": "PORTUGAL", "position": "Team Crest" },
-    { "id": 383, "name": "QATAR", "position": "Team Crest" },
-    { "id": 395, "name": "SAUDI ARABIA", "position": "Team Crest" },
-    { "id": 407, "name": "SCOTLAND", "position": "Team Crest" },
-    { "id": 419, "name": "SENEGAL", "position": "Team Crest" },
-    { "id": 431, "name": "SOUTH AFRICA", "position": "Team Crest" },
-    { "id": 443, "name": "SPAIN", "position": "Team Crest" },
-    { "id": 455, "name": "SWITZERLAND", "position": "Team Crest" },
-    { "id": 467, "name": "TUNISIA", "position": "Team Crest" },
-    { "id": 479, "name": "UNITED STATES", "position": "Team Crest" },
-    { "id": 491, "name": "URUGUAY", "position": "Team Crest" },
-    { "id": 503, "name": "UZBEKISTAN", "position": "Team Crest" }
-  ],
-  "CONTENDERS": [
-    {
-      "id": 514,
-      "name": "ITA • NIR / WAL • BIH",
-      "position": "Contender Match"
-    },
-    {
-      "id": 515,
-      "name": "UKR • SWE / POL • ALB",
-      "position": "Contender Match"
-    },
-    {
-      "id": 516,
-      "name": "TUR • ROU / SVK • KGS",
-      "position": "Contender Match"
-    },
-    {
-      "id": 517,
-      "name": "DEN • MKD / CZE • IRL",
-      "position": "Contender Match"
-    },
-    { "id": 518, "name": "NCL • JAM / COD", "position": "Contender Match" },
-    { "id": 519, "name": "SUR • BOL / IRQ", "position": "Contender Match" },
-    { "id": 520, "name": "HJULMAND", "position": "Midfielder" },
-    { "id": 521, "name": "HØJBJERG", "position": "Midfielder" },
-    { "id": 522, "name": "ERIKSEN", "position": "Midfielder" },
-    { "id": 523, "name": "DAMSGAARD", "position": "Midfielder" },
-    { "id": 524, "name": "HØJLUND", "position": "Forward" },
-    { "id": 525, "name": "DONNARUMMA", "position": "Goalkeeper" },
-    { "id": 526, "name": "BASTONI", "position": "Defender" },
-    { "id": 527, "name": "TONALI", "position": "Midfielder" },
-    { "id": 528, "name": "BARELLA", "position": "Midfielder" },
-    { "id": 529, "name": "KEAN", "position": "Forward" },
-    { "id": 530, "name": "BLAKE", "position": "Goalkeeper" },
-    { "id": 531, "name": "PINNOCK", "position": "Defender" },
-    { "id": 532, "name": "GRAY", "position": "Midfielder" },
-    { "id": 533, "name": "BAILEY", "position": "Forward" },
-    { "id": 534, "name": "NICHOLSON", "position": "Forward" },
-    { "id": 535, "name": "CASH", "position": "Defender" },
-    { "id": 536, "name": "KIWIOR", "position": "Defender" },
-    { "id": 537, "name": "ZIELIŃSKI", "position": "Midfielder" },
-    { "id": 538, "name": "SZYMAŃSKI", "position": "Midfielder" },
-    { "id": 539, "name": "LEWANDOWSKI", "position": "Forward" },
-    { "id": 540, "name": "HIEN", "position": "Defender" },
-    { "id": 541, "name": "KULUSEVSKI", "position": "Midfielder" },
-    { "id": 542, "name": "ELANGA", "position": "Forward" },
-    { "id": 543, "name": "GYÖKERES", "position": "Forward" },
-    { "id": 544, "name": "ISAK", "position": "Forward" },
-    { "id": 545, "name": "SÖYÜNCÜ", "position": "Defender" },
-    { "id": 546, "name": "ÇALHANOGLU", "position": "Midfielder" },
-    { "id": 547, "name": "GÜLER", "position": "Midfielder" },
-    { "id": 548, "name": "YILDIZ", "position": "Forward" },
-    { "id": 549, "name": "AKTÜRKOGLU", "position": "Forward" }
-  ],
-  "TOP_KEEPERS": [
-    { "id": 550, "name": "MARTÍNEZ", "position": "Top Keeper" },
-    { "id": 551, "name": "COURTOIS", "position": "Top Keeper" },
-    { "id": 552, "name": "ALISSON", "position": "Top Keeper" },
-    { "id": 553, "name": "MAIGNAN", "position": "Top Keeper" },
-    { "id": 554, "name": "SUZUKI", "position": "Top Keeper" },
-    { "id": 555, "name": "BOUNOU", "position": "Top Keeper" },
-    { "id": 556, "name": "DIOGO COSTA", "position": "Top Keeper" },
-    { "id": 557, "name": "SIMÓN", "position": "Top Keeper" },
-    { "id": 558, "name": "KOBEL", "position": "Top Keeper" }
-  ],
-  "DEFENSIVE_ROCKS": [
-    { "id": 559, "name": "ÉDER MILITÃO", "position": "Defensive Rock" },
-    { "id": 560, "name": "DAVIES", "position": "Defensive Rock" },
-    { "id": 561, "name": "SALIBA", "position": "Defensive Rock" },
-    { "id": 562, "name": "RÜDIGER", "position": "Defensive Rock" },
-    { "id": 563, "name": "KIM", "position": "Defensive Rock" },
-    { "id": 564, "name": "HAKIMI", "position": "Defensive Rock" },
-    { "id": 565, "name": "VAN DIJK", "position": "Defensive Rock" },
-    { "id": 566, "name": "MENDES", "position": "Defensive Rock" },
-    { "id": 567, "name": "HUIJSEN", "position": "Defensive Rock" }
-  ],
-  "MIDFIELD_MAESTROS": [
-    { "id": 568, "name": "FERNÁNDEZ", "position": "Midfield Maestro" },
-    { "id": 569, "name": "DE BRUYNE", "position": "Midfield Maestro" },
-    { "id": 570, "name": "CASEMIRO", "position": "Midfield Maestro" },
-    { "id": 571, "name": "MODRIĆ", "position": "Midfield Maestro" },
-    { "id": 572, "name": "CAICEDO", "position": "Midfield Maestro" },
-    { "id": 573, "name": "BELLINGHAM", "position": "Midfield Maestro" },
-    { "id": 574, "name": "TCHOUAMÉNI", "position": "Midfield Maestro" },
-    { "id": 575, "name": "AMRABAT", "position": "Midfield Maestro" },
-    { "id": 576, "name": "REIJNDERS", "position": "Midfield Maestro" },
-    { "id": 577, "name": "ØDEGAARD", "position": "Midfield Maestro" },
-    { "id": 578, "name": "VITINHA", "position": "Midfield Maestro" },
-    { "id": 579, "name": "MCTOMINAY", "position": "Midfield Maestro" },
-    { "id": 580, "name": "PEDRI", "position": "Midfield Maestro" },
-    { "id": 581, "name": "XHAKA", "position": "Midfield Maestro" },
-    { "id": 582, "name": "KIMMICH", "position": "Midfield Maestro" },
-    { "id": 583, "name": "VALVERDE", "position": "Midfield Maestro" },
-    { "id": 584, "name": "ADAMS", "position": "Midfield Maestro" },
-    { "id": 585, "name": "ENDO", "position": "Midfield Maestro" }
-  ],
-  "GOAL_MACHINES": [
-    { "id": 586, "name": "ÁLVAREZ", "position": "Goal Machine" },
-    { "id": 587, "name": "LUKAKU", "position": "Goal Machine" },
-    { "id": 588, "name": "RAPHINHA", "position": "Goal Machine" },
-    { "id": 589, "name": "DAVID", "position": "Goal Machine" },
-    { "id": 590, "name": "DÍAZ", "position": "Goal Machine" },
-    { "id": 591, "name": "KRAMARIĆ", "position": "Goal Machine" },
-    { "id": 592, "name": "VALENCIA", "position": "Goal Machine" },
-    { "id": 593, "name": "MARMOUSH", "position": "Goal Machine" },
-    { "id": 594, "name": "RASHFORD", "position": "Goal Machine" },
-    { "id": 595, "name": "KOLO MUANI", "position": "Goal Machine" },
-    { "id": 596, "name": "HAVERTZ", "position": "Goal Machine" },
-    { "id": 597, "name": "HALLER", "position": "Goal Machine" },
-    { "id": 598, "name": "EN-NESYRI", "position": "Goal Machine" },
-    { "id": 599, "name": "SON", "position": "Goal Machine" },
-    { "id": 600, "name": "WOOD", "position": "Goal Machine" },
-    { "id": 601, "name": "GAKPO", "position": "Goal Machine" },
-    { "id": 602, "name": "SØRLOTH", "position": "Goal Machine" },
-    { "id": 603, "name": "JACKSON", "position": "Goal Machine" },
-    { "id": 604, "name": "OYARZABAL", "position": "Goal Machine" },
-    { "id": 605, "name": "EMBOLO", "position": "Goal Machine" },
-    { "id": 606, "name": "PULISIC", "position": "Goal Machine" },
-    { "id": 607, "name": "NÚÑEZ", "position": "Goal Machine" }
-  ],
-  "MASTER_ROOKIES": [
-    { "id": 608, "name": "PAZ", "position": "Master Rookie" },
-    { "id": 609, "name": "MASTANTUONO", "position": "Master Rookie" },
-    { "id": 610, "name": "DEBAST", "position": "Master Rookie" },
-    { "id": 611, "name": "WESLEY", "position": "Master Rookie" },
-    { "id": 612, "name": "ESTÊVÃO", "position": "Master Rookie" },
-    { "id": 613, "name": "SUCIĆ", "position": "Master Rookie" },
-    { "id": 614, "name": "PÁEZ", "position": "Master Rookie" },
-    { "id": 615, "name": "ROGERS", "position": "Master Rookie" },
-    { "id": 616, "name": "DOUÉ", "position": "Master Rookie" },
-    { "id": 617, "name": "BARCOLA", "position": "Master Rookie" },
-    { "id": 618, "name": "WOLTEMADE", "position": "Master Rookie" },
-    { "id": 619, "name": "SIMONS", "position": "Master Rookie" },
-    { "id": 620, "name": "SCHJELDERUP", "position": "Master Rookie" },
-    { "id": 621, "name": "GOMES", "position": "Master Rookie" },
-    { "id": 622, "name": "JOÃO NEVES", "position": "Master Rookie" },
-    { "id": 623, "name": "CUBARSÍ", "position": "Master Rookie" }
-  ],
-  "OFFICIAL_EMBLEM": [
-    { "id": 624, "name": "OFFICIAL EMBLEM", "position": "Official Emblem" }
-  ],
-  "OFFICIAL_MASCOT": [
-    {
-      "id": 625,
-      "name": "OFFICIAL MASCOT + MAPLE™",
-      "position": "Official Mascot"
-    },
-    {
-      "id": 626,
-      "name": "OFFICIAL MASCOT + CLUTCH™",
-      "position": "Official Mascot"
-    },
-    {
-      "id": 627,
-      "name": "OFFICIAL MASCOT + ZAVU™",
-      "position": "Official Mascot"
-    }
-  ],
-  "ETERNOS_22": [
-    { "id": 628, "name": "ETERNOS 22 - DEFENDERS", "position": "Eternos 22" },
-    { "id": 629, "name": "ETERNOS 22 - MIDFIELDERS", "position": "Eternos 22" },
-    { "id": 630, "name": "ETERNOS 22 - FORWARDS", "position": "Eternos 22" }
-  ],
-  "COUNTRIES": {
+  "meta": {
+    "title": "FIFA World Cup 2026 Adrenalyn XL",
+    "publisher": "Panini",
+    "total_cards": 630
+  },
+  "special": {
+    "Golden Ballers": [
+      {
+        "id": 1,
+        "name": "MESSI",
+        "position": "Golden Baller"
+      },
+      {
+        "id": 2,
+        "name": "VINÍCIUS JÚNIOR",
+        "position": "Golden Baller"
+      },
+      {
+        "id": 3,
+        "name": "SALAH",
+        "position": "Golden Baller"
+      },
+      {
+        "id": 4,
+        "name": "KANE",
+        "position": "Golden Baller"
+      },
+      {
+        "id": 5,
+        "name": "MBAPPÉ",
+        "position": "Golden Baller"
+      },
+      {
+        "id": 6,
+        "name": "SON",
+        "position": "Golden Baller"
+      },
+      {
+        "id": 7,
+        "name": "HAALAND",
+        "position": "Golden Baller"
+      },
+      {
+        "id": 8,
+        "name": "RONALDO",
+        "position": "Golden Baller"
+      },
+      {
+        "id": 9,
+        "name": "YAMAL",
+        "position": "Golden Baller"
+      }
+    ],
+    "Fan Favourites": [
+      {
+        "id": 10,
+        "name": "RAYAN AÏT-NOURI",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 22,
+        "name": "JULIÁN ÁLVAREZ",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 34,
+        "name": "HARRY SOUTTAR",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 46,
+        "name": "MARKO ARNAUTOVIC",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 58,
+        "name": "YOURI TIELEMANS",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 70,
+        "name": "MARQUINHOS",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 82,
+        "name": "JONATHAN DAVID",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 94,
+        "name": "VOZINHA",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 106,
+        "name": "LUIS DÍAZ",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 118,
+        "name": "IVAN PERIŠIĆ",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 130,
+        "name": "JURIÉN GAARI",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 142,
+        "name": "MOISÉS CAICEDO",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 154,
+        "name": "OMAR MARMOUSH",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 166,
+        "name": "JUDE BELLINGHAM",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 178,
+        "name": "OUSMANE DEMBÉLÉ",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 190,
+        "name": "JAMAL MUSIALA",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 202,
+        "name": "THOMAS PARTEY",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 214,
+        "name": "FRANTZDY PIERROT",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 226,
+        "name": "MEHDI TAREMI",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 238,
+        "name": "FRANCK KESSIÉ",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 250,
+        "name": "TAKUMI MINAMINO",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 262,
+        "name": "YAZAN AL-NAIMAT",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 274,
+        "name": "MIN-JAE KIM",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 286,
+        "name": "EDSON ÁLVAREZ",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 298,
+        "name": "YOUSSEF EN-NESYRI",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 310,
+        "name": "MEMPHIS DEPAY",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 322,
+        "name": "MARKO STAMENIC",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 334,
+        "name": "MARTIN ØDEGAARD",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 346,
+        "name": "MICHAEL AMIR MURILLO",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 358,
+        "name": "GUSTAVO GÓMEZ",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 370,
+        "name": "VITINHA",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 382,
+        "name": "ALMOEZ ALI",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 394,
+        "name": "FERAS ALBRIKAN",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 406,
+        "name": "SCOTT MCTOMINAY",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 418,
+        "name": "KALIDOU KOULIBALY",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 430,
+        "name": "LYLE FOSTER",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 442,
+        "name": "LAMINE YAMAL",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 454,
+        "name": "MANUEL AKANJI",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 466,
+        "name": "FERJANI SASSI",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 478,
+        "name": "WESTON MCKENNIE",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 490,
+        "name": "JOSÉ MARÍA GIMÉNEZ",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 502,
+        "name": "ABDUKODIR KHUSANOV",
+        "position": "Fan Favourite"
+      }
+    ],
+    "Icons": [
+      {
+        "id": 12,
+        "name": "RIYAD MAHREZ",
+        "position": "Icon"
+      },
+      {
+        "id": 24,
+        "name": "LIONEL MESSI",
+        "position": "Icon"
+      },
+      {
+        "id": 36,
+        "name": "MATHEW RYAN",
+        "position": "Icon"
+      },
+      {
+        "id": 48,
+        "name": "DAVID ALABA",
+        "position": "Icon"
+      },
+      {
+        "id": 60,
+        "name": "KEVIN DE BRUYNE",
+        "position": "Icon"
+      },
+      {
+        "id": 72,
+        "name": "VINÍCIUS JÚNIOR",
+        "position": "Icon"
+      },
+      {
+        "id": 84,
+        "name": "ALPHONSO DAVIES",
+        "position": "Icon"
+      },
+      {
+        "id": 96,
+        "name": "RYAN MENDES",
+        "position": "Icon"
+      },
+      {
+        "id": 108,
+        "name": "JAMES RODRÍGUEZ",
+        "position": "Icon"
+      },
+      {
+        "id": 120,
+        "name": "LUKA MODRIĆ",
+        "position": "Icon"
+      },
+      {
+        "id": 132,
+        "name": "LEANDRO BACUNA",
+        "position": "Icon"
+      },
+      {
+        "id": 144,
+        "name": "ENNER VALENCIA",
+        "position": "Icon"
+      },
+      {
+        "id": 156,
+        "name": "MOHAMED SALAH",
+        "position": "Icon"
+      },
+      {
+        "id": 168,
+        "name": "HARRY KANE",
+        "position": "Icon"
+      },
+      {
+        "id": 180,
+        "name": "KYLIAN MBAPPÉ",
+        "position": "Icon"
+      },
+      {
+        "id": 192,
+        "name": "JOSHUA KIMMICH",
+        "position": "Icon"
+      },
+      {
+        "id": 204,
+        "name": "MOHAMMED KUDUS",
+        "position": "Icon"
+      },
+      {
+        "id": 216,
+        "name": "DUCKENS NAZON",
+        "position": "Icon"
+      },
+      {
+        "id": 228,
+        "name": "SARDAR AZMOUN",
+        "position": "Icon"
+      },
+      {
+        "id": 240,
+        "name": "SÉBASTIEN HALLER",
+        "position": "Icon"
+      },
+      {
+        "id": 252,
+        "name": "TAKEFUSA KUBO",
+        "position": "Icon"
+      },
+      {
+        "id": 264,
+        "name": "MUSA AL-TAAMARI",
+        "position": "Icon"
+      },
+      {
+        "id": 276,
+        "name": "HEUNG-MIN SON",
+        "position": "Icon"
+      },
+      {
+        "id": 288,
+        "name": "RAÚL JIMÉNEZ",
+        "position": "Icon"
+      },
+      {
+        "id": 300,
+        "name": "ACHRAF HAKIMI",
+        "position": "Icon"
+      },
+      {
+        "id": 312,
+        "name": "VIRGIL VAN DIJK",
+        "position": "Icon"
+      },
+      {
+        "id": 324,
+        "name": "CHRIS WOOD",
+        "position": "Icon"
+      },
+      {
+        "id": 336,
+        "name": "ERLING HAALAND",
+        "position": "Icon"
+      },
+      {
+        "id": 348,
+        "name": "ANIBAL GODOY",
+        "position": "Icon"
+      },
+      {
+        "id": 360,
+        "name": "MIGUEL ALMIRÓN",
+        "position": "Icon"
+      },
+      {
+        "id": 372,
+        "name": "CRISTIANO RONALDO",
+        "position": "Icon"
+      },
+      {
+        "id": 384,
+        "name": "HASAN AL-HAYDOS",
+        "position": "Icon"
+      },
+      {
+        "id": 396,
+        "name": "SALEM ALDAWSARI",
+        "position": "Icon"
+      },
+      {
+        "id": 408,
+        "name": "ANDREW ROBERTSON",
+        "position": "Icon"
+      },
+      {
+        "id": 420,
+        "name": "SADIO MANÉ",
+        "position": "Icon"
+      },
+      {
+        "id": 432,
+        "name": "RONWEN WILLIAMS",
+        "position": "Icon"
+      },
+      {
+        "id": 444,
+        "name": "RODRI",
+        "position": "Icon"
+      },
+      {
+        "id": 456,
+        "name": "GRANIT XHAKA",
+        "position": "Icon"
+      },
+      {
+        "id": 468,
+        "name": "ELLYES SKHIRI",
+        "position": "Icon"
+      },
+      {
+        "id": 480,
+        "name": "CHRISTIAN PULISIC",
+        "position": "Icon"
+      },
+      {
+        "id": 492,
+        "name": "FEDERICO VALVERDE",
+        "position": "Icon"
+      },
+      {
+        "id": 504,
+        "name": "ELDOR SHOMURODOV",
+        "position": "Icon"
+      }
+    ],
+    "Logos": [
+      {
+        "id": 11,
+        "name": "ALGERIA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 23,
+        "name": "ARGENTINA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 35,
+        "name": "AUSTRALIA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 47,
+        "name": "AUSTRIA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 59,
+        "name": "BELGIUM",
+        "position": "Team Crest"
+      },
+      {
+        "id": 71,
+        "name": "BRAZIL",
+        "position": "Team Crest"
+      },
+      {
+        "id": 83,
+        "name": "CANADA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 95,
+        "name": "CAPE VERDE",
+        "position": "Team Crest"
+      },
+      {
+        "id": 107,
+        "name": "COLOMBIA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 119,
+        "name": "CROATIA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 131,
+        "name": "CURAÇAO",
+        "position": "Team Crest"
+      },
+      {
+        "id": 143,
+        "name": "ECUADOR",
+        "position": "Team Crest"
+      },
+      {
+        "id": 155,
+        "name": "EGYPT",
+        "position": "Team Crest"
+      },
+      {
+        "id": 167,
+        "name": "ENGLAND",
+        "position": "Team Crest"
+      },
+      {
+        "id": 179,
+        "name": "FRANCE",
+        "position": "Team Crest"
+      },
+      {
+        "id": 191,
+        "name": "GERMANY",
+        "position": "Team Crest"
+      },
+      {
+        "id": 203,
+        "name": "GHANA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 215,
+        "name": "HAITI",
+        "position": "Team Crest"
+      },
+      {
+        "id": 227,
+        "name": "IRAN",
+        "position": "Team Crest"
+      },
+      {
+        "id": 239,
+        "name": "IVORY COAST",
+        "position": "Team Crest"
+      },
+      {
+        "id": 251,
+        "name": "JAPAN",
+        "position": "Team Crest"
+      },
+      {
+        "id": 263,
+        "name": "JORDAN",
+        "position": "Team Crest"
+      },
+      {
+        "id": 275,
+        "name": "KOREA REPUBLIC",
+        "position": "Team Crest"
+      },
+      {
+        "id": 287,
+        "name": "MEXICO",
+        "position": "Team Crest"
+      },
+      {
+        "id": 299,
+        "name": "MOROCCO",
+        "position": "Team Crest"
+      },
+      {
+        "id": 311,
+        "name": "NETHERLANDS",
+        "position": "Team Crest"
+      },
+      {
+        "id": 323,
+        "name": "NEW ZEALAND",
+        "position": "Team Crest"
+      },
+      {
+        "id": 335,
+        "name": "NORWAY",
+        "position": "Team Crest"
+      },
+      {
+        "id": 347,
+        "name": "PANAMA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 359,
+        "name": "PARAGUAY",
+        "position": "Team Crest"
+      },
+      {
+        "id": 371,
+        "name": "PORTUGAL",
+        "position": "Team Crest"
+      },
+      {
+        "id": 383,
+        "name": "QATAR",
+        "position": "Team Crest"
+      },
+      {
+        "id": 395,
+        "name": "SAUDI ARABIA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 407,
+        "name": "SCOTLAND",
+        "position": "Team Crest"
+      },
+      {
+        "id": 419,
+        "name": "SENEGAL",
+        "position": "Team Crest"
+      },
+      {
+        "id": 431,
+        "name": "SOUTH AFRICA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 443,
+        "name": "SPAIN",
+        "position": "Team Crest"
+      },
+      {
+        "id": 455,
+        "name": "SWITZERLAND",
+        "position": "Team Crest"
+      },
+      {
+        "id": 467,
+        "name": "TUNISIA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 479,
+        "name": "UNITED STATES",
+        "position": "Team Crest"
+      },
+      {
+        "id": 491,
+        "name": "URUGUAY",
+        "position": "Team Crest"
+      },
+      {
+        "id": 503,
+        "name": "UZBEKISTAN",
+        "position": "Team Crest"
+      }
+    ],
+    "Contenders": [
+      {
+        "id": 514,
+        "name": "ITA • NIR / WAL • BIH",
+        "position": "Contender Match"
+      },
+      {
+        "id": 515,
+        "name": "UKR • SWE / POL • ALB",
+        "position": "Contender Match"
+      },
+      {
+        "id": 516,
+        "name": "TUR • ROU / SVK • KGS",
+        "position": "Contender Match"
+      },
+      {
+        "id": 517,
+        "name": "DEN • MKD / CZE • IRL",
+        "position": "Contender Match"
+      },
+      {
+        "id": 518,
+        "name": "NCL • JAM / COD",
+        "position": "Contender Match"
+      },
+      {
+        "id": 519,
+        "name": "SUR • BOL / IRQ",
+        "position": "Contender Match"
+      },
+      {
+        "id": 520,
+        "name": "HJULMAND",
+        "position": "Midfielder"
+      },
+      {
+        "id": 521,
+        "name": "HØJBJERG",
+        "position": "Midfielder"
+      },
+      {
+        "id": 522,
+        "name": "ERIKSEN",
+        "position": "Midfielder"
+      },
+      {
+        "id": 523,
+        "name": "DAMSGAARD",
+        "position": "Midfielder"
+      },
+      {
+        "id": 524,
+        "name": "HØJLUND",
+        "position": "Forward"
+      },
+      {
+        "id": 525,
+        "name": "DONNARUMMA",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 526,
+        "name": "BASTONI",
+        "position": "Defender"
+      },
+      {
+        "id": 527,
+        "name": "TONALI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 528,
+        "name": "BARELLA",
+        "position": "Midfielder"
+      },
+      {
+        "id": 529,
+        "name": "KEAN",
+        "position": "Forward"
+      },
+      {
+        "id": 530,
+        "name": "BLAKE",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 531,
+        "name": "PINNOCK",
+        "position": "Defender"
+      },
+      {
+        "id": 532,
+        "name": "GRAY",
+        "position": "Midfielder"
+      },
+      {
+        "id": 533,
+        "name": "BAILEY",
+        "position": "Forward"
+      },
+      {
+        "id": 534,
+        "name": "NICHOLSON",
+        "position": "Forward"
+      },
+      {
+        "id": 535,
+        "name": "CASH",
+        "position": "Defender"
+      },
+      {
+        "id": 536,
+        "name": "KIWIOR",
+        "position": "Defender"
+      },
+      {
+        "id": 537,
+        "name": "ZIELIŃSKI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 538,
+        "name": "SZYMAŃSKI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 539,
+        "name": "LEWANDOWSKI",
+        "position": "Forward"
+      },
+      {
+        "id": 540,
+        "name": "HIEN",
+        "position": "Defender"
+      },
+      {
+        "id": 541,
+        "name": "KULUSEVSKI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 542,
+        "name": "ELANGA",
+        "position": "Forward"
+      },
+      {
+        "id": 543,
+        "name": "GYÖKERES",
+        "position": "Forward"
+      },
+      {
+        "id": 544,
+        "name": "ISAK",
+        "position": "Forward"
+      },
+      {
+        "id": 545,
+        "name": "SÖYÜNCÜ",
+        "position": "Defender"
+      },
+      {
+        "id": 546,
+        "name": "ÇALHANOGLU",
+        "position": "Midfielder"
+      },
+      {
+        "id": 547,
+        "name": "GÜLER",
+        "position": "Midfielder"
+      },
+      {
+        "id": 548,
+        "name": "YILDIZ",
+        "position": "Forward"
+      },
+      {
+        "id": 549,
+        "name": "AKTÜRKOGLU",
+        "position": "Forward"
+      }
+    ],
+    "Top Keepers": [
+      {
+        "id": 550,
+        "name": "MARTÍNEZ",
+        "position": "Top Keeper"
+      },
+      {
+        "id": 551,
+        "name": "COURTOIS",
+        "position": "Top Keeper"
+      },
+      {
+        "id": 552,
+        "name": "ALISSON",
+        "position": "Top Keeper"
+      },
+      {
+        "id": 553,
+        "name": "MAIGNAN",
+        "position": "Top Keeper"
+      },
+      {
+        "id": 554,
+        "name": "SUZUKI",
+        "position": "Top Keeper"
+      },
+      {
+        "id": 555,
+        "name": "BOUNOU",
+        "position": "Top Keeper"
+      },
+      {
+        "id": 556,
+        "name": "DIOGO COSTA",
+        "position": "Top Keeper"
+      },
+      {
+        "id": 557,
+        "name": "SIMÓN",
+        "position": "Top Keeper"
+      },
+      {
+        "id": 558,
+        "name": "KOBEL",
+        "position": "Top Keeper"
+      }
+    ],
+    "Defensive Rocks": [
+      {
+        "id": 559,
+        "name": "ÉDER MILITÃO",
+        "position": "Defensive Rock"
+      },
+      {
+        "id": 560,
+        "name": "DAVIES",
+        "position": "Defensive Rock"
+      },
+      {
+        "id": 561,
+        "name": "SALIBA",
+        "position": "Defensive Rock"
+      },
+      {
+        "id": 562,
+        "name": "RÜDIGER",
+        "position": "Defensive Rock"
+      },
+      {
+        "id": 563,
+        "name": "KIM",
+        "position": "Defensive Rock"
+      },
+      {
+        "id": 564,
+        "name": "HAKIMI",
+        "position": "Defensive Rock"
+      },
+      {
+        "id": 565,
+        "name": "VAN DIJK",
+        "position": "Defensive Rock"
+      },
+      {
+        "id": 566,
+        "name": "MENDES",
+        "position": "Defensive Rock"
+      },
+      {
+        "id": 567,
+        "name": "HUIJSEN",
+        "position": "Defensive Rock"
+      }
+    ],
+    "Midfield Maestros": [
+      {
+        "id": 568,
+        "name": "FERNÁNDEZ",
+        "position": "Midfield Maestro"
+      },
+      {
+        "id": 569,
+        "name": "DE BRUYNE",
+        "position": "Midfield Maestro"
+      },
+      {
+        "id": 570,
+        "name": "CASEMIRO",
+        "position": "Midfield Maestro"
+      },
+      {
+        "id": 571,
+        "name": "MODRIĆ",
+        "position": "Midfield Maestro"
+      },
+      {
+        "id": 572,
+        "name": "CAICEDO",
+        "position": "Midfield Maestro"
+      },
+      {
+        "id": 573,
+        "name": "BELLINGHAM",
+        "position": "Midfield Maestro"
+      },
+      {
+        "id": 574,
+        "name": "TCHOUAMÉNI",
+        "position": "Midfield Maestro"
+      },
+      {
+        "id": 575,
+        "name": "AMRABAT",
+        "position": "Midfield Maestro"
+      },
+      {
+        "id": 576,
+        "name": "REIJNDERS",
+        "position": "Midfield Maestro"
+      },
+      {
+        "id": 577,
+        "name": "ØDEGAARD",
+        "position": "Midfield Maestro"
+      },
+      {
+        "id": 578,
+        "name": "VITINHA",
+        "position": "Midfield Maestro"
+      },
+      {
+        "id": 579,
+        "name": "MCTOMINAY",
+        "position": "Midfield Maestro"
+      },
+      {
+        "id": 580,
+        "name": "PEDRI",
+        "position": "Midfield Maestro"
+      },
+      {
+        "id": 581,
+        "name": "XHAKA",
+        "position": "Midfield Maestro"
+      },
+      {
+        "id": 582,
+        "name": "KIMMICH",
+        "position": "Midfield Maestro"
+      },
+      {
+        "id": 583,
+        "name": "VALVERDE",
+        "position": "Midfield Maestro"
+      },
+      {
+        "id": 584,
+        "name": "ADAMS",
+        "position": "Midfield Maestro"
+      },
+      {
+        "id": 585,
+        "name": "ENDO",
+        "position": "Midfield Maestro"
+      }
+    ],
+    "Goal Machines": [
+      {
+        "id": 586,
+        "name": "ÁLVAREZ",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 587,
+        "name": "LUKAKU",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 588,
+        "name": "RAPHINHA",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 589,
+        "name": "DAVID",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 590,
+        "name": "DÍAZ",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 591,
+        "name": "KRAMARIĆ",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 592,
+        "name": "VALENCIA",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 593,
+        "name": "MARMOUSH",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 594,
+        "name": "RASHFORD",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 595,
+        "name": "KOLO MUANI",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 596,
+        "name": "HAVERTZ",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 597,
+        "name": "HALLER",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 598,
+        "name": "EN-NESYRI",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 599,
+        "name": "SON",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 600,
+        "name": "WOOD",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 601,
+        "name": "GAKPO",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 602,
+        "name": "SØRLOTH",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 603,
+        "name": "JACKSON",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 604,
+        "name": "OYARZABAL",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 605,
+        "name": "EMBOLO",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 606,
+        "name": "PULISIC",
+        "position": "Goal Machine"
+      },
+      {
+        "id": 607,
+        "name": "NÚÑEZ",
+        "position": "Goal Machine"
+      }
+    ],
+    "Master Rookies": [
+      {
+        "id": 608,
+        "name": "PAZ",
+        "position": "Master Rookie"
+      },
+      {
+        "id": 609,
+        "name": "MASTANTUONO",
+        "position": "Master Rookie"
+      },
+      {
+        "id": 610,
+        "name": "DEBAST",
+        "position": "Master Rookie"
+      },
+      {
+        "id": 611,
+        "name": "WESLEY",
+        "position": "Master Rookie"
+      },
+      {
+        "id": 612,
+        "name": "ESTÊVÃO",
+        "position": "Master Rookie"
+      },
+      {
+        "id": 613,
+        "name": "SUCIĆ",
+        "position": "Master Rookie"
+      },
+      {
+        "id": 614,
+        "name": "PÁEZ",
+        "position": "Master Rookie"
+      },
+      {
+        "id": 615,
+        "name": "ROGERS",
+        "position": "Master Rookie"
+      },
+      {
+        "id": 616,
+        "name": "DOUÉ",
+        "position": "Master Rookie"
+      },
+      {
+        "id": 617,
+        "name": "BARCOLA",
+        "position": "Master Rookie"
+      },
+      {
+        "id": 618,
+        "name": "WOLTEMADE",
+        "position": "Master Rookie"
+      },
+      {
+        "id": 619,
+        "name": "SIMONS",
+        "position": "Master Rookie"
+      },
+      {
+        "id": 620,
+        "name": "SCHJELDERUP",
+        "position": "Master Rookie"
+      },
+      {
+        "id": 621,
+        "name": "GOMES",
+        "position": "Master Rookie"
+      },
+      {
+        "id": 622,
+        "name": "JOÃO NEVES",
+        "position": "Master Rookie"
+      },
+      {
+        "id": 623,
+        "name": "CUBARSÍ",
+        "position": "Master Rookie"
+      }
+    ],
+    "Official Emblem": [
+      {
+        "id": 624,
+        "name": "OFFICIAL EMBLEM",
+        "position": "Official Emblem"
+      }
+    ],
+    "Official Mascot": [
+      {
+        "id": 625,
+        "name": "OFFICIAL MASCOT + MAPLE™",
+        "position": "Official Mascot"
+      },
+      {
+        "id": 626,
+        "name": "OFFICIAL MASCOT + CLUTCH™",
+        "position": "Official Mascot"
+      },
+      {
+        "id": 627,
+        "name": "OFFICIAL MASCOT + ZAVU™",
+        "position": "Official Mascot"
+      }
+    ],
+    "Eternos 22": [
+      {
+        "id": 628,
+        "name": "ETERNOS 22 - DEFENDERS",
+        "position": "Eternos 22"
+      },
+      {
+        "id": 629,
+        "name": "ETERNOS 22 - MIDFIELDERS",
+        "position": "Eternos 22"
+      },
+      {
+        "id": 630,
+        "name": "ETERNOS 22 - FORWARDS",
+        "position": "Eternos 22"
+      }
+    ]
+  },
+  "countries": {
     "Algeria": [
-      { "id": 10, "name": "RAYAN AÏT-NOURI", "position": "Fan Favourite" },
-      { "id": 11, "name": "ALGERIA", "position": "Team Crest" },
-      { "id": 12, "name": "RIYAD MAHREZ", "position": "Icon" },
-      { "id": 13, "name": "ALEXIS GUENDOUZ", "position": "Midfielder" },
-      { "id": 14, "name": "RAMY BENSEBAÏNI", "position": "Defender" },
-      { "id": 15, "name": "YOUCEF ATAL", "position": "Defender" },
-      { "id": 16, "name": "AISSA MANDI", "position": "Defender" },
-      { "id": 17, "name": "NABIL BENTALEB", "position": "Midfielder" },
-      { "id": 18, "name": "SAÏD BENRAHMA", "position": "Midfielder" },
-      { "id": 19, "name": "AMINE GOUIRI", "position": "Forward" },
-      { "id": 20, "name": "MOHAMMED AMOURA", "position": "Forward" },
-      { "id": 21, "name": "BAGHDAD BOUNEDJAH", "position": "Forward" }
+      {
+        "id": 10,
+        "name": "RAYAN AÏT-NOURI",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 11,
+        "name": "ALGERIA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 12,
+        "name": "RIYAD MAHREZ",
+        "position": "Icon"
+      },
+      {
+        "id": 13,
+        "name": "ALEXIS GUENDOUZ",
+        "position": "Midfielder"
+      },
+      {
+        "id": 14,
+        "name": "RAMY BENSEBAÏNI",
+        "position": "Defender"
+      },
+      {
+        "id": 15,
+        "name": "YOUCEF ATAL",
+        "position": "Defender"
+      },
+      {
+        "id": 16,
+        "name": "AISSA MANDI",
+        "position": "Defender"
+      },
+      {
+        "id": 17,
+        "name": "NABIL BENTALEB",
+        "position": "Midfielder"
+      },
+      {
+        "id": 18,
+        "name": "SAÏD BENRAHMA",
+        "position": "Midfielder"
+      },
+      {
+        "id": 19,
+        "name": "AMINE GOUIRI",
+        "position": "Forward"
+      },
+      {
+        "id": 20,
+        "name": "MOHAMMED AMOURA",
+        "position": "Forward"
+      },
+      {
+        "id": 21,
+        "name": "BAGHDAD BOUNEDJAH",
+        "position": "Forward"
+      }
     ],
     "Argentina": [
-      { "id": 22, "name": "JULIÁN ÁLVAREZ", "position": "Fan Favourite" },
-      { "id": 23, "name": "ARGENTINA", "position": "Team Crest" },
-      { "id": 24, "name": "LIONEL MESSI", "position": "Icon" },
-      { "id": 25, "name": "EMILIANO MARTÍNEZ", "position": "Goalkeeper" },
-      { "id": 26, "name": "NAHUEL MOLINA", "position": "Defender" },
-      { "id": 27, "name": "CRISTIAN ROMERO", "position": "Defender" },
-      { "id": 28, "name": "NICOLÁS OTAMENDI", "position": "Defender" },
-      { "id": 29, "name": "ENZO FERNÁNDEZ", "position": "Midfielder" },
-      { "id": 30, "name": "ALEXIS MAC ALLISTER", "position": "Midfielder" },
-      { "id": 31, "name": "RODRIGO DE PAUL", "position": "Midfielder" },
-      { "id": 32, "name": "GIULIANO SIMEONE", "position": "Forward" },
-      { "id": 33, "name": "LAUTARO MARTÍNEZ", "position": "Forward" }
+      {
+        "id": 22,
+        "name": "JULIÁN ÁLVAREZ",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 23,
+        "name": "ARGENTINA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 24,
+        "name": "LIONEL MESSI",
+        "position": "Icon"
+      },
+      {
+        "id": 25,
+        "name": "EMILIANO MARTÍNEZ",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 26,
+        "name": "NAHUEL MOLINA",
+        "position": "Defender"
+      },
+      {
+        "id": 27,
+        "name": "CRISTIAN ROMERO",
+        "position": "Defender"
+      },
+      {
+        "id": 28,
+        "name": "NICOLÁS OTAMENDI",
+        "position": "Defender"
+      },
+      {
+        "id": 29,
+        "name": "ENZO FERNÁNDEZ",
+        "position": "Midfielder"
+      },
+      {
+        "id": 30,
+        "name": "ALEXIS MAC ALLISTER",
+        "position": "Midfielder"
+      },
+      {
+        "id": 31,
+        "name": "RODRIGO DE PAUL",
+        "position": "Midfielder"
+      },
+      {
+        "id": 32,
+        "name": "GIULIANO SIMEONE",
+        "position": "Forward"
+      },
+      {
+        "id": 33,
+        "name": "LAUTARO MARTÍNEZ",
+        "position": "Forward"
+      }
     ],
     "Australia": [
-      { "id": 34, "name": "HARRY SOUTTAR", "position": "Fan Favourite" },
-      { "id": 35, "name": "AUSTRALIA", "position": "Team Crest" },
-      { "id": 36, "name": "MATHEW RYAN", "position": "Icon" },
-      { "id": 37, "name": "ALEKSANDAR ORCATI", "position": "Defender" },
-      { "id": 38, "name": "JORDAN BOS", "position": "Defender" },
-      { "id": 39, "name": "LEWIS MILLER", "position": "Defender" },
-      { "id": 40, "name": "MILOS DEGENEK", "position": "Defender" },
-      { "id": 41, "name": "JACKSON IRVINE", "position": "Midfielder" },
-      { "id": 42, "name": "RILEY MCGREE", "position": "Midfielder" },
-      { "id": 43, "name": "AIDEN O'NEILL", "position": "Midfielder" },
-      { "id": 44, "name": "CONNOR METCALFE", "position": "Midfielder" },
-      { "id": 45, "name": "CRAIG GOODWIN", "position": "Forward" }
+      {
+        "id": 34,
+        "name": "HARRY SOUTTAR",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 35,
+        "name": "AUSTRALIA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 36,
+        "name": "MATHEW RYAN",
+        "position": "Icon"
+      },
+      {
+        "id": 37,
+        "name": "ALEKSANDAR ORCATI",
+        "position": "Defender"
+      },
+      {
+        "id": 38,
+        "name": "JORDAN BOS",
+        "position": "Defender"
+      },
+      {
+        "id": 39,
+        "name": "LEWIS MILLER",
+        "position": "Defender"
+      },
+      {
+        "id": 40,
+        "name": "MILOS DEGENEK",
+        "position": "Defender"
+      },
+      {
+        "id": 41,
+        "name": "JACKSON IRVINE",
+        "position": "Midfielder"
+      },
+      {
+        "id": 42,
+        "name": "RILEY MCGREE",
+        "position": "Midfielder"
+      },
+      {
+        "id": 43,
+        "name": "AIDEN O'NEILL",
+        "position": "Midfielder"
+      },
+      {
+        "id": 44,
+        "name": "CONNOR METCALFE",
+        "position": "Midfielder"
+      },
+      {
+        "id": 45,
+        "name": "CRAIG GOODWIN",
+        "position": "Forward"
+      }
     ],
     "Austria": [
-      { "id": 46, "name": "MARKO ARNAUTOVIC", "position": "Fan Favourite" },
-      { "id": 47, "name": "AUSTRIA", "position": "Team Crest" },
-      { "id": 48, "name": "DAVID ALABA", "position": "Icon" },
-      { "id": 49, "name": "ALEXANDER SCHLAGER", "position": "Goalkeeper" },
-      { "id": 50, "name": "KEVIN DANSO", "position": "Defender" },
-      { "id": 51, "name": "PHILIPP LIENHART", "position": "Defender" },
-      { "id": 52, "name": "KONRAD LAIMER", "position": "Midfielder" },
-      { "id": 53, "name": "NICOLAS SEIWALD", "position": "Midfielder" },
-      { "id": 54, "name": "MARCEL SABITZER", "position": "Midfielder" },
-      { "id": 55, "name": "FLORIAN GRILLITSCH", "position": "Midfielder" },
-      { "id": 56, "name": "CHRISTOPH BAUMGARTNER", "position": "Midfielder" },
-      { "id": 57, "name": "MICHAEL GREGORITSCH", "position": "Forward" }
+      {
+        "id": 46,
+        "name": "MARKO ARNAUTOVIC",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 47,
+        "name": "AUSTRIA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 48,
+        "name": "DAVID ALABA",
+        "position": "Icon"
+      },
+      {
+        "id": 49,
+        "name": "ALEXANDER SCHLAGER",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 50,
+        "name": "KEVIN DANSO",
+        "position": "Defender"
+      },
+      {
+        "id": 51,
+        "name": "PHILIPP LIENHART",
+        "position": "Defender"
+      },
+      {
+        "id": 52,
+        "name": "KONRAD LAIMER",
+        "position": "Midfielder"
+      },
+      {
+        "id": 53,
+        "name": "NICOLAS SEIWALD",
+        "position": "Midfielder"
+      },
+      {
+        "id": 54,
+        "name": "MARCEL SABITZER",
+        "position": "Midfielder"
+      },
+      {
+        "id": 55,
+        "name": "FLORIAN GRILLITSCH",
+        "position": "Midfielder"
+      },
+      {
+        "id": 56,
+        "name": "CHRISTOPH BAUMGARTNER",
+        "position": "Midfielder"
+      },
+      {
+        "id": 57,
+        "name": "MICHAEL GREGORITSCH",
+        "position": "Forward"
+      }
     ],
     "Belgium": [
-      { "id": 58, "name": "YOURI TIELEMANS", "position": "Fan Favourite" },
-      { "id": 59, "name": "BELGIUM", "position": "Team Crest" },
-      { "id": 60, "name": "KEVIN DE BRUYNE", "position": "Icon" },
-      { "id": 61, "name": "THIBAUT COURTOIS", "position": "Goalkeeper" },
-      { "id": 62, "name": "ARTHUR THEATE", "position": "Defender" },
-      { "id": 63, "name": "TIMOTHY CASTAGNE", "position": "Defender" },
-      { "id": 64, "name": "MAXIM DE CUYPER", "position": "Defender" },
-      { "id": 65, "name": "AMADOU ONANA", "position": "Midfielder" },
-      { "id": 66, "name": "JÉRÉMY DOKU", "position": "Forward" },
-      { "id": 67, "name": "CHARLES DE KETELAERE", "position": "Forward" },
-      { "id": 68, "name": "LEANDRO TROSSARD", "position": "Forward" },
-      { "id": 69, "name": "ROMELU LUKAKU", "position": "Forward" }
+      {
+        "id": 58,
+        "name": "YOURI TIELEMANS",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 59,
+        "name": "BELGIUM",
+        "position": "Team Crest"
+      },
+      {
+        "id": 60,
+        "name": "KEVIN DE BRUYNE",
+        "position": "Icon"
+      },
+      {
+        "id": 61,
+        "name": "THIBAUT COURTOIS",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 62,
+        "name": "ARTHUR THEATE",
+        "position": "Defender"
+      },
+      {
+        "id": 63,
+        "name": "TIMOTHY CASTAGNE",
+        "position": "Defender"
+      },
+      {
+        "id": 64,
+        "name": "MAXIM DE CUYPER",
+        "position": "Defender"
+      },
+      {
+        "id": 65,
+        "name": "AMADOU ONANA",
+        "position": "Midfielder"
+      },
+      {
+        "id": 66,
+        "name": "JÉRÉMY DOKU",
+        "position": "Forward"
+      },
+      {
+        "id": 67,
+        "name": "CHARLES DE KETELAERE",
+        "position": "Forward"
+      },
+      {
+        "id": 68,
+        "name": "LEANDRO TROSSARD",
+        "position": "Forward"
+      },
+      {
+        "id": 69,
+        "name": "ROMELU LUKAKU",
+        "position": "Forward"
+      }
     ],
     "Brazil": [
-      { "id": 70, "name": "MARQUINHOS", "position": "Fan Favourite" },
-      { "id": 71, "name": "BRAZIL", "position": "Team Crest" },
-      { "id": 72, "name": "VINÍCIUS JÚNIOR", "position": "Icon" },
-      { "id": 73, "name": "ALISSON", "position": "Goalkeeper" },
-      { "id": 74, "name": "DANILO", "position": "Defender" },
-      { "id": 75, "name": "ÉDER MILITÃO", "position": "Defender" },
-      { "id": 76, "name": "GABRIEL MAGALHÃES", "position": "Defender" },
-      { "id": 77, "name": "CASEMIRO", "position": "Midfielder" },
-      { "id": 78, "name": "BRUNO GUIMARÃES", "position": "Midfielder" },
-      { "id": 79, "name": "RODRYGO", "position": "Forward" },
-      { "id": 80, "name": "MATHEUS CUNHA", "position": "Forward" },
-      { "id": 81, "name": "RAPHINHA", "position": "Forward" }
+      {
+        "id": 70,
+        "name": "MARQUINHOS",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 71,
+        "name": "BRAZIL",
+        "position": "Team Crest"
+      },
+      {
+        "id": 72,
+        "name": "VINÍCIUS JÚNIOR",
+        "position": "Icon"
+      },
+      {
+        "id": 73,
+        "name": "ALISSON",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 74,
+        "name": "DANILO",
+        "position": "Defender"
+      },
+      {
+        "id": 75,
+        "name": "ÉDER MILITÃO",
+        "position": "Defender"
+      },
+      {
+        "id": 76,
+        "name": "GABRIEL MAGALHÃES",
+        "position": "Defender"
+      },
+      {
+        "id": 77,
+        "name": "CASEMIRO",
+        "position": "Midfielder"
+      },
+      {
+        "id": 78,
+        "name": "BRUNO GUIMARÃES",
+        "position": "Midfielder"
+      },
+      {
+        "id": 79,
+        "name": "RODRYGO",
+        "position": "Forward"
+      },
+      {
+        "id": 80,
+        "name": "MATHEUS CUNHA",
+        "position": "Forward"
+      },
+      {
+        "id": 81,
+        "name": "RAPHINHA",
+        "position": "Forward"
+      }
     ],
     "Canada": [
-      { "id": 82, "name": "JONATHAN DAVID", "position": "Fan Favourite" },
-      { "id": 83, "name": "CANADA", "position": "Team Crest" },
-      { "id": 84, "name": "ALPHONSO DAVIES", "position": "Icon" },
-      { "id": 85, "name": "DAYNE ST. CLAIR", "position": "Goalkeeper" },
-      { "id": 86, "name": "RICHIE LARYEA", "position": "Defender" },
-      { "id": 87, "name": "DEREK CORNELIUS", "position": "Defender" },
-      { "id": 88, "name": "STEPHEN EUSTÁQUIO", "position": "Midfielder" },
-      { "id": 89, "name": "ISMAËL KONÉ", "position": "Midfielder" },
-      { "id": 90, "name": "JONATHAN OSORIO", "position": "Midfielder" },
-      { "id": 91, "name": "JACOB SHAFFELBURG", "position": "Forward" },
-      { "id": 92, "name": "TAJON BUCHANAN", "position": "Forward" },
-      { "id": 93, "name": "CYLE LARIN", "position": "Forward" }
+      {
+        "id": 82,
+        "name": "JONATHAN DAVID",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 83,
+        "name": "CANADA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 84,
+        "name": "ALPHONSO DAVIES",
+        "position": "Icon"
+      },
+      {
+        "id": 85,
+        "name": "DAYNE ST. CLAIR",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 86,
+        "name": "RICHIE LARYEA",
+        "position": "Defender"
+      },
+      {
+        "id": 87,
+        "name": "DEREK CORNELIUS",
+        "position": "Defender"
+      },
+      {
+        "id": 88,
+        "name": "STEPHEN EUSTÁQUIO",
+        "position": "Midfielder"
+      },
+      {
+        "id": 89,
+        "name": "ISMAËL KONÉ",
+        "position": "Midfielder"
+      },
+      {
+        "id": 90,
+        "name": "JONATHAN OSORIO",
+        "position": "Midfielder"
+      },
+      {
+        "id": 91,
+        "name": "JACOB SHAFFELBURG",
+        "position": "Forward"
+      },
+      {
+        "id": 92,
+        "name": "TAJON BUCHANAN",
+        "position": "Forward"
+      },
+      {
+        "id": 93,
+        "name": "CYLE LARIN",
+        "position": "Forward"
+      }
     ],
     "Cape Verde": [
-      { "id": 94, "name": "VOZINHA", "position": "Fan Favourite" },
-      { "id": 95, "name": "CAPE VERDE", "position": "Team Crest" },
-      { "id": 96, "name": "RYAN MENDES", "position": "Icon" },
-      { "id": 97, "name": "LOGAN COSTA", "position": "Defender" },
-      { "id": 98, "name": "PICO", "position": "Defender" },
-      { "id": 99, "name": "STEVEN MOREIRA", "position": "Defender" },
-      { "id": 100, "name": "JOÃO PAULO", "position": "Goalkeeper" },
-      { "id": 101, "name": "KEVIN PINA", "position": "Midfielder" },
-      { "id": 102, "name": "JAMIRO MONTEIRO", "position": "Midfielder" },
-      { "id": 103, "name": "YANNICK SEMEDO", "position": "Forward" },
-      { "id": 104, "name": "JOVANE CABRAL", "position": "Forward" },
-      { "id": 105, "name": "DAIRON LIVRAMENTO", "position": "Forward" }
+      {
+        "id": 94,
+        "name": "VOZINHA",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 95,
+        "name": "CAPE VERDE",
+        "position": "Team Crest"
+      },
+      {
+        "id": 96,
+        "name": "RYAN MENDES",
+        "position": "Icon"
+      },
+      {
+        "id": 97,
+        "name": "LOGAN COSTA",
+        "position": "Defender"
+      },
+      {
+        "id": 98,
+        "name": "PICO",
+        "position": "Defender"
+      },
+      {
+        "id": 99,
+        "name": "STEVEN MOREIRA",
+        "position": "Defender"
+      },
+      {
+        "id": 100,
+        "name": "JOÃO PAULO",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 101,
+        "name": "KEVIN PINA",
+        "position": "Midfielder"
+      },
+      {
+        "id": 102,
+        "name": "JAMIRO MONTEIRO",
+        "position": "Midfielder"
+      },
+      {
+        "id": 103,
+        "name": "YANNICK SEMEDO",
+        "position": "Forward"
+      },
+      {
+        "id": 104,
+        "name": "JOVANE CABRAL",
+        "position": "Forward"
+      },
+      {
+        "id": 105,
+        "name": "DAIRON LIVRAMENTO",
+        "position": "Forward"
+      }
     ],
     "Colombia": [
-      { "id": 106, "name": "LUIS DÍAZ", "position": "Fan Favourite" },
-      { "id": 107, "name": "COLOMBIA", "position": "Team Crest" },
-      { "id": 108, "name": "JAMES RODRÍGUEZ", "position": "Icon" },
-      { "id": 109, "name": "CAMILO VARGAS", "position": "Goalkeeper" },
-      { "id": 110, "name": "DÁVINSON SÁNCHEZ", "position": "Defender" },
-      { "id": 111, "name": "YERRY MINA", "position": "Defender" },
-      { "id": 112, "name": "DANIEL MUÑOZ", "position": "Defender" },
-      { "id": 113, "name": "JEFFERSON LERMA", "position": "Midfielder" },
-      { "id": 114, "name": "RICHARD RÍOS", "position": "Midfielder" },
-      { "id": 115, "name": "JUAN FERNANDO QUINTERO", "position": "Midfielder" },
-      { "id": 116, "name": "JHON ARIAS", "position": "Forward" },
-      { "id": 117, "name": "LUIS SUÁREZ", "position": "Forward" }
+      {
+        "id": 106,
+        "name": "LUIS DÍAZ",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 107,
+        "name": "COLOMBIA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 108,
+        "name": "JAMES RODRÍGUEZ",
+        "position": "Icon"
+      },
+      {
+        "id": 109,
+        "name": "CAMILO VARGAS",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 110,
+        "name": "DÁVINSON SÁNCHEZ",
+        "position": "Defender"
+      },
+      {
+        "id": 111,
+        "name": "YERRY MINA",
+        "position": "Defender"
+      },
+      {
+        "id": 112,
+        "name": "DANIEL MUÑOZ",
+        "position": "Defender"
+      },
+      {
+        "id": 113,
+        "name": "JEFFERSON LERMA",
+        "position": "Midfielder"
+      },
+      {
+        "id": 114,
+        "name": "RICHARD RÍOS",
+        "position": "Midfielder"
+      },
+      {
+        "id": 115,
+        "name": "JUAN FERNANDO QUINTERO",
+        "position": "Midfielder"
+      },
+      {
+        "id": 116,
+        "name": "JHON ARIAS",
+        "position": "Forward"
+      },
+      {
+        "id": 117,
+        "name": "LUIS SUÁREZ",
+        "position": "Forward"
+      }
     ],
     "Croatia": [
-      { "id": 118, "name": "IVAN PERIŠIĆ", "position": "Fan Favourite" },
-      { "id": 119, "name": "CROATIA", "position": "Team Crest" },
-      { "id": 120, "name": "LUKA MODRIĆ", "position": "Icon" },
-      { "id": 121, "name": "DOMINIK LIVAKOVIĆ", "position": "Goalkeeper" },
-      { "id": 122, "name": "DUJE ĆALETA-CAR", "position": "Defender" },
-      { "id": 123, "name": "JOŠKO GVARDIOL", "position": "Defender" },
-      { "id": 124, "name": "JOSIP STANIŠIĆ", "position": "Defender" },
-      { "id": 125, "name": "MATEO KOVAČIĆ", "position": "Midfielder" },
-      { "id": 126, "name": "LOVRO MAJER", "position": "Midfielder" },
-      { "id": 127, "name": "MARIO PAŠALIĆ", "position": "Midfielder" },
-      { "id": 128, "name": "ANTE BUDIMIR", "position": "Forward" },
-      { "id": 129, "name": "ANDREJ KRAMARIĆ", "position": "Forward" }
+      {
+        "id": 118,
+        "name": "IVAN PERIŠIĆ",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 119,
+        "name": "CROATIA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 120,
+        "name": "LUKA MODRIĆ",
+        "position": "Icon"
+      },
+      {
+        "id": 121,
+        "name": "DOMINIK LIVAKOVIĆ",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 122,
+        "name": "DUJE ĆALETA-CAR",
+        "position": "Defender"
+      },
+      {
+        "id": 123,
+        "name": "JOŠKO GVARDIOL",
+        "position": "Defender"
+      },
+      {
+        "id": 124,
+        "name": "JOSIP STANIŠIĆ",
+        "position": "Defender"
+      },
+      {
+        "id": 125,
+        "name": "MATEO KOVAČIĆ",
+        "position": "Midfielder"
+      },
+      {
+        "id": 126,
+        "name": "LOVRO MAJER",
+        "position": "Midfielder"
+      },
+      {
+        "id": 127,
+        "name": "MARIO PAŠALIĆ",
+        "position": "Midfielder"
+      },
+      {
+        "id": 128,
+        "name": "ANTE BUDIMIR",
+        "position": "Forward"
+      },
+      {
+        "id": 129,
+        "name": "ANDREJ KRAMARIĆ",
+        "position": "Forward"
+      }
     ],
     "Curaçao": [
-      { "id": 130, "name": "JURIÉN GAARI", "position": "Fan Favourite" },
-      { "id": 131, "name": "CURAÇAO", "position": "Team Crest" },
-      { "id": 132, "name": "LEANDRO BACUNA", "position": "Icon" },
-      { "id": 133, "name": "ELOY ROOM", "position": "Goalkeeper" },
-      { "id": 134, "name": "SHEREL FLORANUS", "position": "Defender" },
-      { "id": 135, "name": "ROSHON VAN EIJMA", "position": "Defender" },
-      { "id": 136, "name": "ARMANDO OBISPO", "position": "Defender" },
-      { "id": 137, "name": "LIVIANO COMENCIA", "position": "Midfielder" },
-      { "id": 138, "name": "JUNINHO BACUNA", "position": "Midfielder" },
-      { "id": 139, "name": "KENJI GORRÉ", "position": "Midfielder" },
-      { "id": 140, "name": "SONTJE HANSEN", "position": "Forward" },
-      { "id": 141, "name": "JEARL MARGARITHA", "position": "Forward" }
+      {
+        "id": 130,
+        "name": "JURIÉN GAARI",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 131,
+        "name": "CURAÇAO",
+        "position": "Team Crest"
+      },
+      {
+        "id": 132,
+        "name": "LEANDRO BACUNA",
+        "position": "Icon"
+      },
+      {
+        "id": 133,
+        "name": "ELOY ROOM",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 134,
+        "name": "SHEREL FLORANUS",
+        "position": "Defender"
+      },
+      {
+        "id": 135,
+        "name": "ROSHON VAN EIJMA",
+        "position": "Defender"
+      },
+      {
+        "id": 136,
+        "name": "ARMANDO OBISPO",
+        "position": "Defender"
+      },
+      {
+        "id": 137,
+        "name": "LIVIANO COMENCIA",
+        "position": "Midfielder"
+      },
+      {
+        "id": 138,
+        "name": "JUNINHO BACUNA",
+        "position": "Midfielder"
+      },
+      {
+        "id": 139,
+        "name": "KENJI GORRÉ",
+        "position": "Midfielder"
+      },
+      {
+        "id": 140,
+        "name": "SONTJE HANSEN",
+        "position": "Forward"
+      },
+      {
+        "id": 141,
+        "name": "JEARL MARGARITHA",
+        "position": "Forward"
+      }
     ],
     "Ecuador": [
-      { "id": 142, "name": "MOISÉS CAICEDO", "position": "Fan Favourite" },
-      { "id": 143, "name": "ECUADOR", "position": "Team Crest" },
-      { "id": 144, "name": "ENNER VALENCIA", "position": "Icon" },
-      { "id": 145, "name": "HERNÁN GALÍNDEZ", "position": "Goalkeeper" },
-      { "id": 146, "name": "PIERO HINCAPIÉ", "position": "Defender" },
-      { "id": 147, "name": "PERVIS ESTUPIÑÁN", "position": "Defender" },
-      { "id": 148, "name": "WILLIAN PACHO", "position": "Defender" },
-      { "id": 149, "name": "ÁNGELO PRECIADO", "position": "Defender" },
-      { "id": 150, "name": "JOEL ORDÓÑEZ", "position": "Midfielder" },
-      { "id": 151, "name": "ALAN FRANCO", "position": "Midfielder" },
-      { "id": 152, "name": "GONZALO PLATA", "position": "Forward" },
-      { "id": 153, "name": "KEVIN RODRÍGUEZ", "position": "Forward" }
+      {
+        "id": 142,
+        "name": "MOISÉS CAICEDO",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 143,
+        "name": "ECUADOR",
+        "position": "Team Crest"
+      },
+      {
+        "id": 144,
+        "name": "ENNER VALENCIA",
+        "position": "Icon"
+      },
+      {
+        "id": 145,
+        "name": "HERNÁN GALÍNDEZ",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 146,
+        "name": "PIERO HINCAPIÉ",
+        "position": "Defender"
+      },
+      {
+        "id": 147,
+        "name": "PERVIS ESTUPIÑÁN",
+        "position": "Defender"
+      },
+      {
+        "id": 148,
+        "name": "WILLIAN PACHO",
+        "position": "Defender"
+      },
+      {
+        "id": 149,
+        "name": "ÁNGELO PRECIADO",
+        "position": "Defender"
+      },
+      {
+        "id": 150,
+        "name": "JOEL ORDÓÑEZ",
+        "position": "Midfielder"
+      },
+      {
+        "id": 151,
+        "name": "ALAN FRANCO",
+        "position": "Midfielder"
+      },
+      {
+        "id": 152,
+        "name": "GONZALO PLATA",
+        "position": "Forward"
+      },
+      {
+        "id": 153,
+        "name": "KEVIN RODRÍGUEZ",
+        "position": "Forward"
+      }
     ],
     "Egypt": [
-      { "id": 154, "name": "OMAR MARMOUSH", "position": "Fan Favourite" },
-      { "id": 155, "name": "EGYPT", "position": "Team Crest" },
-      { "id": 156, "name": "MOHAMED SALAH", "position": "Icon" },
-      { "id": 157, "name": "MOHAMED EL SHENAWY", "position": "Goalkeeper" },
-      { "id": 158, "name": "AHMED HANY", "position": "Defender" },
-      { "id": 159, "name": "MOHAMED ABDELMONEM", "position": "Defender" },
-      { "id": 160, "name": "RAMY RABIA", "position": "Defender" },
-      { "id": 161, "name": "MARWAN ATTIA", "position": "Midfielder" },
-      { "id": 162, "name": "ZIZO", "position": "Midfielder" },
-      { "id": 163, "name": "HAMDY FATHY", "position": "Midfielder" },
-      { "id": 164, "name": "MOSTAFA MOHAMED", "position": "Forward" },
-      { "id": 165, "name": "TRÉZÉGUET", "position": "Forward" }
+      {
+        "id": 154,
+        "name": "OMAR MARMOUSH",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 155,
+        "name": "EGYPT",
+        "position": "Team Crest"
+      },
+      {
+        "id": 156,
+        "name": "MOHAMED SALAH",
+        "position": "Icon"
+      },
+      {
+        "id": 157,
+        "name": "MOHAMED EL SHENAWY",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 158,
+        "name": "AHMED HANY",
+        "position": "Defender"
+      },
+      {
+        "id": 159,
+        "name": "MOHAMED ABDELMONEM",
+        "position": "Defender"
+      },
+      {
+        "id": 160,
+        "name": "RAMY RABIA",
+        "position": "Defender"
+      },
+      {
+        "id": 161,
+        "name": "MARWAN ATTIA",
+        "position": "Midfielder"
+      },
+      {
+        "id": 162,
+        "name": "ZIZO",
+        "position": "Midfielder"
+      },
+      {
+        "id": 163,
+        "name": "HAMDY FATHY",
+        "position": "Midfielder"
+      },
+      {
+        "id": 164,
+        "name": "MOSTAFA MOHAMED",
+        "position": "Forward"
+      },
+      {
+        "id": 165,
+        "name": "TRÉZÉGUET",
+        "position": "Forward"
+      }
     ],
     "England": [
-      { "id": 166, "name": "JUDE BELLINGHAM", "position": "Fan Favourite" },
-      { "id": 167, "name": "ENGLAND", "position": "Team Crest" },
-      { "id": 168, "name": "HARRY KANE", "position": "Icon" },
-      { "id": 169, "name": "JORDAN PICKFORD", "position": "Goalkeeper" },
-      { "id": 170, "name": "REECE JAMES", "position": "Defender" },
-      { "id": 171, "name": "JOHN STONES", "position": "Defender" },
-      { "id": 172, "name": "DECLAN RICE", "position": "Midfielder" },
-      { "id": 173, "name": "JORDAN HENDERSON", "position": "Midfielder" },
-      { "id": 174, "name": "PHIL FODEN", "position": "Midfielder" },
-      { "id": 175, "name": "BUKAYO SAKA", "position": "Forward" },
-      { "id": 176, "name": "COLE PALMER", "position": "Forward" },
-      { "id": 177, "name": "MARCUS RASHFORD", "position": "Forward" }
+      {
+        "id": 166,
+        "name": "JUDE BELLINGHAM",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 167,
+        "name": "ENGLAND",
+        "position": "Team Crest"
+      },
+      {
+        "id": 168,
+        "name": "HARRY KANE",
+        "position": "Icon"
+      },
+      {
+        "id": 169,
+        "name": "JORDAN PICKFORD",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 170,
+        "name": "REECE JAMES",
+        "position": "Defender"
+      },
+      {
+        "id": 171,
+        "name": "JOHN STONES",
+        "position": "Defender"
+      },
+      {
+        "id": 172,
+        "name": "DECLAN RICE",
+        "position": "Midfielder"
+      },
+      {
+        "id": 173,
+        "name": "JORDAN HENDERSON",
+        "position": "Midfielder"
+      },
+      {
+        "id": 174,
+        "name": "PHIL FODEN",
+        "position": "Midfielder"
+      },
+      {
+        "id": 175,
+        "name": "BUKAYO SAKA",
+        "position": "Forward"
+      },
+      {
+        "id": 176,
+        "name": "COLE PALMER",
+        "position": "Forward"
+      },
+      {
+        "id": 177,
+        "name": "MARCUS RASHFORD",
+        "position": "Forward"
+      }
     ],
     "France": [
-      { "id": 178, "name": "OUSMANE DEMBÉLÉ", "position": "Fan Favourite" },
-      { "id": 179, "name": "FRANCE", "position": "Team Crest" },
-      { "id": 180, "name": "KYLIAN MBAPPÉ", "position": "Icon" },
-      { "id": 181, "name": "MIKE MAIGNAN", "position": "Goalkeeper" },
-      { "id": 182, "name": "WILLIAM SALIBA", "position": "Defender" },
-      { "id": 183, "name": "JULES KOUNDÉ", "position": "Defender" },
-      { "id": 184, "name": "THÉO HERNÁNDEZ", "position": "Defender" },
-      { "id": 185, "name": "AURÉLIEN TCHOUAMÉNI", "position": "Midfielder" },
-      { "id": 186, "name": "EDUARDO CAMAVINGA", "position": "Midfielder" },
-      { "id": 187, "name": "BRADLEY BARCOLA", "position": "Forward" },
-      { "id": 188, "name": "MARCUS THURAM", "position": "Forward" },
-      { "id": 189, "name": "RANDAL KOLO MUANI", "position": "Forward" }
+      {
+        "id": 178,
+        "name": "OUSMANE DEMBÉLÉ",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 179,
+        "name": "FRANCE",
+        "position": "Team Crest"
+      },
+      {
+        "id": 180,
+        "name": "KYLIAN MBAPPÉ",
+        "position": "Icon"
+      },
+      {
+        "id": 181,
+        "name": "MIKE MAIGNAN",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 182,
+        "name": "WILLIAM SALIBA",
+        "position": "Defender"
+      },
+      {
+        "id": 183,
+        "name": "JULES KOUNDÉ",
+        "position": "Defender"
+      },
+      {
+        "id": 184,
+        "name": "THÉO HERNÁNDEZ",
+        "position": "Defender"
+      },
+      {
+        "id": 185,
+        "name": "AURÉLIEN TCHOUAMÉNI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 186,
+        "name": "EDUARDO CAMAVINGA",
+        "position": "Midfielder"
+      },
+      {
+        "id": 187,
+        "name": "BRADLEY BARCOLA",
+        "position": "Forward"
+      },
+      {
+        "id": 188,
+        "name": "MARCUS THURAM",
+        "position": "Forward"
+      },
+      {
+        "id": 189,
+        "name": "RANDAL KOLO MUANI",
+        "position": "Forward"
+      }
     ],
     "Germany": [
-      { "id": 190, "name": "JAMAL MUSIALA", "position": "Fan Favourite" },
-      { "id": 191, "name": "GERMANY", "position": "Team Crest" },
-      { "id": 192, "name": "JOSHUA KIMMICH", "position": "Icon" },
-      { "id": 193, "name": "MARC-ANDRÉ TER STEGEN", "position": "Goalkeeper" },
-      { "id": 194, "name": "ANTONIO RÜDIGER", "position": "Defender" },
-      { "id": 195, "name": "JONATHAN TAH", "position": "Defender" },
-      { "id": 196, "name": "FELIX NMECHA", "position": "Midfielder" },
-      { "id": 197, "name": "LEON GORETZKA", "position": "Midfielder" },
-      { "id": 198, "name": "FLORIAN WIRTZ", "position": "Midfielder" },
-      { "id": 199, "name": "SERGE GNABRY", "position": "Forward" },
-      { "id": 200, "name": "KAI HAVERTZ", "position": "Forward" },
-      { "id": 201, "name": "LEROY SANÉ", "position": "Forward" }
+      {
+        "id": 190,
+        "name": "JAMAL MUSIALA",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 191,
+        "name": "GERMANY",
+        "position": "Team Crest"
+      },
+      {
+        "id": 192,
+        "name": "JOSHUA KIMMICH",
+        "position": "Icon"
+      },
+      {
+        "id": 193,
+        "name": "MARC-ANDRÉ TER STEGEN",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 194,
+        "name": "ANTONIO RÜDIGER",
+        "position": "Defender"
+      },
+      {
+        "id": 195,
+        "name": "JONATHAN TAH",
+        "position": "Defender"
+      },
+      {
+        "id": 196,
+        "name": "FELIX NMECHA",
+        "position": "Midfielder"
+      },
+      {
+        "id": 197,
+        "name": "LEON GORETZKA",
+        "position": "Midfielder"
+      },
+      {
+        "id": 198,
+        "name": "FLORIAN WIRTZ",
+        "position": "Midfielder"
+      },
+      {
+        "id": 199,
+        "name": "SERGE GNABRY",
+        "position": "Forward"
+      },
+      {
+        "id": 200,
+        "name": "KAI HAVERTZ",
+        "position": "Forward"
+      },
+      {
+        "id": 201,
+        "name": "LEROY SANÉ",
+        "position": "Forward"
+      }
     ],
     "Ghana": [
-      { "id": 202, "name": "THOMAS PARTEY", "position": "Fan Favourite" },
-      { "id": 203, "name": "GHANA", "position": "Team Crest" },
-      { "id": 204, "name": "MOHAMMED KUDUS", "position": "Icon" },
-      { "id": 205, "name": "LAWRENCE ATIZIBI", "position": "Goalkeeper" },
-      { "id": 206, "name": "ALIDU SEIDU", "position": "Defender" },
-      { "id": 207, "name": "ALEXANDER DJIKU", "position": "Defender" },
-      { "id": 208, "name": "GIDEON MENSAH", "position": "Defender" },
-      { "id": 209, "name": "CALEB VREENYI", "position": "Midfielder" },
-      { "id": 210, "name": "ABDULSSAHAKU FATAWU", "position": "Forward" },
-      { "id": 211, "name": "KAMALDEEN SULEMANA", "position": "Forward" },
-      { "id": 212, "name": "JORDAN AYEW", "position": "Forward" },
-      { "id": 213, "name": "ANTOINE SEMENYO", "position": "Forward" }
+      {
+        "id": 202,
+        "name": "THOMAS PARTEY",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 203,
+        "name": "GHANA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 204,
+        "name": "MOHAMMED KUDUS",
+        "position": "Icon"
+      },
+      {
+        "id": 205,
+        "name": "LAWRENCE ATIZIBI",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 206,
+        "name": "ALIDU SEIDU",
+        "position": "Defender"
+      },
+      {
+        "id": 207,
+        "name": "ALEXANDER DJIKU",
+        "position": "Defender"
+      },
+      {
+        "id": 208,
+        "name": "GIDEON MENSAH",
+        "position": "Defender"
+      },
+      {
+        "id": 209,
+        "name": "CALEB VREENYI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 210,
+        "name": "ABDULSSAHAKU FATAWU",
+        "position": "Forward"
+      },
+      {
+        "id": 211,
+        "name": "KAMALDEEN SULEMANA",
+        "position": "Forward"
+      },
+      {
+        "id": 212,
+        "name": "JORDAN AYEW",
+        "position": "Forward"
+      },
+      {
+        "id": 213,
+        "name": "ANTOINE SEMENYO",
+        "position": "Forward"
+      }
     ],
     "Haiti": [
-      { "id": 214, "name": "FRANTZDY PIERROT", "position": "Fan Favourite" },
-      { "id": 215, "name": "HAITI", "position": "Team Crest" },
-      { "id": 216, "name": "DUCKENS NAZON", "position": "Icon" },
-      { "id": 217, "name": "JOHNY PLACIDE", "position": "Goalkeeper" },
-      { "id": 218, "name": "RICARDO ADÉ", "position": "Defender" },
-      { "id": 219, "name": "CARLENS ARCUS", "position": "Defender" },
-      { "id": 220, "name": "HANNES DELCROIX", "position": "Defender" },
-      { "id": 221, "name": "LEVERTON PIERRE", "position": "Midfielder" },
-      { "id": 222, "name": "DANLEY JEAN JACQUES", "position": "Midfielder" },
-      { "id": 223, "name": "JEAN-NÉNEL BELLEGARDE", "position": "Midfielder" },
-      { "id": 224, "name": "RUBEN PROVIDENCE", "position": "Forward" },
-      { "id": 225, "name": "DON DEEGON LOUCIUS", "position": "Forward" }
+      {
+        "id": 214,
+        "name": "FRANTZDY PIERROT",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 215,
+        "name": "HAITI",
+        "position": "Team Crest"
+      },
+      {
+        "id": 216,
+        "name": "DUCKENS NAZON",
+        "position": "Icon"
+      },
+      {
+        "id": 217,
+        "name": "JOHNY PLACIDE",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 218,
+        "name": "RICARDO ADÉ",
+        "position": "Defender"
+      },
+      {
+        "id": 219,
+        "name": "CARLENS ARCUS",
+        "position": "Defender"
+      },
+      {
+        "id": 220,
+        "name": "HANNES DELCROIX",
+        "position": "Defender"
+      },
+      {
+        "id": 221,
+        "name": "LEVERTON PIERRE",
+        "position": "Midfielder"
+      },
+      {
+        "id": 222,
+        "name": "DANLEY JEAN JACQUES",
+        "position": "Midfielder"
+      },
+      {
+        "id": 223,
+        "name": "JEAN-NÉNEL BELLEGARDE",
+        "position": "Midfielder"
+      },
+      {
+        "id": 224,
+        "name": "RUBEN PROVIDENCE",
+        "position": "Forward"
+      },
+      {
+        "id": 225,
+        "name": "DON DEEGON LOUCIUS",
+        "position": "Forward"
+      }
     ],
     "Iran": [
-      { "id": 226, "name": "MEHDI TAREMI", "position": "Fan Favourite" },
-      { "id": 227, "name": "IRAN", "position": "Team Crest" },
-      { "id": 228, "name": "SARDAR AZMOUN", "position": "Icon" },
-      { "id": 229, "name": "ALIREZA BEIRANVAND", "position": "Goalkeeper" },
-      { "id": 230, "name": "SHOJA KHALILZADEH", "position": "Defender" },
-      { "id": 231, "name": "MILAD MOHAMMADI", "position": "Defender" },
-      { "id": 232, "name": "RAMIN REZAEIAN", "position": "Defender" },
-      { "id": 233, "name": "HOSSEIN KANAANI", "position": "Midfielder" },
-      { "id": 234, "name": "SAEED EZATOLAHI", "position": "Midfielder" },
-      { "id": 235, "name": "SAMAN GHODDOS", "position": "Midfielder" },
-      { "id": 236, "name": "MOHAMMAD MOHEBI", "position": "Forward" },
-      { "id": 237, "name": "ALIREZA JAHANBAKHSH", "position": "Forward" }
+      {
+        "id": 226,
+        "name": "MEHDI TAREMI",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 227,
+        "name": "IRAN",
+        "position": "Team Crest"
+      },
+      {
+        "id": 228,
+        "name": "SARDAR AZMOUN",
+        "position": "Icon"
+      },
+      {
+        "id": 229,
+        "name": "ALIREZA BEIRANVAND",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 230,
+        "name": "SHOJA KHALILZADEH",
+        "position": "Defender"
+      },
+      {
+        "id": 231,
+        "name": "MILAD MOHAMMADI",
+        "position": "Defender"
+      },
+      {
+        "id": 232,
+        "name": "RAMIN REZAEIAN",
+        "position": "Defender"
+      },
+      {
+        "id": 233,
+        "name": "HOSSEIN KANAANI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 234,
+        "name": "SAEED EZATOLAHI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 235,
+        "name": "SAMAN GHODDOS",
+        "position": "Midfielder"
+      },
+      {
+        "id": 236,
+        "name": "MOHAMMAD MOHEBI",
+        "position": "Forward"
+      },
+      {
+        "id": 237,
+        "name": "ALIREZA JAHANBAKHSH",
+        "position": "Forward"
+      }
     ],
     "Ivory Coast": [
-      { "id": 238, "name": "FRANCK KESSIÉ", "position": "Fan Favourite" },
-      { "id": 239, "name": "IVORY COAST", "position": "Team Crest" },
-      { "id": 240, "name": "SÉBASTIEN HALLER", "position": "Icon" },
-      { "id": 241, "name": "YAHIA FOFANA", "position": "Goalkeeper" },
-      { "id": 242, "name": "GHISLAIN KONAN", "position": "Defender" },
-      { "id": 243, "name": "ODILON KOSSOUNOU", "position": "Defender" },
-      { "id": 244, "name": "EVAN N'DICKA", "position": "Defender" },
-      { "id": 245, "name": "WILFRIED SINGO", "position": "Defender" },
-      { "id": 246, "name": "IBRAHIM SANGARÉ", "position": "Midfielder" },
-      { "id": 247, "name": "NICOLAS PÉPE", "position": "Forward" },
-      { "id": 248, "name": "SIMON ADINGRA", "position": "Forward" },
-      { "id": 249, "name": "OUMAR DIAITÉ", "position": "Forward" }
+      {
+        "id": 238,
+        "name": "FRANCK KESSIÉ",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 239,
+        "name": "IVORY COAST",
+        "position": "Team Crest"
+      },
+      {
+        "id": 240,
+        "name": "SÉBASTIEN HALLER",
+        "position": "Icon"
+      },
+      {
+        "id": 241,
+        "name": "YAHIA FOFANA",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 242,
+        "name": "GHISLAIN KONAN",
+        "position": "Defender"
+      },
+      {
+        "id": 243,
+        "name": "ODILON KOSSOUNOU",
+        "position": "Defender"
+      },
+      {
+        "id": 244,
+        "name": "EVAN N'DICKA",
+        "position": "Defender"
+      },
+      {
+        "id": 245,
+        "name": "WILFRIED SINGO",
+        "position": "Defender"
+      },
+      {
+        "id": 246,
+        "name": "IBRAHIM SANGARÉ",
+        "position": "Midfielder"
+      },
+      {
+        "id": 247,
+        "name": "NICOLAS PÉPE",
+        "position": "Forward"
+      },
+      {
+        "id": 248,
+        "name": "SIMON ADINGRA",
+        "position": "Forward"
+      },
+      {
+        "id": 249,
+        "name": "OUMAR DIAITÉ",
+        "position": "Forward"
+      }
     ],
     "Japan": [
-      { "id": 250, "name": "TAKUMI MINAMINO", "position": "Fan Favourite" },
-      { "id": 251, "name": "JAPAN", "position": "Team Crest" },
-      { "id": 252, "name": "TAKEFUSA KUBO", "position": "Icon" },
-      { "id": 253, "name": "ZION SUZUKI", "position": "Goalkeeper" },
-      { "id": 254, "name": "TSUYOSHI WATANABE", "position": "Defender" },
-      { "id": 255, "name": "KAISHU SANO", "position": "Defender" },
-      { "id": 256, "name": "AO TANAKA", "position": "Midfielder" },
-      { "id": 257, "name": "DAICHI KAMADA", "position": "Midfielder" },
-      { "id": 258, "name": "RITSU DOAN", "position": "Midfielder" },
-      { "id": 259, "name": "KEITO NAKAYAMA", "position": "Forward" },
-      { "id": 260, "name": "SHUTO MACHINO", "position": "Forward" },
-      { "id": 261, "name": "AYASE UEDA", "position": "Forward" }
+      {
+        "id": 250,
+        "name": "TAKUMI MINAMINO",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 251,
+        "name": "JAPAN",
+        "position": "Team Crest"
+      },
+      {
+        "id": 252,
+        "name": "TAKEFUSA KUBO",
+        "position": "Icon"
+      },
+      {
+        "id": 253,
+        "name": "ZION SUZUKI",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 254,
+        "name": "TSUYOSHI WATANABE",
+        "position": "Defender"
+      },
+      {
+        "id": 255,
+        "name": "KAISHU SANO",
+        "position": "Defender"
+      },
+      {
+        "id": 256,
+        "name": "AO TANAKA",
+        "position": "Midfielder"
+      },
+      {
+        "id": 257,
+        "name": "DAICHI KAMADA",
+        "position": "Midfielder"
+      },
+      {
+        "id": 258,
+        "name": "RITSU DOAN",
+        "position": "Midfielder"
+      },
+      {
+        "id": 259,
+        "name": "KEITO NAKAYAMA",
+        "position": "Forward"
+      },
+      {
+        "id": 260,
+        "name": "SHUTO MACHINO",
+        "position": "Forward"
+      },
+      {
+        "id": 261,
+        "name": "AYASE UEDA",
+        "position": "Forward"
+      }
     ],
     "Jordan": [
-      { "id": 262, "name": "YAZAN AL-NAIMAT", "position": "Fan Favourite" },
-      { "id": 263, "name": "JORDAN", "position": "Team Crest" },
-      { "id": 264, "name": "MUSA AL-TAAMARI", "position": "Icon" },
-      { "id": 265, "name": "YAZEED ABULAILA", "position": "Goalkeeper" },
-      { "id": 266, "name": "MOHAMMED ABU HASHISH", "position": "Defender" },
-      { "id": 267, "name": "YAZAN AL-ARAB", "position": "Defender" },
-      { "id": 268, "name": "ABDALLAH NASIB", "position": "Midfielder" },
-      { "id": 269, "name": "IBRAHIM SAADEH", "position": "Midfielder" },
-      { "id": 270, "name": "WISSAM AL-RAWABDEH", "position": "Midfielder" },
-      { "id": 271, "name": "NOOR AL-RAWABDEH", "position": "Midfielder" },
-      { "id": 272, "name": "MAHMOUD AL-MARDI", "position": "Midfielder" },
-      { "id": 273, "name": "ALI OLWAN", "position": "Forward" }
+      {
+        "id": 262,
+        "name": "YAZAN AL-NAIMAT",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 263,
+        "name": "JORDAN",
+        "position": "Team Crest"
+      },
+      {
+        "id": 264,
+        "name": "MUSA AL-TAAMARI",
+        "position": "Icon"
+      },
+      {
+        "id": 265,
+        "name": "YAZEED ABULAILA",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 266,
+        "name": "MOHAMMED ABU HASHISH",
+        "position": "Defender"
+      },
+      {
+        "id": 267,
+        "name": "YAZAN AL-ARAB",
+        "position": "Defender"
+      },
+      {
+        "id": 268,
+        "name": "ABDALLAH NASIB",
+        "position": "Midfielder"
+      },
+      {
+        "id": 269,
+        "name": "IBRAHIM SAADEH",
+        "position": "Midfielder"
+      },
+      {
+        "id": 270,
+        "name": "WISSAM AL-RAWABDEH",
+        "position": "Midfielder"
+      },
+      {
+        "id": 271,
+        "name": "NOOR AL-RAWABDEH",
+        "position": "Midfielder"
+      },
+      {
+        "id": 272,
+        "name": "MAHMOUD AL-MARDI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 273,
+        "name": "ALI OLWAN",
+        "position": "Forward"
+      }
     ],
     "Korea Republic": [
-      { "id": 274, "name": "MIN-JAE KIM", "position": "Fan Favourite" },
-      { "id": 275, "name": "KOREA REPUBLIC", "position": "Team Crest" },
-      { "id": 276, "name": "HEUNG-MIN SON", "position": "Icon" },
-      { "id": 277, "name": "HYEONWOO JO", "position": "Goalkeeper" },
-      { "id": 278, "name": "YOUNG-GWON KIM", "position": "Defender" },
-      { "id": 279, "name": "YUMIN CHO", "position": "Defender" },
-      { "id": 280, "name": "TAESOOK LEE", "position": "Midfielder" },
-      { "id": 281, "name": "INBEOM HWANG", "position": "Midfielder" },
-      { "id": 282, "name": "JAESUNG LEE", "position": "Midfielder" },
-      { "id": 283, "name": "KANGIN LEE", "position": "Midfielder" },
-      { "id": 284, "name": "HYEONYU OH", "position": "Forward" },
-      { "id": 285, "name": "HEECHAN HWANG", "position": "Forward" }
+      {
+        "id": 274,
+        "name": "MIN-JAE KIM",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 275,
+        "name": "KOREA REPUBLIC",
+        "position": "Team Crest"
+      },
+      {
+        "id": 276,
+        "name": "HEUNG-MIN SON",
+        "position": "Icon"
+      },
+      {
+        "id": 277,
+        "name": "HYEONWOO JO",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 278,
+        "name": "YOUNG-GWON KIM",
+        "position": "Defender"
+      },
+      {
+        "id": 279,
+        "name": "YUMIN CHO",
+        "position": "Defender"
+      },
+      {
+        "id": 280,
+        "name": "TAESOOK LEE",
+        "position": "Midfielder"
+      },
+      {
+        "id": 281,
+        "name": "INBEOM HWANG",
+        "position": "Midfielder"
+      },
+      {
+        "id": 282,
+        "name": "JAESUNG LEE",
+        "position": "Midfielder"
+      },
+      {
+        "id": 283,
+        "name": "KANGIN LEE",
+        "position": "Midfielder"
+      },
+      {
+        "id": 284,
+        "name": "HYEONYU OH",
+        "position": "Forward"
+      },
+      {
+        "id": 285,
+        "name": "HEECHAN HWANG",
+        "position": "Forward"
+      }
     ],
     "Mexico": [
-      { "id": 286, "name": "EDSON ÁLVAREZ", "position": "Fan Favourite" },
-      { "id": 287, "name": "MEXICO", "position": "Team Crest" },
-      { "id": 288, "name": "RAÚL JIMÉNEZ", "position": "Icon" },
-      { "id": 289, "name": "LUIS MALAGÓN", "position": "Goalkeeper" },
-      { "id": 290, "name": "ISRAEL REYES", "position": "Defender" },
-      { "id": 291, "name": "JOHAN VÁSQUEZ", "position": "Defender" },
-      { "id": 292, "name": "CÉSAR MONTES", "position": "Defender" },
-      { "id": 293, "name": "JESÚS GALLARDO", "position": "Defender" },
-      { "id": 294, "name": "CARLOS RODRÍGUEZ", "position": "Midfielder" },
-      { "id": 295, "name": "ORBELÍN PINEDA", "position": "Midfielder" },
-      { "id": 296, "name": "HIRVING LOZANO", "position": "Forward" },
-      { "id": 297, "name": "SANTIAGO GIMÉNEZ", "position": "Forward" }
+      {
+        "id": 286,
+        "name": "EDSON ÁLVAREZ",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 287,
+        "name": "MEXICO",
+        "position": "Team Crest"
+      },
+      {
+        "id": 288,
+        "name": "RAÚL JIMÉNEZ",
+        "position": "Icon"
+      },
+      {
+        "id": 289,
+        "name": "LUIS MALAGÓN",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 290,
+        "name": "ISRAEL REYES",
+        "position": "Defender"
+      },
+      {
+        "id": 291,
+        "name": "JOHAN VÁSQUEZ",
+        "position": "Defender"
+      },
+      {
+        "id": 292,
+        "name": "CÉSAR MONTES",
+        "position": "Defender"
+      },
+      {
+        "id": 293,
+        "name": "JESÚS GALLARDO",
+        "position": "Defender"
+      },
+      {
+        "id": 294,
+        "name": "CARLOS RODRÍGUEZ",
+        "position": "Midfielder"
+      },
+      {
+        "id": 295,
+        "name": "ORBELÍN PINEDA",
+        "position": "Midfielder"
+      },
+      {
+        "id": 296,
+        "name": "HIRVING LOZANO",
+        "position": "Forward"
+      },
+      {
+        "id": 297,
+        "name": "SANTIAGO GIMÉNEZ",
+        "position": "Forward"
+      }
     ],
     "Morocco": [
-      { "id": 298, "name": "YOUSSEF EN-NESYRI", "position": "Fan Favourite" },
-      { "id": 299, "name": "MOROCCO", "position": "Team Crest" },
-      { "id": 300, "name": "ACHRAF HAKIMI", "position": "Icon" },
-      { "id": 301, "name": "YASSINE BOUNOU", "position": "Goalkeeper" },
-      { "id": 302, "name": "NOUSSAIR MAZRAOUI", "position": "Defender" },
-      { "id": 303, "name": "NAYEF AGUERD", "position": "Defender" },
-      { "id": 304, "name": "SOFYAN AMRABAT", "position": "Midfielder" },
-      { "id": 305, "name": "ELIESSE BEN SEGHIR", "position": "Midfielder" },
-      { "id": 306, "name": "ISMAËL SAIBARI", "position": "Midfielder" },
-      { "id": 307, "name": "BRAHIM DÍAZ", "position": "Forward" },
-      { "id": 308, "name": "ABDE EZZALZOULI", "position": "Forward" },
-      { "id": 309, "name": "AYOUB EL KAABI", "position": "Forward" }
+      {
+        "id": 298,
+        "name": "YOUSSEF EN-NESYRI",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 299,
+        "name": "MOROCCO",
+        "position": "Team Crest"
+      },
+      {
+        "id": 300,
+        "name": "ACHRAF HAKIMI",
+        "position": "Icon"
+      },
+      {
+        "id": 301,
+        "name": "YASSINE BOUNOU",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 302,
+        "name": "NOUSSAIR MAZRAOUI",
+        "position": "Defender"
+      },
+      {
+        "id": 303,
+        "name": "NAYEF AGUERD",
+        "position": "Defender"
+      },
+      {
+        "id": 304,
+        "name": "SOFYAN AMRABAT",
+        "position": "Midfielder"
+      },
+      {
+        "id": 305,
+        "name": "ELIESSE BEN SEGHIR",
+        "position": "Midfielder"
+      },
+      {
+        "id": 306,
+        "name": "ISMAËL SAIBARI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 307,
+        "name": "BRAHIM DÍAZ",
+        "position": "Forward"
+      },
+      {
+        "id": 308,
+        "name": "ABDE EZZALZOULI",
+        "position": "Forward"
+      },
+      {
+        "id": 309,
+        "name": "AYOUB EL KAABI",
+        "position": "Forward"
+      }
     ],
     "Netherlands": [
-      { "id": 310, "name": "MEMPHIS DEPAY", "position": "Fan Favourite" },
-      { "id": 311, "name": "NETHERLANDS", "position": "Team Crest" },
-      { "id": 312, "name": "VIRGIL VAN DIJK", "position": "Icon" },
-      { "id": 313, "name": "BART VERBRUGGEN", "position": "Goalkeeper" },
-      { "id": 314, "name": "NATHAN AKÉ", "position": "Defender" },
-      { "id": 315, "name": "JERÉMIE FRIMPONG", "position": "Defender" },
-      { "id": 316, "name": "DENZEL DUMFRIES", "position": "Defender" },
-      { "id": 317, "name": "TIJJANI REIJNDERS", "position": "Midfielder" },
-      { "id": 318, "name": "RYAN GRAVENBERCH", "position": "Midfielder" },
-      { "id": 319, "name": "CODY GAKPO", "position": "Forward" },
-      { "id": 320, "name": "DONYELL MALEN", "position": "Forward" },
-      { "id": 321, "name": "WOUT WEGHORST", "position": "Forward" }
+      {
+        "id": 310,
+        "name": "MEMPHIS DEPAY",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 311,
+        "name": "NETHERLANDS",
+        "position": "Team Crest"
+      },
+      {
+        "id": 312,
+        "name": "VIRGIL VAN DIJK",
+        "position": "Icon"
+      },
+      {
+        "id": 313,
+        "name": "BART VERBRUGGEN",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 314,
+        "name": "NATHAN AKÉ",
+        "position": "Defender"
+      },
+      {
+        "id": 315,
+        "name": "JERÉMIE FRIMPONG",
+        "position": "Defender"
+      },
+      {
+        "id": 316,
+        "name": "DENZEL DUMFRIES",
+        "position": "Defender"
+      },
+      {
+        "id": 317,
+        "name": "TIJJANI REIJNDERS",
+        "position": "Midfielder"
+      },
+      {
+        "id": 318,
+        "name": "RYAN GRAVENBERCH",
+        "position": "Midfielder"
+      },
+      {
+        "id": 319,
+        "name": "CODY GAKPO",
+        "position": "Forward"
+      },
+      {
+        "id": 320,
+        "name": "DONYELL MALEN",
+        "position": "Forward"
+      },
+      {
+        "id": 321,
+        "name": "WOUT WEGHORST",
+        "position": "Forward"
+      }
     ],
     "New Zealand": [
-      { "id": 322, "name": "MARKO STAMENIC", "position": "Fan Favourite" },
-      { "id": 323, "name": "NEW ZEALAND", "position": "Team Crest" },
-      { "id": 324, "name": "CHRIS WOOD", "position": "Icon" },
-      { "id": 325, "name": "MAX CROCOMBE", "position": "Goalkeeper" },
-      { "id": 326, "name": "MICHAEL BOXALL", "position": "Defender" },
-      { "id": 327, "name": "LIBERATO CACACE", "position": "Defender" },
-      { "id": 328, "name": "TIM PAYNE", "position": "Midfielder" },
-      { "id": 329, "name": "FINN SURMAN", "position": "Midfielder" },
-      { "id": 330, "name": "JOE BELL", "position": "Midfielder" },
-      { "id": 331, "name": "SARPREET SINGH", "position": "Midfielder" },
-      { "id": 332, "name": "MATT GARBETT", "position": "Midfielder" },
-      { "id": 333, "name": "ELIJAH JUST", "position": "Forward" }
+      {
+        "id": 322,
+        "name": "MARKO STAMENIC",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 323,
+        "name": "NEW ZEALAND",
+        "position": "Team Crest"
+      },
+      {
+        "id": 324,
+        "name": "CHRIS WOOD",
+        "position": "Icon"
+      },
+      {
+        "id": 325,
+        "name": "MAX CROCOMBE",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 326,
+        "name": "MICHAEL BOXALL",
+        "position": "Defender"
+      },
+      {
+        "id": 327,
+        "name": "LIBERATO CACACE",
+        "position": "Defender"
+      },
+      {
+        "id": 328,
+        "name": "TIM PAYNE",
+        "position": "Midfielder"
+      },
+      {
+        "id": 329,
+        "name": "FINN SURMAN",
+        "position": "Midfielder"
+      },
+      {
+        "id": 330,
+        "name": "JOE BELL",
+        "position": "Midfielder"
+      },
+      {
+        "id": 331,
+        "name": "SARPREET SINGH",
+        "position": "Midfielder"
+      },
+      {
+        "id": 332,
+        "name": "MATT GARBETT",
+        "position": "Midfielder"
+      },
+      {
+        "id": 333,
+        "name": "ELIJAH JUST",
+        "position": "Forward"
+      }
     ],
     "Norway": [
-      { "id": 334, "name": "MARTIN ØDEGAARD", "position": "Fan Favourite" },
-      { "id": 335, "name": "NORWAY", "position": "Team Crest" },
-      { "id": 336, "name": "ERLING HAALAND", "position": "Icon" },
-      { "id": 337, "name": "ØRJAN NYLAND", "position": "Goalkeeper" },
-      { "id": 338, "name": "JULIAN RYERSON", "position": "Defender" },
-      { "id": 339, "name": "KRISTOFFER VASSBAKK AJER", "position": "Defender" },
-      { "id": 340, "name": "DAVID MØLLER WOLFE", "position": "Midfielder" },
-      { "id": 341, "name": "SANDER BERGE", "position": "Midfielder" },
-      { "id": 342, "name": "PATRICK BERG", "position": "Midfielder" },
-      { "id": 343, "name": "ANTONIO NUSA", "position": "Forward" },
-      { "id": 344, "name": "OSCAR BOBB", "position": "Forward" },
-      { "id": 345, "name": "ALEXANDER SØRLOTH", "position": "Forward" }
+      {
+        "id": 334,
+        "name": "MARTIN ØDEGAARD",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 335,
+        "name": "NORWAY",
+        "position": "Team Crest"
+      },
+      {
+        "id": 336,
+        "name": "ERLING HAALAND",
+        "position": "Icon"
+      },
+      {
+        "id": 337,
+        "name": "ØRJAN NYLAND",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 338,
+        "name": "JULIAN RYERSON",
+        "position": "Defender"
+      },
+      {
+        "id": 339,
+        "name": "KRISTOFFER VASSBAKK AJER",
+        "position": "Defender"
+      },
+      {
+        "id": 340,
+        "name": "DAVID MØLLER WOLFE",
+        "position": "Midfielder"
+      },
+      {
+        "id": 341,
+        "name": "SANDER BERGE",
+        "position": "Midfielder"
+      },
+      {
+        "id": 342,
+        "name": "PATRICK BERG",
+        "position": "Midfielder"
+      },
+      {
+        "id": 343,
+        "name": "ANTONIO NUSA",
+        "position": "Forward"
+      },
+      {
+        "id": 344,
+        "name": "OSCAR BOBB",
+        "position": "Forward"
+      },
+      {
+        "id": 345,
+        "name": "ALEXANDER SØRLOTH",
+        "position": "Forward"
+      }
     ],
     "Panama": [
       {
@@ -704,15 +3035,867 @@
         "name": "MICHAEL AMIR MURILLO",
         "position": "Fan Favourite"
       },
-      { "id": 347, "name": "PANAMA", "position": "Team Crest" },
-      { "id": 348, "name": "ANIBAL GODOY", "position": "Icon" },
-      { "id": 349, "name": "ORLANDO MOSQUERA", "position": "Goalkeeper" },
-      { "id": 350, "name": "ANDRÉS ANDRADE", "position": "Defender" },
-      { "id": 351, "name": "FIDEL ESCOBAR", "position": "Defender" },
-      { "id": 352, "name": "CRISTIAN MARTÍNEZ", "position": "Midfielder" },
-      { "id": 353, "name": "ADALBERTO CARRASQUILLA", "position": "Midfielder" },
-      { "id": 354, "name": "EDGAR BÁRCENAS", "position": "Midfielder" },
-      { "id": 355, "name": "JOSÉ FAJA", "position": "Unknown" }
+      {
+        "id": 347,
+        "name": "PANAMA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 348,
+        "name": "ANIBAL GODOY",
+        "position": "Icon"
+      },
+      {
+        "id": 349,
+        "name": "ORLANDO MOSQUERA",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 350,
+        "name": "ANDRÉS ANDRADE",
+        "position": "Defender"
+      },
+      {
+        "id": 351,
+        "name": "FIDEL ESCOBAR",
+        "position": "Defender"
+      },
+      {
+        "id": 352,
+        "name": "CRISTIAN MARTÍNEZ",
+        "position": "Midfielder"
+      },
+      {
+        "id": 353,
+        "name": "ADALBERTO CARRASQUILLA",
+        "position": "Midfielder"
+      },
+      {
+        "id": 354,
+        "name": "EDGAR BÁRCENAS",
+        "position": "Midfielder"
+      },
+      {
+        "id": 355,
+        "name": "JOSÉ FAJARDO",
+        "position": "Forward"
+      },
+      {
+        "id": 356,
+        "name": "ISMAEL DÍAZ",
+        "position": "Forward"
+      },
+      {
+        "id": 357,
+        "name": "JOSE LUIS RODRÍGUEZ",
+        "position": "Forward"
+      }
+    ],
+    "Paraguay": [
+      {
+        "id": 358,
+        "name": "GUSTAVO GÓMEZ",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 359,
+        "name": "PARAGUAY",
+        "position": "Team Crest"
+      },
+      {
+        "id": 360,
+        "name": "MIGUEL ALMIRÓN",
+        "position": "Icon"
+      },
+      {
+        "id": 361,
+        "name": "ROBERTO FERNÁNDEZ",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 362,
+        "name": "JUAN JOSÉ CÁCERES",
+        "position": "Defender"
+      },
+      {
+        "id": 363,
+        "name": "OMAR ALDERETE",
+        "position": "Defender"
+      },
+      {
+        "id": 364,
+        "name": "JÚNIOR ALONSO",
+        "position": "Defender"
+      },
+      {
+        "id": 365,
+        "name": "ANDRÉS CUBAS",
+        "position": "Midfielder"
+      },
+      {
+        "id": 366,
+        "name": "MATHÍAS VILLASANTI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 367,
+        "name": "JULIO ENCISO",
+        "position": "Forward"
+      },
+      {
+        "id": 368,
+        "name": "RAMÓN SOSA",
+        "position": "Forward"
+      },
+      {
+        "id": 369,
+        "name": "ANTONIO SANABRIA",
+        "position": "Forward"
+      }
+    ],
+    "Portugal": [
+      {
+        "id": 370,
+        "name": "VITINHA",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 371,
+        "name": "PORTUGAL",
+        "position": "Team Crest"
+      },
+      {
+        "id": 372,
+        "name": "CRISTIANO RONALDO",
+        "position": "Icon"
+      },
+      {
+        "id": 373,
+        "name": "DIOGO COSTA",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 374,
+        "name": "RÚBEN DIAS",
+        "position": "Defender"
+      },
+      {
+        "id": 375,
+        "name": "NUNO MENDES",
+        "position": "Defender"
+      },
+      {
+        "id": 376,
+        "name": "BERNARDO SILVA",
+        "position": "Midfielder"
+      },
+      {
+        "id": 377,
+        "name": "BRUNO FERNANDES",
+        "position": "Midfielder"
+      },
+      {
+        "id": 378,
+        "name": "RÚBEN NEVES",
+        "position": "Midfielder"
+      },
+      {
+        "id": 379,
+        "name": "FRANCISCO CONCEIÇÃO",
+        "position": "Forward"
+      },
+      {
+        "id": 380,
+        "name": "PEDRO NETO",
+        "position": "Forward"
+      },
+      {
+        "id": 381,
+        "name": "RAFAEL LEÃO",
+        "position": "Forward"
+      }
+    ],
+    "Qatar": [
+      {
+        "id": 382,
+        "name": "ALMOEZ ALI",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 383,
+        "name": "QATAR",
+        "position": "Team Crest"
+      },
+      {
+        "id": 384,
+        "name": "HASAN AL-HAYDOS",
+        "position": "Icon"
+      },
+      {
+        "id": 385,
+        "name": "MESHAAL BARSHAM",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 386,
+        "name": "BOUALEM KHOUKHI",
+        "position": "Defender"
+      },
+      {
+        "id": 387,
+        "name": "LUCAS MENDES",
+        "position": "Defender"
+      },
+      {
+        "id": 388,
+        "name": "PEDRO MIGUEL",
+        "position": "Defender"
+      },
+      {
+        "id": 389,
+        "name": "HOMAM AL-AMIN",
+        "position": "Midfielder"
+      },
+      {
+        "id": 390,
+        "name": "AHMED FATHI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 391,
+        "name": "EDMILSON JUNIOR",
+        "position": "Forward"
+      },
+      {
+        "id": 392,
+        "name": "AHMED AL-GANEMI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 393,
+        "name": "AKRAM HASSAN AFIF",
+        "position": "Forward"
+      }
+    ],
+    "Saudi Arabia": [
+      {
+        "id": 394,
+        "name": "FERAS ALBRIKAN",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 395,
+        "name": "SAUDI ARABIA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 396,
+        "name": "SALEM ALDAWSARI",
+        "position": "Icon"
+      },
+      {
+        "id": 397,
+        "name": "NAWAF ALAAQIDI",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 398,
+        "name": "HASSAN ALTAMBAKTI",
+        "position": "Defender"
+      },
+      {
+        "id": 399,
+        "name": "JEHAD THIKRI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 400,
+        "name": "SAUD ABDULHAMID",
+        "position": "Defender"
+      },
+      {
+        "id": 401,
+        "name": "NASSER ALDAWSARI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 402,
+        "name": "ABDULLAH ALKHAIBARI",
+        "position": "Defender"
+      },
+      {
+        "id": 403,
+        "name": "MUSAB ALJUWAYR",
+        "position": "Midfielder"
+      },
+      {
+        "id": 404,
+        "name": "SALEH ABU ALSHAMAT",
+        "position": "Forward"
+      },
+      {
+        "id": 405,
+        "name": "SALEH ALSHEHRI",
+        "position": "Forward"
+      }
+    ],
+    "Scotland": [
+      {
+        "id": 406,
+        "name": "SCOTT MCTOMINAY",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 407,
+        "name": "SCOTLAND",
+        "position": "Team Crest"
+      },
+      {
+        "id": 408,
+        "name": "ANDREW ROBERTSON",
+        "position": "Icon"
+      },
+      {
+        "id": 409,
+        "name": "ANGUS GUNN",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 410,
+        "name": "KIERAN TIERNEY",
+        "position": "Defender"
+      },
+      {
+        "id": 411,
+        "name": "GRANT HANLEY",
+        "position": "Defender"
+      },
+      {
+        "id": 412,
+        "name": "BILLY GILMOUR",
+        "position": "Midfielder"
+      },
+      {
+        "id": 413,
+        "name": "LEWIS FERGUSON",
+        "position": "Midfielder"
+      },
+      {
+        "id": 414,
+        "name": "RYAN CHRISTIE",
+        "position": "Midfielder"
+      },
+      {
+        "id": 415,
+        "name": "JOHN MCGINN",
+        "position": "Midfielder"
+      },
+      {
+        "id": 416,
+        "name": "BEN DOAK",
+        "position": "Forward"
+      },
+      {
+        "id": 417,
+        "name": "CHÉ ADAMS",
+        "position": "Forward"
+      }
+    ],
+    "Senegal": [
+      {
+        "id": 418,
+        "name": "KALIDOU KOULIBALY",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 419,
+        "name": "SENEGAL",
+        "position": "Team Crest"
+      },
+      {
+        "id": 420,
+        "name": "SADIO MANÉ",
+        "position": "Icon"
+      },
+      {
+        "id": 421,
+        "name": "EDOUARD MENDY",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 422,
+        "name": "MOUSSA NIAKHATÉ",
+        "position": "Defender"
+      },
+      {
+        "id": 423,
+        "name": "EL HADJ MALICK DIOUF",
+        "position": "Defender"
+      },
+      {
+        "id": 424,
+        "name": "IDRISSA GANA GUEYE",
+        "position": "Midfielder"
+      },
+      {
+        "id": 425,
+        "name": "PAPE MATAR SARR",
+        "position": "Midfielder"
+      },
+      {
+        "id": 426,
+        "name": "ILIMAN NDIAYE",
+        "position": "Forward"
+      },
+      {
+        "id": 427,
+        "name": "KRÉPIN DIATTA",
+        "position": "Forward"
+      },
+      {
+        "id": 428,
+        "name": "ISMAÏLA SARR",
+        "position": "Forward"
+      },
+      {
+        "id": 429,
+        "name": "NICOLAS JACKSON",
+        "position": "Forward"
+      }
+    ],
+    "South Africa": [
+      {
+        "id": 430,
+        "name": "LYLE FOSTER",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 431,
+        "name": "SOUTH AFRICA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 432,
+        "name": "RONWEN WILLIAMS",
+        "position": "Icon"
+      },
+      {
+        "id": 433,
+        "name": "SIYABONGA NGEZANA",
+        "position": "Defender"
+      },
+      {
+        "id": 434,
+        "name": "AUBREY MODIBA",
+        "position": "Defender"
+      },
+      {
+        "id": 435,
+        "name": "MBEKEZELI MBOKAZI",
+        "position": "Defender"
+      },
+      {
+        "id": 436,
+        "name": "KHULISO MUDAU",
+        "position": "Defender"
+      },
+      {
+        "id": 437,
+        "name": "TEBOHO MOKOENA",
+        "position": "Midfielder"
+      },
+      {
+        "id": 438,
+        "name": "YAYA SITHOLE",
+        "position": "Midfielder"
+      },
+      {
+        "id": 439,
+        "name": "THEMBA ZWANE",
+        "position": "Midfielder"
+      },
+      {
+        "id": 440,
+        "name": "OSWIN APPOLLIS",
+        "position": "Forward"
+      },
+      {
+        "id": 441,
+        "name": "IGRAM RAYNERS",
+        "position": "Forward"
+      }
+    ],
+    "Spain": [
+      {
+        "id": 442,
+        "name": "LAMINE YAMAL",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 443,
+        "name": "SPAIN",
+        "position": "Team Crest"
+      },
+      {
+        "id": 444,
+        "name": "RODRI",
+        "position": "Icon"
+      },
+      {
+        "id": 445,
+        "name": "UNAI SIMÓN",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 446,
+        "name": "ROBIN LE NORMAND",
+        "position": "Defender"
+      },
+      {
+        "id": 447,
+        "name": "DEAN HUIJSEN",
+        "position": "Defender"
+      },
+      {
+        "id": 448,
+        "name": "MARC CUCURELLA",
+        "position": "Defender"
+      },
+      {
+        "id": 449,
+        "name": "MARTÍN ZUBIMENDI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 450,
+        "name": "PEDRI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 451,
+        "name": "FABIÁN RUIZ",
+        "position": "Midfielder"
+      },
+      {
+        "id": 452,
+        "name": "NICO WILLIAMS",
+        "position": "Forward"
+      },
+      {
+        "id": 453,
+        "name": "MIKEL OYARZABAL",
+        "position": "Forward"
+      }
+    ],
+    "Switzerland": [
+      {
+        "id": 454,
+        "name": "MANUEL AKANJI",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 455,
+        "name": "SWITZERLAND",
+        "position": "Team Crest"
+      },
+      {
+        "id": 456,
+        "name": "GRANIT XHAKA",
+        "position": "Icon"
+      },
+      {
+        "id": 457,
+        "name": "GREGOR KOBEL",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 458,
+        "name": "NICO ELVEDI",
+        "position": "Defender"
+      },
+      {
+        "id": 459,
+        "name": "RICARDO RODRÍGUEZ",
+        "position": "Defender"
+      },
+      {
+        "id": 460,
+        "name": "SILVAN WIDMER",
+        "position": "Defender"
+      },
+      {
+        "id": 461,
+        "name": "DENIS ZAKARIA",
+        "position": "Midfielder"
+      },
+      {
+        "id": 462,
+        "name": "REMO FREULER",
+        "position": "Midfielder"
+      },
+      {
+        "id": 463,
+        "name": "BREEL EMBOLO",
+        "position": "Forward"
+      },
+      {
+        "id": 464,
+        "name": "RUBÉN VARGAS",
+        "position": "Forward"
+      },
+      {
+        "id": 465,
+        "name": "DAN NDOYE",
+        "position": "Forward"
+      }
+    ],
+    "Tunisia": [
+      {
+        "id": 466,
+        "name": "FERJANI SASSI",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 467,
+        "name": "TUNISIA",
+        "position": "Team Crest"
+      },
+      {
+        "id": 468,
+        "name": "ELLYES SKHIRI",
+        "position": "Icon"
+      },
+      {
+        "id": 469,
+        "name": "AYMEN DAHMEN",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 470,
+        "name": "MONTASSAR TALBI",
+        "position": "Defender"
+      },
+      {
+        "id": 471,
+        "name": "YASSIN MERIAH",
+        "position": "Defender"
+      },
+      {
+        "id": 472,
+        "name": "ALI ABDI",
+        "position": "Defender"
+      },
+      {
+        "id": 473,
+        "name": "HANNIBAL MEJBRI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 474,
+        "name": "AÏSSA LAÏDOUNI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 475,
+        "name": "NAÏM SLITI",
+        "position": "Midfielder"
+      },
+      {
+        "id": 476,
+        "name": "ELIAS ACHOURI",
+        "position": "Forward"
+      },
+      {
+        "id": 477,
+        "name": "HAZEM MASTOURI",
+        "position": "Forward"
+      }
+    ],
+    "United States": [
+      {
+        "id": 478,
+        "name": "WESTON MCKENNIE",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 479,
+        "name": "UNITED STATES",
+        "position": "Team Crest"
+      },
+      {
+        "id": 480,
+        "name": "CHRISTIAN PULISIC",
+        "position": "Icon"
+      },
+      {
+        "id": 481,
+        "name": "MATT FREESE",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 482,
+        "name": "CHRIS RICHARDS",
+        "position": "Defender"
+      },
+      {
+        "id": 483,
+        "name": "TIM REAM",
+        "position": "Defender"
+      },
+      {
+        "id": 484,
+        "name": "ANTONEE ROBINSON",
+        "position": "Defender"
+      },
+      {
+        "id": 485,
+        "name": "TANNER TESSMANN",
+        "position": "Midfielder"
+      },
+      {
+        "id": 486,
+        "name": "TYLER ADAMS",
+        "position": "Midfielder"
+      },
+      {
+        "id": 487,
+        "name": "TIMOTHY WEAH",
+        "position": "Forward"
+      },
+      {
+        "id": 488,
+        "name": "MALIK TILLMAN",
+        "position": "Forward"
+      },
+      {
+        "id": 489,
+        "name": "FOLARIN BALOGUN",
+        "position": "Forward"
+      }
+    ],
+    "Uruguay": [
+      {
+        "id": 490,
+        "name": "JOSÉ MARÍA GIMÉNEZ",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 491,
+        "name": "URUGUAY",
+        "position": "Team Crest"
+      },
+      {
+        "id": 492,
+        "name": "FEDERICO VALVERDE",
+        "position": "Icon"
+      },
+      {
+        "id": 493,
+        "name": "SERGIO ROCHET",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 494,
+        "name": "RONALD ARAÚJO",
+        "position": "Defender"
+      },
+      {
+        "id": 495,
+        "name": "SEBASTIÁN CÁCERES",
+        "position": "Defender"
+      },
+      {
+        "id": 496,
+        "name": "MATHÍAS OLIVERA",
+        "position": "Defender"
+      },
+      {
+        "id": 497,
+        "name": "NAHITAN NÁNDEZ",
+        "position": "Midfielder"
+      },
+      {
+        "id": 498,
+        "name": "RODRIGO BENTANCUR",
+        "position": "Midfielder"
+      },
+      {
+        "id": 499,
+        "name": "MANUEL UGARTE",
+        "position": "Midfielder"
+      },
+      {
+        "id": 500,
+        "name": "FACUNDO PELLISTRI",
+        "position": "Forward"
+      },
+      {
+        "id": 501,
+        "name": "DARWIN NÚÑEZ",
+        "position": "Forward"
+      }
+    ],
+    "Uzbekistan": [
+      {
+        "id": 502,
+        "name": "ABDUKODIR KHUSANOV",
+        "position": "Fan Favourite"
+      },
+      {
+        "id": 503,
+        "name": "UZBEKISTAN",
+        "position": "Team Crest"
+      },
+      {
+        "id": 504,
+        "name": "ELDOR SHOMURODOV",
+        "position": "Icon"
+      },
+      {
+        "id": 505,
+        "name": "UTKIR YUSUPOV",
+        "position": "Midfielder"
+      },
+      {
+        "id": 506,
+        "name": "FARRUKH SAYFIEV",
+        "position": "Goalkeeper"
+      },
+      {
+        "id": 507,
+        "name": "SHERZOD NASRULLAEV",
+        "position": "Midfielder"
+      },
+      {
+        "id": 508,
+        "name": "KHOJIAKBAR ALIQULOV",
+        "position": "Defender"
+      },
+      {
+        "id": 509,
+        "name": "RUSTAM ASHURMATOV",
+        "position": "Defender"
+      },
+      {
+        "id": 510,
+        "name": "OTABEK DJAPBAROV",
+        "position": "Midfielder"
+      },
+      {
+        "id": 511,
+        "name": "ODILON HAMROBEKOV",
+        "position": "Midfielder"
+      },
+      {
+        "id": 512,
+        "name": "OTABEK SHUKUROV",
+        "position": "Forward"
+      },
+      {
+        "id": 513,
+        "name": "ABBOSBEK FAYZULLAEV",
+        "position": "Forward"
+      }
     ]
   }
 }

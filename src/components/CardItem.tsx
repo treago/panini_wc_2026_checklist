@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import type { Card, CardValue } from "../types";
 
 type Props = {
@@ -22,6 +22,30 @@ export const CardItem = memo(function CardItem({
 }: Props) {
   const isOwned = value.owned;
 
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        rootMargin: "200px", // pre-load slightly before entering viewport
+      },
+    );
+
+    observer.observe(el);
+
+    return () => observer.disconnect();
+  }, []);
+
   const toggleOwned = () => {
     onChange({
       owned: !isOwned,
@@ -31,34 +55,39 @@ export const CardItem = memo(function CardItem({
 
   return (
     <div
+      ref={ref}
       data-card-id={card.id}
       onClick={toggleOwned}
-      className={`group relative flex aspect-[255/340] cursor-pointer flex-col overflow-hidden rounded-3xl border-2 bg-white shadow-sm transition-all duration-300 ${
+      className={`group relative flex aspect-255/340 cursor-pointer flex-col overflow-hidden rounded-3xl border-2 bg-white shadow-sm transition-all duration-300 ${
         isOwned
           ? "border-wc-green ring-wc-green/30 ring-1"
           : "hover:border-wc-gold/60 border-gray-200"
       }`}
     >
       {/* IMAGE SECTION */}
-      <div className="relative flex-1 overflow-hidden bg-gradient-to-b from-white via-white to-gray-50">
+      <div className="relative flex-1 overflow-hidden bg-linear-to-b from-white via-white to-gray-50">
         <div
           className={`h-full w-full p-4 transition-all duration-300 ${
             isOwned
               ? ""
-              : "group-hover:blur-0 opacity-70 blur-[2px] grayscale-[60%] group-hover:opacity-100 group-hover:grayscale-0"
+              : "group-hover:blur-0 opacity-70 blur-[2px] grayscale-60 group-hover:opacity-100 group-hover:grayscale-0"
           }`}
         >
-          <img
-            src={`${import.meta.env.BASE_URL}images/${card.id}.webp`}
-            alt={card.name}
-            loading="lazy"
-            className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-110"
-          />
+          {isVisible && (
+            <img
+              src={`${import.meta.env.BASE_URL}images/${card.id}.webp`}
+              alt={card.name}
+              loading="lazy"
+              className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-110"
+            />
+          )}
         </div>
 
         {/* POSITION BADGE */}
         <div
-          className={`absolute top-4 right-4 rounded-xl px-3 py-1 text-xs font-extrabold tracking-wide ${positionColors[card.position]}`}
+          className={`absolute top-4 right-4 rounded-xl px-3 py-1 text-xs font-extrabold tracking-wide ${
+            positionColors[card.position]
+          }`}
         >
           {card.position}
         </div>

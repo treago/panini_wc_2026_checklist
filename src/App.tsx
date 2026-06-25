@@ -9,7 +9,7 @@ export default function App() {
   const { collection, updateCard, syncing } = useCollection(user?.uid ?? null);
 
   return (
-    <main className="to-wc-dark min-h-screen bg-gradient-to-br from-emerald-950 via-emerald-900 text-white">
+    <main className="to-wc-dark min-h-screen bg-linear-to-br from-emerald-950 via-emerald-900 text-white">
       {/* Header */}
       <div className="border-wc-gold bg-wc-red border-b-4 py-6">
         <div className="mx-auto max-w-7xl px-6">
@@ -23,7 +23,6 @@ export default function App() {
               </p>
             </div>
 
-            {/* Auth + sync status */}
             <div className="flex items-center gap-4">
               {syncing && (
                 <span className="animate-pulse text-xs text-emerald-300">
@@ -39,7 +38,7 @@ export default function App() {
       {/* Content */}
       <div className="mx-auto max-w-7xl px-6 py-8">
         <Checklist
-          title="Complete Collection"
+          title={data.meta.title}
           items={data}
           section="all"
           collection={collection}
