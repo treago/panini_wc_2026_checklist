@@ -1,8 +1,9 @@
 {
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
+    "type-check": "tsc --noEmit",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "format": "prettier ./src --write",
@@ -11,6 +12,7 @@
   },
   "dependencies": {
     "@vitejs/plugin-react": "6.0.3",
+    "firebase": "12.15.0",
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "vite": "8.1.0"

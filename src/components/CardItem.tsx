@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import type { Card, CardValue } from "../types";
 
 type Props = {
