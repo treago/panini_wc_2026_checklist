@@ -17,7 +17,6 @@ type Group = {
   label: string;
   code: string;
   cards: Card[];
-  type: "special" | "countries";
 };
 
 export default function Checklist({
@@ -37,44 +36,43 @@ export default function Checklist({
     return match ? match[1] : key.slice(0, 3).toUpperCase();
   }, []);
 
-  // Flat list for ALL
+  // Flat list for ALL / UNOWNED / SPARE
   const allCards = useMemo<Card[]>(() => {
     const map = new Map<number, Card>();
 
     [
-      ...Object.values(items.special).flat(),
-      ...Object.values(items.countries).flat(),
-    ].forEach((card) => {
-      map.set(card.id, card);
-    });
+      ...Object.values(items.special || {}),
+      ...Object.values(items.countries || {}),
+    ]
+      .flat()
+      .forEach((card) => {
+        map.set(card.id, card);
+      });
 
     return Array.from(map.values()).sort((a, b) => a.id - b.id);
   }, [items]);
 
-  // Grouped data
   const groupedData = useMemo<Group[]>(() => {
     const groups: Group[] = [];
 
-    for (const [key, cards] of Object.entries(items.special)) {
+    for (const [key, cards] of Object.entries(items.special || {})) {
       groups.push({
         label: key,
         code: toCode(key),
         cards: [...cards],
-        type: "special",
       });
     }
 
-    for (const [key, cards] of Object.entries(items.countries)) {
+    for (const [key, cards] of Object.entries(items.countries || {})) {
       groups.push({
         label: key,
         code: toCode(key),
         cards: [...cards],
-        type: "countries",
       });
     }
 
     return groups;
-  }, [items.countries, items.special, toCode]);
+  }, [items, toCode]);
 
   const formattedQuery = deferredQuery.toLowerCase().trim();
 
@@ -107,14 +105,21 @@ export default function Checklist({
       .filter((group) => group.cards.length > 0);
   }, [groupedData, formattedQuery]);
 
+  // Spare cards (quantity > 1) — for trading
+  const spareCards = useMemo(() => {
+    return filteredFlatCards.filter((card) => {
+      const value = collection[String(card.id)];
+
+      return value?.quantity && value.quantity > 1;
+    });
+  }, [filteredFlatCards, collection]);
+
   // Unowned
   const unownedCards = useMemo(() => {
     const seen = new Set<number>();
 
     return filteredFlatCards.filter((card) => {
-      if (seen.has(card.id)) {
-        return false;
-      }
+      if (seen.has(card.id)) return false;
 
       seen.add(card.id);
 
@@ -124,29 +129,26 @@ export default function Checklist({
     });
   }, [filteredFlatCards, collection]);
 
-  // Tabs
+  // Tabs logic
+  const isFlatView =
+    currentSection === "all" ||
+    currentSection === "unowned" ||
+    currentSection === "spare";
+
+  const cardsToShow = useMemo(() => {
+    if (currentSection === "unowned") return unownedCards;
+
+    if (currentSection === "spare") return spareCards;
+
+    return filteredFlatCards;
+  }, [currentSection, unownedCards, spareCards, filteredFlatCards]);
+
   const displayedGroups = useMemo(() => {
     if (currentSection === "grouped") {
       return filteredGroups;
     }
-
-    if (currentSection === "special") {
-      return filteredGroups.filter((group) => group.type === "special");
-    }
-
-    if (currentSection === "countries") {
-      return filteredGroups.filter((group) => group.type === "countries");
-    }
-
     return [];
   }, [currentSection, filteredGroups]);
-
-  const isFlatView = currentSection === "all" || currentSection === "unowned";
-
-  const cardsToShow =
-    currentSection === "unowned" ? unownedCards : filteredFlatCards;
-
-  const canSwitch = section === "all" && groupedData.length > 0;
 
   return (
     <div className="space-y-16">
@@ -157,7 +159,6 @@ export default function Checklist({
         setQuery={setQuery}
         currentSection={currentSection}
         setCurrentSection={setCurrentSection}
-        canSwitch={canSwitch}
       />
 
       {isFlatView ? (

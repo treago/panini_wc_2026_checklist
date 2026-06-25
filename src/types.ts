@@ -143,11 +143,5 @@ export type ChecklistProps = {
   data: FifaCardsData;
 };
 
-export const CHECKLIST_GROUPS = [
-  "all",
-  "grouped",
-  "special",
-  "countries",
-  "unowned",
-] as const;
+export const CHECKLIST_GROUPS = ["all", "grouped", "unowned", "spare"] as const;
 export type ChecklistGroup = (typeof CHECKLIST_GROUPS)[number];

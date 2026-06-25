@@ -2,11 +2,11 @@ import fs from "fs";
 import path from "path";
 
 const dir = "./";
-let counter = 92;
+let counter = 101;
 
 // match like: 123_s-l1600.jpg
-const regex = /^\d+_s-l1600(\.[a-zA-Z0-9]+)$/;
-// const regex = /^\d+(\.[a-zA-Z0-9]+)$/;
+// const regex = /^\d+_s-l1600(\.[a-zA-Z0-9]+)$/;
+const regex = /^\d+(\.[a-zA-Z0-9]+)$/;
 
 const files = fs
   .readdirSync(dir)

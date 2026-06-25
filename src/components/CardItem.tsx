@@ -19,21 +19,16 @@ const positionClassNames: Record<CardPosition, string> = {
   "Official Mascot": "bg-wc-gold text-black shadow-md ring-1 ring-black/10",
   "Eternos 22": "bg-wc-gold text-black shadow-md ring-1 ring-black/10",
 
-  // === MAIN POSITION CATEGORIES (based on your image) ===
-
-  // Goalkeeper family → Purple
+  // === MAIN POSITION CATEGORIES ===
   Goalkeeper: "bg-purple-700 text-white shadow-md ring-1 ring-black/10",
   "Top Keeper": "bg-purple-700 text-white shadow-md ring-1 ring-black/10",
 
-  // Defender family → Red
   Defender: "bg-wc-red text-white shadow-md ring-1 ring-black/10",
   "Defensive Rock": "bg-wc-red text-white shadow-md ring-1 ring-black/10",
 
-  // Midfielder family → Orange
   Midfielder: "bg-orange-500 text-white shadow-md ring-1 ring-black/10",
   "Midfield Maestro": "bg-orange-500 text-white shadow-md ring-1 ring-black/10",
 
-  // Forward family → Green
   Forward: "bg-wc-green text-white shadow-md ring-1 ring-black/10",
   "Goal Machine": "bg-wc-green text-white shadow-md ring-1 ring-black/10",
 } as const;
@@ -60,9 +55,7 @@ export const CardItem = memo(function CardItem({
           observer.disconnect();
         }
       },
-      {
-        rootMargin: "200px", // pre-load slightly before entering viewport
-      },
+      { rootMargin: "200px" },
     );
 
     observer.observe(el);
@@ -78,10 +71,20 @@ export const CardItem = memo(function CardItem({
   };
 
   const handleQuantityChange = (newQuantity: number) => {
-    onChange({
-      owned: true,
-      quantity: Math.max(1, newQuantity || 1),
-    });
+    const quantity = Math.max(0, newQuantity || 0);
+
+    if (quantity === 0) {
+      // Mark as unowned when quantity reaches 0
+      onChange({
+        owned: false,
+        quantity: 0,
+      });
+    } else {
+      onChange({
+        owned: true,
+        quantity,
+      });
+    }
   };
 
   return (
@@ -139,7 +142,6 @@ export const CardItem = memo(function CardItem({
           </div>
         )}
 
-        {/* subtle pattern overlay */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(var(--color-wc-gold)_0.6px,transparent_1px)] opacity-[0.04]" />
       </div>
 
@@ -150,7 +152,6 @@ export const CardItem = memo(function CardItem({
             <div className="text-wc-red text-xl font-black tracking-tight">
               #{card.id}
             </div>
-
             <div className="mt-0.5 line-clamp-2 text-sm font-semibold text-gray-900">
               {card.name}
             </div>
@@ -172,7 +173,7 @@ export const CardItem = memo(function CardItem({
                 type="button"
                 onClick={() => handleQuantityChange(currentQuantity - 1)}
                 disabled={currentQuantity <= 1}
-                className="flex h-7 w-7 items-center justify-center rounded-lg bg-white text-gray-600 shadow-sm transition-all hover:bg-gray-100 hover:text-gray-900 disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
+                className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg bg-white text-gray-600 shadow-sm transition-all hover:bg-gray-100 hover:text-gray-900 disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
                 aria-label="Decrease quantity"
               >
                 <svg
@@ -192,7 +193,7 @@ export const CardItem = memo(function CardItem({
 
               <input
                 type="number"
-                min={1}
+                min={0}
                 value={currentQuantity}
                 onChange={(e) => handleQuantityChange(Number(e.target.value))}
                 className="focus:text-wc-gold w-10 [appearance:textfield] bg-transparent text-center text-sm font-bold text-gray-800 outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
@@ -201,7 +202,7 @@ export const CardItem = memo(function CardItem({
               <button
                 type="button"
                 onClick={() => handleQuantityChange(currentQuantity + 1)}
-                className="flex h-7 w-7 items-center justify-center rounded-lg bg-white text-gray-600 shadow-sm transition-all hover:bg-gray-100 hover:text-gray-900"
+                className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg bg-white text-gray-600 shadow-sm transition-all hover:bg-gray-100 hover:text-gray-900"
                 aria-label="Increase quantity"
               >
                 <svg
