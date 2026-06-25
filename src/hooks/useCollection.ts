@@ -48,10 +48,13 @@ export function useCollection(userId: string | null) {
         if (!snap.exists()) {
           // First ever login — migrate whatever's in localStorage
           const localData = loadLS();
+
           await setDoc(docRef, { cards: localData });
+
           setCollection(localData);
         } else {
           const cards = (snap.data()?.cards ?? {}) as Collection;
+
           setCollection(cards);
         }
         setSyncing(false);
@@ -72,7 +75,9 @@ export function useCollection(userId: string | null) {
       // Optimistic local update
       setCollection((prev) => {
         const next = { ...prev, [key]: value };
-        if (!userId) saveLS(next);
+
+        saveLS(next);
+
         return next;
       });
 
