@@ -49,7 +49,7 @@ export const CardItem = memo(function CardItem({
           }`}
         >
           <img
-            src={`/src/data/images/${card.id}.webp`}
+            src={`${import.meta.env.BASE_URL}images/${card.id}.webp`}
             alt={card.name}
             loading="lazy"
             className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-110"

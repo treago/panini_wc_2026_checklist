@@ -1,6 +1,6 @@
 import React from "react";
 import Checklist from "./components/Checklist";
-import data from "./data/collection/cards.json";
+import data from "./data/cards.json";
 
 export default function App() {
   return (

@@ -29,16 +29,6 @@ export default function Checklist({ title, items, section = "all" }: Props) {
     }
   }, [collection]);
 
-  // hydrate
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem("fifaChecklists");
-      if (saved) setCollection(JSON.parse(saved));
-    } catch (e) {
-      console.error("Failed to load collection", e);
-    }
-  }, []);
-
   // Structural mapping of flat JSON into standardized UI groups
   const groupedData = useMemo(() => {
     const groups: {
@@ -87,16 +77,13 @@ export default function Checklist({ title, items, section = "all" }: Props) {
     return groups;
   }, [items]);
 
-  const updateCard = useCallback(
-    (id: number, value: CardValue) => {
-      setCollection((prev) => {
-        const newCollection = { ...prev, [id]: value };
+  const updateCard = useCallback((id: number, value: CardValue) => {
+    setCollection((prev) => {
+      const newCollection = { ...prev, [id]: value };
 
-        return newCollection;
-      });
-    },
-    [groupedData],
-  );
+      return newCollection;
+    });
+  }, []);
 
   // Filter groups by search query string
   const filteredGroups = useMemo(() => {
