@@ -1,5 +1,5 @@
 import { memo, useEffect, useRef, useState } from "react";
-import type { Card, CardValue } from "../types";
+import type { Card, CardPosition, CardValue } from "../types";
 
 type Props = {
   card: Card;
@@ -7,13 +7,36 @@ type Props = {
   onChange: (v: CardValue) => void;
 };
 
-const positionColors: Record<string, string> = {
-  GK: "bg-wc-green text-white shadow-md ring-1 ring-black/10",
-  DF: "bg-wc-red text-white shadow-md ring-1 ring-black/10",
-  MF: "bg-wc-blue text-white shadow-md ring-1 ring-black/10",
-  FW: "bg-wc-gold text-black shadow-md ring-1 ring-black/10",
-  LOGO: "bg-wc-gold text-black shadow-md ring-1 ring-black/10",
-};
+const positionClassNames: Record<CardPosition, string> = {
+  // === GOLDEN / SPECIAL POSITIONS (Gold theme) ===
+  "Golden Baller": "bg-wc-gold text-black shadow-md ring-1 ring-black/10",
+  "Fan Favourite": "bg-wc-gold text-black shadow-md ring-1 ring-black/10",
+  Icon: "bg-wc-gold text-black shadow-md ring-1 ring-black/10",
+  "Team Crest": "bg-wc-gold text-black shadow-md ring-1 ring-black/10",
+  "Contender Match": "bg-wc-gold text-black shadow-md ring-1 ring-black/10",
+  "Master Rookie": "bg-wc-gold text-black shadow-md ring-1 ring-black/10",
+  "Official Emblem": "bg-wc-gold text-black shadow-md ring-1 ring-black/10",
+  "Official Mascot": "bg-wc-gold text-black shadow-md ring-1 ring-black/10",
+  "Eternos 22": "bg-wc-gold text-black shadow-md ring-1 ring-black/10",
+
+  // === MAIN POSITION CATEGORIES (based on your image) ===
+
+  // Goalkeeper family → Purple
+  Goalkeeper: "bg-purple-700 text-white shadow-md ring-1 ring-black/10",
+  "Top Keeper": "bg-purple-700 text-white shadow-md ring-1 ring-black/10",
+
+  // Defender family → Red
+  Defender: "bg-wc-red text-white shadow-md ring-1 ring-black/10",
+  "Defensive Rock": "bg-wc-red text-white shadow-md ring-1 ring-black/10",
+
+  // Midfielder family → Orange
+  Midfielder: "bg-orange-500 text-white shadow-md ring-1 ring-black/10",
+  "Midfield Maestro": "bg-orange-500 text-white shadow-md ring-1 ring-black/10",
+
+  // Forward family → Green
+  Forward: "bg-wc-green text-white shadow-md ring-1 ring-black/10",
+  "Goal Machine": "bg-wc-green text-white shadow-md ring-1 ring-black/10",
+} as const;
 
 export const CardItem = memo(function CardItem({
   card,
@@ -21,6 +44,7 @@ export const CardItem = memo(function CardItem({
   onChange,
 }: Props) {
   const isOwned = value.owned;
+  const currentQuantity = value.quantity ?? 1;
 
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
@@ -49,7 +73,14 @@ export const CardItem = memo(function CardItem({
   const toggleOwned = () => {
     onChange({
       owned: !isOwned,
-      quantity: value.quantity ?? 1,
+      quantity: currentQuantity,
+    });
+  };
+
+  const handleQuantityChange = (newQuantity: number) => {
+    onChange({
+      owned: true,
+      quantity: Math.max(1, newQuantity || 1),
     });
   };
 
@@ -85,8 +116,8 @@ export const CardItem = memo(function CardItem({
 
         {/* POSITION BADGE */}
         <div
-          className={`absolute top-4 right-4 rounded-xl px-3 py-1 text-xs font-extrabold tracking-wide ${
-            positionColors[card.position]
+          className={`absolute top-4 right-4 rounded-xl bg-black/80 px-3 py-1 text-xs font-bold tracking-wide ${
+            positionClassNames[card.position]
           }`}
         >
           {card.position}
@@ -126,26 +157,69 @@ export const CardItem = memo(function CardItem({
           </div>
         </div>
 
-        {/* QUANTITY */}
+        {/* QUANTITY SELECTOR */}
         {isOwned && (
           <div
-            className="mt-4 flex items-center justify-between"
+            className="mt-1 flex items-center justify-between"
             onClick={(e) => e.stopPropagation()}
           >
-            <span className="text-xs font-medium text-gray-500">Quantity</span>
+            <span className="text-xs font-bold tracking-wider text-gray-500 uppercase">
+              Quantity
+            </span>
 
-            <input
-              type="number"
-              min={1}
-              value={value.quantity ?? 1}
-              onChange={(e) =>
-                onChange({
-                  owned: true,
-                  quantity: Math.max(1, Number(e.target.value) || 1),
-                })
-              }
-              className="focus:border-wc-gold focus:ring-wc-gold w-16 rounded-xl border border-gray-200 bg-gray-50 px-2 py-1 text-center text-sm font-semibold text-gray-800 transition outline-none focus:bg-white focus:ring-1"
-            />
+            <div className="flex items-center gap-1 rounded-xl border border-gray-200 bg-gray-50 p-1 shadow-xs">
+              <button
+                type="button"
+                onClick={() => handleQuantityChange(currentQuantity - 1)}
+                disabled={currentQuantity <= 1}
+                className="flex h-7 w-7 items-center justify-center rounded-lg bg-white text-gray-600 shadow-sm transition-all hover:bg-gray-100 hover:text-gray-900 disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
+                aria-label="Decrease quantity"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </button>
+
+              <input
+                type="number"
+                min={1}
+                value={currentQuantity}
+                onChange={(e) => handleQuantityChange(Number(e.target.value))}
+                className="focus:text-wc-gold w-10 [appearance:textfield] bg-transparent text-center text-sm font-bold text-gray-800 outline-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+              />
+
+              <button
+                type="button"
+                onClick={() => handleQuantityChange(currentQuantity + 1)}
+                className="flex h-7 w-7 items-center justify-center rounded-lg bg-white text-gray-600 shadow-sm transition-all hover:bg-gray-100 hover:text-gray-900"
+                aria-label="Increase quantity"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </button>
+            </div>
           </div>
         )}
       </div>

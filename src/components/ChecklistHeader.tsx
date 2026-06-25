@@ -1,12 +1,16 @@
-import type { FifaCardsData } from "../types";
+import {
+  CHECKLIST_GROUPS,
+  type ChecklistGroup,
+  type FifaCardsData,
+} from "../types";
 
 type Props = {
   items: FifaCardsData;
   title: string;
   query: string;
   setQuery: (v: string) => void;
-  currentSection: "all" | "special" | "countries";
-  setCurrentSection: (v: "all" | "special" | "countries") => void;
+  currentSection: ChecklistGroup;
+  setCurrentSection: (value: ChecklistGroup) => void;
   canSwitch: boolean;
 };
 
@@ -38,17 +42,17 @@ export function ChecklistHeader({
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
         {canSwitch && (
           <div className="flex shrink-0 rounded-xl bg-black/40 p-1 ring-1 ring-white/10">
-            {(["all", "special", "countries"] as const).map((s) => (
+            {CHECKLIST_GROUPS.map((group) => (
               <button
-                key={s}
-                onClick={() => setCurrentSection(s)}
+                key={group}
+                onClick={() => setCurrentSection(group)}
                 className={`cursor-pointer rounded-lg px-5 py-2 text-xs font-bold tracking-widest uppercase transition-all duration-200 ${
-                  currentSection === s
+                  currentSection === group
                     ? "bg-wc-red text-white shadow-lg"
                     : "text-gray-400 hover:text-gray-200"
                 }`}
               >
-                {s}
+                {group}
               </button>
             ))}
           </div>

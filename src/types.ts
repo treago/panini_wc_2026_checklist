@@ -6,7 +6,7 @@
 export type Card = {
   id: number;
   name: string;
-  position: string;
+  position: CardPosition;
 };
 
 // ------------------------------------------------------------------
@@ -93,6 +93,25 @@ export type Country =
   | "Uruguay"
   | "Uzbekistan";
 
+export type CardPosition =
+  | "Golden Baller"
+  | "Fan Favourite"
+  | "Icon"
+  | "Team Crest"
+  | "Contender Match"
+  | "Midfielder"
+  | "Forward"
+  | "Defender"
+  | "Goalkeeper"
+  | "Top Keeper"
+  | "Defensive Rock"
+  | "Midfield Maestro"
+  | "Goal Machine"
+  | "Master Rookie"
+  | "Official Emblem"
+  | "Official Mascot"
+  | "Eternos 22";
+
 export type CountriesData = Record<Country, Card[]>;
 
 // ------------------------------------------------------------------
@@ -123,3 +142,12 @@ export type ChecklistProps = {
   title: string;
   data: FifaCardsData;
 };
+
+export const CHECKLIST_GROUPS = [
+  "all",
+  "grouped",
+  "special",
+  "countries",
+  "unowned",
+] as const;
+export type ChecklistGroup = (typeof CHECKLIST_GROUPS)[number];

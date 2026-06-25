@@ -1,5 +1,5 @@
-import { useCallback, useMemo, useState, useDeferredValue } from "react";
-import type { Card, CardValue, FifaCardsData } from "../types";
+import { useMemo, useState, useDeferredValue, useCallback } from "react";
+import type { Card, CardValue, ChecklistGroup, FifaCardsData } from "../types";
 import type { Collection } from "../hooks/useCollection";
 import { CardItem } from "./CardItem";
 import { GroupHeader } from "./GroupHeader";
@@ -8,7 +8,7 @@ import { ChecklistHeader } from "./ChecklistHeader";
 type Props = {
   title: string;
   items: FifaCardsData;
-  section?: "all" | "special" | "countries";
+  section?: ChecklistGroup;
   collection: Collection;
   updateCard: (id: number, value: CardValue) => void;
 };
@@ -29,18 +29,32 @@ export default function Checklist({
 }: Props) {
   const [query, setQuery] = useState("");
   const deferredQuery = useDeferredValue(query);
+
   const [currentSection, setCurrentSection] = useState(section);
 
-  // Build UI groups from the new { special, countries } structure
+  const toCode = useCallback((key: string) => {
+    const match = key.match(/\((.+?)\)/);
+    return match ? match[1] : key.slice(0, 3).toUpperCase();
+  }, []);
+
+  // Flat list for ALL
+  const allCards = useMemo<Card[]>(() => {
+    const map = new Map<number, Card>();
+
+    [
+      ...Object.values(items.special).flat(),
+      ...Object.values(items.countries).flat(),
+    ].forEach((card) => {
+      map.set(card.id, card);
+    });
+
+    return Array.from(map.values()).sort((a, b) => a.id - b.id);
+  }, [items]);
+
+  // Grouped data
   const groupedData = useMemo<Group[]>(() => {
     const groups: Group[] = [];
 
-    const toCode = (key: string) => {
-      const match = key.match(/\((.+?)\)/);
-      return match ? match[1] : key.slice(0, 3).toUpperCase();
-    };
-
-    // Special categories: "Golden Ballers", "Fan Favourites", etc.
     for (const [key, cards] of Object.entries(items.special)) {
       groups.push({
         label: key,
@@ -50,7 +64,6 @@ export default function Checklist({
       });
     }
 
-    // Country sections: "Algeria", "Argentina", etc.
     for (const [key, cards] of Object.entries(items.countries)) {
       groups.push({
         label: key,
@@ -61,42 +74,82 @@ export default function Checklist({
     }
 
     return groups;
-  }, [items]);
+  }, [items.countries, items.special, toCode]);
 
-  const handleUpdateCard = useCallback(
-    (id: number, value: CardValue) => updateCard(id, value),
-    [updateCard],
-  );
+  const formattedQuery = deferredQuery.toLowerCase().trim();
 
-  // Filter by search query (deferred so typing stays snappy)
+  // Search ALL
+  const filteredFlatCards = useMemo(() => {
+    if (!formattedQuery) return allCards;
+
+    return allCards.filter(
+      (card) =>
+        String(card.id).includes(formattedQuery) ||
+        card.name.toLowerCase().includes(formattedQuery) ||
+        card.position.toLowerCase().includes(formattedQuery),
+    );
+  }, [allCards, formattedQuery]);
+
+  // Search grouped
   const filteredGroups = useMemo<Group[]>(() => {
-    const q = deferredQuery.toLowerCase().trim();
-    if (!q) return groupedData;
+    if (!formattedQuery) return groupedData;
 
     return groupedData
       .map((group) => ({
         ...group,
         cards: group.cards.filter(
-          (c) =>
-            String(c.id).includes(q) ||
-            c.name.toLowerCase().includes(q) ||
-            c.position.toLowerCase().includes(q),
+          (card) =>
+            String(card.id).includes(formattedQuery) ||
+            card.name.toLowerCase().includes(formattedQuery) ||
+            card.position.toLowerCase().includes(formattedQuery),
         ),
       }))
       .filter((group) => group.cards.length > 0);
-  }, [groupedData, deferredQuery]);
+  }, [groupedData, formattedQuery]);
 
-  // Filter by active sub-tab
-  const displayedGroups = useMemo<Group[]>(() => {
-    if (currentSection === "all") return filteredGroups;
-    return filteredGroups.filter((g) => g.type === currentSection);
-  }, [filteredGroups, currentSection]);
+  // Unowned
+  const unownedCards = useMemo(() => {
+    const seen = new Set<number>();
+
+    return filteredFlatCards.filter((card) => {
+      if (seen.has(card.id)) {
+        return false;
+      }
+
+      seen.add(card.id);
+
+      const value = collection[String(card.id)];
+
+      return !value?.owned;
+    });
+  }, [filteredFlatCards, collection]);
+
+  // Tabs
+  const displayedGroups = useMemo(() => {
+    if (currentSection === "grouped") {
+      return filteredGroups;
+    }
+
+    if (currentSection === "special") {
+      return filteredGroups.filter((group) => group.type === "special");
+    }
+
+    if (currentSection === "countries") {
+      return filteredGroups.filter((group) => group.type === "countries");
+    }
+
+    return [];
+  }, [currentSection, filteredGroups]);
+
+  const isFlatView = currentSection === "all" || currentSection === "unowned";
+
+  const cardsToShow =
+    currentSection === "unowned" ? unownedCards : filteredFlatCards;
 
   const canSwitch = section === "all" && groupedData.length > 0;
 
   return (
     <div className="space-y-16">
-      {/* Header */}
       <ChecklistHeader
         items={items}
         title={title}
@@ -107,37 +160,54 @@ export default function Checklist({
         canSwitch={canSwitch}
       />
 
-      {/* Groups */}
-      {displayedGroups.map(({ label, code, cards }) => (
-        <div key={label} className="scroll-mt-20">
-          <GroupHeader
-            label={label}
-            code={code}
-            cards={cards}
-            collection={collection}
-          />
+      {isFlatView ? (
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          {cardsToShow.map((card) => (
+            <CardItem
+              key={card.id}
+              card={card}
+              value={
+                collection[String(card.id)] ?? {
+                  owned: false,
+                  quantity: 1,
+                }
+              }
+              onChange={(v) => updateCard(card.id, v)}
+            />
+          ))}
+        </div>
+      ) : (
+        displayedGroups.map(({ label, code, cards }) => (
+          <div key={label} className="scroll-mt-20">
+            <GroupHeader
+              label={label}
+              code={code}
+              cards={cards}
+              collection={collection}
+            />
 
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-            {cards.map((card) => {
-              // Firestore stores map keys as strings
-              const value = collection[String(card.id)] ?? {
-                owned: false,
-                quantity: 1,
-              };
-              return (
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+              {cards.map((card) => (
                 <CardItem
                   key={card.id}
                   card={card}
-                  value={value}
-                  onChange={(v) => handleUpdateCard(card.id, v)}
+                  value={
+                    collection[String(card.id)] ?? {
+                      owned: false,
+                      quantity: 1,
+                    }
+                  }
+                  onChange={(v) => updateCard(card.id, v)}
                 />
-              );
-            })}
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      )}
 
-      {displayedGroups.length === 0 && (
+      {(isFlatView
+        ? cardsToShow.length === 0
+        : displayedGroups.length === 0) && (
         <div className="py-20 text-center text-xl text-gray-400">
           No cards found matching your search.
         </div>
