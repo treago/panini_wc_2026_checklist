@@ -9,7 +9,7 @@ export function AuthButton() {
     return (
       <button
         onClick={signIn}
-        className="flex items-center gap-2 rounded-2xl bg-white px-5 py-2.5 text-sm font-semibold text-gray-900 shadow transition hover:bg-gray-100 active:scale-95"
+        className="flex cursor-pointer items-center gap-2 rounded-2xl bg-white px-5 py-2.5 text-sm font-semibold text-gray-900 shadow transition hover:bg-gray-100 active:scale-95"
       >
         <GoogleIcon />
         Sign in to sync

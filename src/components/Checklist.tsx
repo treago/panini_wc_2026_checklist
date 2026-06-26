@@ -31,8 +31,9 @@ export default function Checklist({
 
   const [currentSection, setCurrentSection] = useState(section);
 
-  // New state for extracted IDs
+  // State for extracted IDs
   const [extractedIds, setExtractedIds] = useState<string>("");
+  const [showExtracted, setShowExtracted] = useState(true);
 
   const toCode = useCallback((key: string) => {
     const match = key.match(/\((.+?)\)/);
@@ -193,6 +194,7 @@ export default function Checklist({
     const idsString = currentCards.map((card) => card.id).join(", ");
 
     setExtractedIds(idsString);
+    setShowExtracted(true);
 
     try {
       await navigator.clipboard.writeText(idsString);
@@ -202,7 +204,7 @@ export default function Checklist({
   }, [currentCards]);
 
   return (
-    <div className="space-y-16">
+    <div className="space-y-10">
       <ChecklistHeader
         items={items}
         title={title}
@@ -213,7 +215,7 @@ export default function Checklist({
       />
 
       {/* Sticky Info Block */}
-      <div className="sticky top-4 z-50 flex max-h-[40vh] flex-col rounded-xl border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-900">
+      <div className="sticky top-4 z-50 flex max-h-[45vh] flex-col rounded-xl border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-900">
         <div className="flex shrink-0 flex-col justify-between gap-4 sm:flex-row sm:items-center">
           <div className="flex items-center gap-6 text-sm">
             <div>
@@ -257,13 +259,33 @@ export default function Checklist({
         </div>
 
         {extractedIds && (
-          <div className="mt-3 flex min-h-0 flex-1 flex-col border-t border-gray-200 pt-3 dark:border-gray-700">
-            <p className="mb-1 shrink-0 text-xs text-gray-500">
-              Extracted IDs (copied to clipboard):
-            </p>
-            <div className="flex-1 overflow-auto rounded-lg bg-gray-100 p-3 font-mono text-sm break-all dark:bg-gray-800">
-              {extractedIds}
-            </div>
+          <div className="mt-4 flex min-h-0 flex-1 flex-col border-t border-gray-200 pt-3 dark:border-gray-700">
+            <button
+              onClick={() => setShowExtracted(!showExtracted)}
+              className="group mb-2 flex w-full shrink-0 items-center justify-between text-left text-xs text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
+            >
+              <span>Extracted IDs (copied to clipboard)</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className={`h-4 w-4 transition-transform duration-200 ${showExtracted ? "rotate-180" : ""}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={3}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+
+            {showExtracted && (
+              <div className="flex-1 overflow-auto rounded-lg bg-gray-100 p-3 font-mono text-sm break-all dark:bg-gray-800">
+                {extractedIds}
+              </div>
+            )}
           </div>
         )}
       </div>
