@@ -1,4 +1,5 @@
 name: Build
+
 on:
   pull_request:
     branches:
@@ -46,6 +47,7 @@ jobs:
           VITE_FIREBASE_STORAGE_BUCKET: ${{ secrets.VITE_FIREBASE_STORAGE_BUCKET }}
           VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
           VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
+          VITE_RECAPTCHA_SITE_KEY: ${{ secrets.VITE_RECAPTCHA_SITE_KEY }}
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v7
@@ -54,17 +56,23 @@ jobs:
           path: ./dist
 
   deploy:
-    permissions:
-      contents: write
-
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
 
+    permissions:
+      contents: write
+
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Install Firebase CLI
+        run: pnpm install -g firebase-tools
+
       - name: Deploy Firestore rules
-        run: firebase deploy --only firestore:rules
+        run: firebase deploy --only firestore:rules --token "$FIREBASE_TOKEN" --non-interactive
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
