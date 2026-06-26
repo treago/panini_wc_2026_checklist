@@ -214,8 +214,7 @@ export default function Checklist({
         setCurrentSection={setCurrentSection}
       />
 
-      {/* Sticky Info Block */}
-      <div className="sticky top-4 z-50 flex max-h-[45vh] flex-col rounded-xl border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-900">
+      <div className="top-4 z-50 flex max-h-[45vh] flex-col rounded-xl border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-900">
         <div className="flex shrink-0 flex-col justify-between gap-4 sm:flex-row sm:items-center">
           <div className="flex items-center gap-6 text-sm">
             <div>
