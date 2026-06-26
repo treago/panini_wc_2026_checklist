@@ -76,40 +76,58 @@ export default function Checklist({
 
   const formattedQuery = deferredQuery.toLowerCase().trim();
 
-  // Search ALL
-  const filteredFlatCards = useMemo(() => {
-    if (!formattedQuery) return allCards;
+  // Parse ID array like "[25, 65, 84]" or "[25,65,84]"
+  const targetIds = useMemo<number[]>(() => {
+    const match = formattedQuery.match(/^\[([\d\s,]+)\]$/);
+    if (!match) return [];
 
-    return allCards.filter(
-      (card) =>
+    return match[1]
+      .split(",")
+      .map((n) => parseInt(n.trim(), 10))
+      .filter((n) => !isNaN(n));
+  }, [formattedQuery]);
+
+  const isIdArraySearch = targetIds.length > 0;
+
+  // Helper to check if a card matches the current search (text or ID array)
+  const cardMatchesSearch = useCallback(
+    (card: Card) => {
+      if (isIdArraySearch) {
+        return targetIds.includes(card.id);
+      }
+
+      if (!formattedQuery) return true;
+
+      return (
         String(card.id).includes(formattedQuery) ||
         card.name.toLowerCase().includes(formattedQuery) ||
-        card.position.toLowerCase().includes(formattedQuery),
-    );
-  }, [allCards, formattedQuery]);
+        card.position.toLowerCase().includes(formattedQuery)
+      );
+    },
+    [isIdArraySearch, targetIds, formattedQuery],
+  );
+
+  // Search ALL (flat)
+  const filteredFlatCards = useMemo(() => {
+    return allCards.filter(cardMatchesSearch);
+  }, [allCards, cardMatchesSearch]);
 
   // Search grouped
   const filteredGroups = useMemo<Group[]>(() => {
-    if (!formattedQuery) return groupedData;
+    if (!formattedQuery && !isIdArraySearch) return groupedData;
 
     return groupedData
       .map((group) => ({
         ...group,
-        cards: group.cards.filter(
-          (card) =>
-            String(card.id).includes(formattedQuery) ||
-            card.name.toLowerCase().includes(formattedQuery) ||
-            card.position.toLowerCase().includes(formattedQuery),
-        ),
+        cards: group.cards.filter(cardMatchesSearch),
       }))
       .filter((group) => group.cards.length > 0);
-  }, [groupedData, formattedQuery]);
+  }, [groupedData, cardMatchesSearch, formattedQuery, isIdArraySearch]);
 
   // Spare cards (quantity > 1) — for trading
   const spareCards = useMemo(() => {
     return filteredFlatCards.filter((card) => {
       const value = collection[String(card.id)];
-
       return value?.quantity && value.quantity > 1;
     });
   }, [filteredFlatCards, collection]);
@@ -120,11 +138,9 @@ export default function Checklist({
 
     return filteredFlatCards.filter((card) => {
       if (seen.has(card.id)) return false;
-
       seen.add(card.id);
 
       const value = collection[String(card.id)];
-
       return !value?.owned;
     });
   }, [filteredFlatCards, collection]);
@@ -137,9 +153,7 @@ export default function Checklist({
 
   const cardsToShow = useMemo(() => {
     if (currentSection === "unowned") return unownedCards;
-
     if (currentSection === "spare") return spareCards;
-
     return filteredFlatCards;
   }, [currentSection, unownedCards, spareCards, filteredFlatCards]);
 
