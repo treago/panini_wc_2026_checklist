@@ -63,6 +63,11 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
+      - name: Deploy Firestore rules
+        run: firebase deploy --only firestore:rules
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
       - name: Download workflow artifact
         uses: actions/download-artifact@v8
         with:

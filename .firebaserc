@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "panini-wc-2026-checklist"
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}

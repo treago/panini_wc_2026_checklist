@@ -8,7 +8,8 @@
     "lint:fix": "eslint ./src --fix",
     "format": "prettier ./src --write",
     "format:check": "prettier ./src --check",
-    "prepare": "husky"
+    "prepare": "husky",
+    "deploy:rules": "firebase deploy --only firestore:rules"
   },
   "dependencies": {
     "@vitejs/plugin-react": "6.0.3",
