@@ -3,12 +3,12 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // ─── User documents & all sub-collections ────────────────────────────────
+    // ─── User documents & all subcollections ────────────────────────────────
     match /users/{userId} {
       allow read, write: if request.auth != null
                          && request.auth.uid == userId;
 
-      // Checklist sub-collection — owns all sticker documents
+      // Checklist subcollection — owns all sticker documents
       match /checklist/{stickerId} {
         allow read: if request.auth != null
                     && request.auth.uid == userId;
@@ -25,8 +25,8 @@ service cloud.firestore {
                         ]);
       }
 
-      // Any other sub-collections under /users/{userId} — owner only
-      match /{sub-collection=**} {
+      // Any other subcollections under /users/{userId} — owner only
+      match /{subcollection=**} {
         allow read, write: if request.auth != null
                            && request.auth.uid == userId;
       }
