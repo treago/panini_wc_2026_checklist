@@ -5,10 +5,10 @@ type Props = {
   card: Card;
   value: CardValue;
   onChange: (v: CardValue) => void;
+  readOnly?: boolean;
 };
 
 const positionClassNames: Record<CardPosition, string> = {
-  // === GOLDEN / SPECIAL POSITIONS (Gold theme) ===
   "Golden Baller": "bg-wc-gold text-black shadow-md ring-1 ring-black/10",
   "Fan Favourite": "bg-wc-gold text-black shadow-md ring-1 ring-black/10",
   Icon: "bg-wc-gold text-black shadow-md ring-1 ring-black/10",
@@ -18,17 +18,12 @@ const positionClassNames: Record<CardPosition, string> = {
   "Official Emblem": "bg-wc-gold text-black shadow-md ring-1 ring-black/10",
   "Official Mascot": "bg-wc-gold text-black shadow-md ring-1 ring-black/10",
   "Eternos 22": "bg-wc-gold text-black shadow-md ring-1 ring-black/10",
-
-  // === MAIN POSITION CATEGORIES ===
   Goalkeeper: "bg-purple-700 text-white shadow-md ring-1 ring-black/10",
   "Top Keeper": "bg-purple-700 text-white shadow-md ring-1 ring-black/10",
-
   Defender: "bg-wc-red text-white shadow-md ring-1 ring-black/10",
   "Defensive Rock": "bg-wc-red text-white shadow-md ring-1 ring-black/10",
-
   Midfielder: "bg-orange-500 text-white shadow-md ring-1 ring-black/10",
   "Midfield Maestro": "bg-orange-500 text-white shadow-md ring-1 ring-black/10",
-
   Forward: "bg-wc-green text-white shadow-md ring-1 ring-black/10",
   "Goal Machine": "bg-wc-green text-white shadow-md ring-1 ring-black/10",
 } as const;
@@ -37,6 +32,7 @@ export const CardItem = memo(function CardItem({
   card,
   value,
   onChange,
+  readOnly = false,
 }: Props) {
   const isOwned = value.owned;
   const currentQuantity = value.quantity ?? 1;
@@ -47,7 +43,6 @@ export const CardItem = memo(function CardItem({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
@@ -57,33 +52,22 @@ export const CardItem = memo(function CardItem({
       },
       { rootMargin: "200px" },
     );
-
     observer.observe(el);
-
     return () => observer.disconnect();
   }, []);
 
   const toggleOwned = () => {
-    onChange({
-      owned: !isOwned,
-      quantity: currentQuantity,
-    });
+    if (readOnly) return;
+    onChange({ owned: !isOwned, quantity: currentQuantity });
   };
 
   const handleQuantityChange = (newQuantity: number) => {
+    if (readOnly) return;
     const quantity = Math.max(0, newQuantity || 0);
-
     if (quantity === 0) {
-      // Mark as unowned when quantity reaches 0
-      onChange({
-        owned: false,
-        quantity: 0,
-      });
+      onChange({ owned: false, quantity: 0 });
     } else {
-      onChange({
-        owned: true,
-        quantity,
-      });
+      onChange({ owned: true, quantity });
     }
   };
 
@@ -91,20 +75,26 @@ export const CardItem = memo(function CardItem({
     <div
       ref={ref}
       data-card-id={card.id}
-      onClick={toggleOwned}
-      className={`group relative flex aspect-255/340 cursor-pointer flex-col overflow-hidden rounded-3xl border-2 bg-white shadow-sm transition-all duration-300 ${
+      onClick={readOnly ? undefined : toggleOwned}
+      className={`group relative flex aspect-255/340 flex-col overflow-hidden rounded-3xl border-2 bg-white shadow-sm transition-all duration-300 ${
+        readOnly ? "cursor-default" : "cursor-pointer"
+      } ${
         isOwned
           ? "border-wc-green ring-wc-green/30 ring-1"
-          : "hover:border-wc-gold/60 border-gray-200"
+          : readOnly
+            ? "border-gray-200"
+            : "hover:border-wc-gold/60 border-gray-200"
       }`}
     >
-      {/* IMAGE SECTION */}
+      {/* Image section */}
       <div className="relative flex-1 overflow-hidden bg-linear-to-b from-white via-white to-gray-50">
         <div
           className={`h-full w-full p-4 transition-all duration-300 ${
             isOwned
               ? ""
-              : "group-hover:blur-0 opacity-70 blur-[2px] grayscale-60 group-hover:opacity-100 group-hover:grayscale-0"
+              : readOnly
+                ? "opacity-60 grayscale-60"
+                : "group-hover:blur-0 opacity-70 blur-[2px] grayscale-60 group-hover:opacity-100 group-hover:grayscale-0"
           }`}
         >
           {isVisible && (
@@ -112,12 +102,14 @@ export const CardItem = memo(function CardItem({
               src={`${import.meta.env.BASE_URL}images/${card.id}.webp`}
               alt={card.name}
               loading="lazy"
-              className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-110"
+              className={`h-full w-full object-contain transition-transform duration-300 ${
+                readOnly ? "" : "group-hover:scale-110"
+              }`}
             />
           )}
         </div>
 
-        {/* POSITION BADGE */}
+        {/* Position badge */}
         <div
           className={`absolute top-4 right-4 rounded-xl bg-black/80 px-3 py-1 text-xs font-bold tracking-wide ${
             positionClassNames[card.position]
@@ -126,15 +118,15 @@ export const CardItem = memo(function CardItem({
           {card.position}
         </div>
 
-        {/* OWNED BADGE */}
+        {/* Owned badge */}
         {isOwned && (
           <div className="bg-wc-green absolute top-4 left-4 rounded-xl px-3 py-1 text-xs font-bold text-white shadow-md ring-1 ring-black/10">
             ✓ OWNED
           </div>
         )}
 
-        {/* UNOPENED OVERLAY */}
-        {!isOwned && (
+        {/* Unopened overlay — only in editable mode */}
+        {!isOwned && !readOnly && (
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="rounded-2xl bg-black/40 px-4 py-2 text-xs font-bold tracking-widest text-white backdrop-blur-md">
               UNOPENED
@@ -145,7 +137,7 @@ export const CardItem = memo(function CardItem({
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(var(--color-wc-gold)_0.6px,transparent_1px)] opacity-[0.04]" />
       </div>
 
-      {/* FOOTER */}
+      {/* Footer */}
       <div className="border-t border-gray-100 bg-white p-4">
         <div className="flex items-start justify-between gap-3">
           <div>
@@ -158,8 +150,8 @@ export const CardItem = memo(function CardItem({
           </div>
         </div>
 
-        {/* QUANTITY SELECTOR */}
-        {isOwned && (
+        {/* Quantity selector — only when owned and not read-only */}
+        {isOwned && !readOnly && (
           <div
             className="mt-1 flex items-center justify-between"
             onClick={(e) => e.stopPropagation()}
@@ -187,7 +179,7 @@ export const CardItem = memo(function CardItem({
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <line x1="5" y1="12" x2="19" y2="12" />
                 </svg>
               </button>
 
@@ -216,8 +208,8 @@ export const CardItem = memo(function CardItem({
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <line x1="12" y1="5" x2="12" y2="19"></line>
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
                 </svg>
               </button>
             </div>

@@ -1,97 +1,127 @@
 import { useCallback, useEffect, useState } from "react";
-import { doc, onSnapshot, setDoc, updateDoc } from "firebase/firestore";
+import { doc, onSnapshot, updateDoc, setDoc } from "firebase/firestore";
 import { db } from "../lib/firebase";
 import type { CardValue } from "../types";
 
-const LS_KEY = "fifaChecklists";
-
-// Firestore stores map keys as strings; card IDs are numbers.
-// JavaScript coerces numeric property access on string-keyed objects,
-// so Record<string, CardValue> works with collection[card.id] at runtime.
 export type Collection = Record<string, CardValue>;
 
-function loadLS(): Collection {
-  try {
-    const raw = localStorage.getItem(LS_KEY);
-    return raw ? JSON.parse(raw) : {};
-  } catch {
-    return {};
-  }
-}
+export function useCollection(
+  collectionId: string | null,
+  userId: string | null,
+  readOnly = false,
+) {
+  // Initialize loading/syncing true only when we actually have an ID to fetch.
+  const [collection, setCollection] = useState<Collection>({});
+  const [loading, setLoading] = useState(!!collectionId);
+  const [syncing, setSyncing] = useState(!!collectionId);
+  const [notFound, setNotFound] = useState(false);
+  const [accessDenied, setAccessDenied] = useState(false);
+  const [collectionName, setCollectionName] = useState("");
+  const [ownerName, setOwnerName] = useState<string | undefined>(undefined);
+  const [shareEnabled, setShareEnabled] = useState(false);
+  const [ownerId, setOwnerId] = useState<string | null>(null);
 
-function saveLS(data: Collection) {
-  try {
-    localStorage.setItem(LS_KEY, JSON.stringify(data));
-  } catch (e) {
-    console.error("localStorage write failed", e);
+  // Adjust state during render when collectionId changes — the React-recommended
+  // pattern for prop-driven state resets. All setState calls here are in the
+  // render body (not inside an effect), which is intentional and correct.
+  // https://react.dev/learn/you-might-not-need-an-effect#adjusting-some-state-when-a-prop-changes
+  const [prevCollectionId, setPrevCollectionId] = useState(collectionId);
+  if (collectionId !== prevCollectionId) {
+    setPrevCollectionId(collectionId);
+    if (!collectionId) {
+      setCollection({});
+      setLoading(false);
+      setSyncing(false);
+      setNotFound(false);
+      setAccessDenied(false);
+      setCollectionName("");
+      setOwnerName(undefined);
+      setShareEnabled(false);
+      setOwnerId(null);
+    } else {
+      // New collectionId — mark as loading/syncing immediately in render
+      // so there's never a flash of stale data.
+      setLoading(true);
+      setSyncing(true);
+    }
   }
-}
-
-export function useCollection(userId: string | null) {
-  const [collection, setCollection] = useState<Collection>(loadLS);
-  const [syncing, setSyncing] = useState(false);
 
   useEffect(() => {
-    if (!userId) {
-      // Not logged in — restore from localStorage
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setCollection(loadLS());
+    if (!collectionId) {
+      // All state already reset in the render phase above.
       return;
     }
 
-    setSyncing(true);
-    const docRef = doc(db, "users", userId);
+    // No setState here — loading and syncing were already set to true
+    // during the render phase when collectionId changed, so calling them
+    // again here would be the synchronous-setState-in-effect anti-pattern.
+    const docRef = doc(db, "collections", collectionId);
 
     const unsubscribe = onSnapshot(
       docRef,
-      async (snap) => {
+      (snap) => {
+        // These are all inside an async callback — allowed by the rule.
         if (!snap.exists()) {
-          // First ever login — migrate whatever's in localStorage
-          const localData = loadLS();
-
-          await setDoc(docRef, { cards: localData });
-
-          setCollection(localData);
-        } else {
-          const cards = (snap.data()?.cards ?? {}) as Collection;
-
-          setCollection(cards);
+          setNotFound(true);
+          setLoading(false);
+          setSyncing(false);
+          return;
         }
+
+        const d = snap.data();
+        setNotFound(false);
+        setAccessDenied(false);
+        setCollection((d?.cards ?? {}) as Collection);
+        setCollectionName(d?.name ?? "Untitled");
+        setOwnerName(d?.ownerName);
+        setShareEnabled(d?.shareEnabled ?? false);
+        setOwnerId(d?.ownerId ?? null);
+        setLoading(false);
         setSyncing(false);
       },
       (err) => {
         console.error("Firestore onSnapshot error", err);
+        if ((err as { code?: string }).code === "permission-denied") {
+          setAccessDenied(true);
+        } else {
+          setNotFound(true);
+        }
+        setLoading(false);
         setSyncing(false);
       },
     );
 
     return unsubscribe;
-  }, [userId]);
+  }, [collectionId]);
 
+  // userId is included in deps directly — no ref needed.
+  // Firebase auth keeps uid stable for the lifetime of a session,
+  // so this doesn't cause extra re-subscriptions.
   const updateCard = useCallback(
     (id: number, value: CardValue) => {
+      if (readOnly || !collectionId || !userId) return;
+
       const key = String(id);
+      setCollection((prev) => ({ ...prev, [key]: value }));
 
-      // Optimistic local update
-      setCollection((prev) => {
-        const next = { ...prev, [key]: value };
-
-        saveLS(next);
-
-        return next;
+      const docRef = doc(db, "collections", collectionId);
+      updateDoc(docRef, { [`cards.${key}`]: value }).catch(() => {
+        setDoc(docRef, { cards: { [key]: value } }, { merge: true });
       });
-
-      if (userId) {
-        const docRef = doc(db, "users", userId);
-        // updateDoc writes only this one field — efficient and atomic
-        updateDoc(docRef, { [`cards.${key}`]: value }).catch(() => {
-          // Document doesn't exist yet (race on first login) — create it
-          setDoc(docRef, { cards: { [key]: value } }, { merge: true });
-        });
-      }
     },
-    [userId],
+    [collectionId, userId, readOnly],
   );
 
-  return { collection, updateCard, syncing };
+  return {
+    collection,
+    updateCard,
+    loading,
+    syncing,
+    notFound,
+    accessDenied,
+    collectionName,
+    ownerName,
+    shareEnabled,
+    ownerId,
+  };
 }

@@ -11,6 +11,7 @@ type Props = {
   section?: ChecklistGroup;
   collection: Collection;
   updateCard: (id: number, value: CardValue) => void;
+  readOnly?: boolean;
 };
 
 type Group = {
@@ -25,13 +26,11 @@ export default function Checklist({
   section = "all",
   collection,
   updateCard,
+  readOnly = false,
 }: Props) {
   const [query, setQuery] = useState("");
   const deferredQuery = useDeferredValue(query);
-
   const [currentSection, setCurrentSection] = useState(section);
-
-  // State for extracted IDs
   const [extractedIds, setExtractedIds] = useState<string>("");
   const [showExtracted, setShowExtracted] = useState(true);
 
@@ -40,51 +39,33 @@ export default function Checklist({
     return match ? match[1] : key.slice(0, 3).toUpperCase();
   }, []);
 
-  // Flat list for ALL / UNOWNED / SPARE — used as source of truth for global stats
   const allCards = useMemo<Card[]>(() => {
     const map = new Map<number, Card>();
-
     [
       ...Object.values(items.special || {}),
       ...Object.values(items.countries || {}),
     ]
       .flat()
-      .forEach((card) => {
-        map.set(card.id, card);
-      });
-
+      .forEach((card) => map.set(card.id, card));
     return Array.from(map.values()).sort((a, b) => a.id - b.id);
   }, [items]);
 
   const groupedData = useMemo<Group[]>(() => {
     const groups: Group[] = [];
-
     for (const [key, cards] of Object.entries(items.special || {})) {
-      groups.push({
-        label: key,
-        code: toCode(key),
-        cards: [...cards],
-      });
+      groups.push({ label: key, code: toCode(key), cards: [...cards] });
     }
-
     for (const [key, cards] of Object.entries(items.countries || {})) {
-      groups.push({
-        label: key,
-        code: toCode(key),
-        cards: [...cards],
-      });
+      groups.push({ label: key, code: toCode(key), cards: [...cards] });
     }
-
     return groups;
   }, [items, toCode]);
 
   const formattedQuery = deferredQuery.toLowerCase().trim();
 
-  // Parse ID array like "25, 65, 84" or "25,65,84"
   const targetIds = useMemo<number[]>(() => {
     const match = formattedQuery.match(/^([\d\s,]+)$/);
     if (!match) return [];
-
     return match[1]
       .split(",")
       .map((n) => parseInt(n.trim(), 10))
@@ -95,12 +76,8 @@ export default function Checklist({
 
   const cardMatchesSearch = useCallback(
     (card: Card) => {
-      if (isIdArraySearch) {
-        return targetIds.includes(card.id);
-      }
-
+      if (isIdArraySearch) return targetIds.includes(card.id);
       if (!formattedQuery) return true;
-
       return (
         String(card.id).includes(formattedQuery) ||
         card.name.toLowerCase().includes(formattedQuery) ||
@@ -110,13 +87,13 @@ export default function Checklist({
     [isIdArraySearch, targetIds, formattedQuery],
   );
 
-  const filteredFlatCards = useMemo(() => {
-    return allCards.filter(cardMatchesSearch);
-  }, [allCards, cardMatchesSearch]);
+  const filteredFlatCards = useMemo(
+    () => allCards.filter(cardMatchesSearch),
+    [allCards, cardMatchesSearch],
+  );
 
   const filteredGroups = useMemo<Group[]>(() => {
     if (!formattedQuery && !isIdArraySearch) return groupedData;
-
     return groupedData
       .map((group) => ({
         ...group,
@@ -125,21 +102,21 @@ export default function Checklist({
       .filter((group) => group.cards.length > 0);
   }, [groupedData, cardMatchesSearch, formattedQuery, isIdArraySearch]);
 
-  // Flat view specific
-  const spareCards = useMemo(() => {
-    return filteredFlatCards.filter((card) => {
-      const value = collection[String(card.id)];
-      return value?.quantity && value.quantity > 1;
-    });
-  }, [filteredFlatCards, collection]);
+  const spareCards = useMemo(
+    () =>
+      filteredFlatCards.filter((card) => {
+        const value = collection[String(card.id)];
+        return value?.quantity && value.quantity > 1;
+      }),
+    [filteredFlatCards, collection],
+  );
 
   const unownedCards = useMemo(() => {
     const seen = new Set<number>();
     return filteredFlatCards.filter((card) => {
       if (seen.has(card.id)) return false;
       seen.add(card.id);
-      const value = collection[String(card.id)];
-      return !value?.owned;
+      return !collection[String(card.id)]?.owned;
     });
   }, [filteredFlatCards, collection]);
 
@@ -149,53 +126,38 @@ export default function Checklist({
     return filteredFlatCards;
   }, [currentSection, unownedCards, spareCards, filteredFlatCards]);
 
-  const displayedGroups = useMemo(() => {
-    if (currentSection === "grouped") {
-      return filteredGroups;
-    }
-    return [];
-  }, [currentSection, filteredGroups]);
+  const displayedGroups = useMemo(
+    () => (currentSection === "grouped" ? filteredGroups : []),
+    [currentSection, filteredGroups],
+  );
 
-  // Current displayed cards (for copy button) — deduplicated
   const currentCards = useMemo<Card[]>(() => {
-    let cards: Card[];
-
-    if (
+    const cards =
       currentSection === "all" ||
       currentSection === "unowned" ||
       currentSection === "spare"
-    ) {
-      cards = cardsToShow;
-    } else {
-      cards = displayedGroups.flatMap((g) => g.cards);
-    }
-
+        ? cardsToShow
+        : displayedGroups.flatMap((g) => g.cards);
     const uniqueMap = new Map<number, Card>();
-    for (const card of cards) {
-      uniqueMap.set(card.id, card);
-    }
+    for (const card of cards) uniqueMap.set(card.id, card);
     return Array.from(uniqueMap.values());
   }, [currentSection, cardsToShow, displayedGroups]);
 
-  // === GLOBAL COLLECTION STATS (independent of search/tab) ===
   const totalCards = allCards.length;
 
-  const ownedCountGlobal = useMemo(() => {
-    return allCards.filter((card) => collection[String(card.id)]?.owned).length;
-  }, [allCards, collection]);
+  const ownedCountGlobal = useMemo(
+    () => allCards.filter((card) => collection[String(card.id)]?.owned).length,
+    [allCards, collection],
+  );
 
   const progressPercentage =
     totalCards > 0 ? Math.round((ownedCountGlobal / totalCards) * 100) : 0;
 
-  // Extract & Copy IDs
   const extractAndCopyIds = useCallback(async () => {
     if (currentCards.length === 0) return;
-
     const idsString = currentCards.map((card) => card.id).join(", ");
-
     setExtractedIds(idsString);
     setShowExtracted(true);
-
     try {
       await navigator.clipboard.writeText(idsString);
     } catch (err) {
@@ -214,6 +176,7 @@ export default function Checklist({
         setCurrentSection={setCurrentSection}
       />
 
+      {/* Stats + progress */}
       <div className="top-4 z-50 flex max-h-[45vh] flex-col rounded-xl border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-900">
         <div className="flex shrink-0 flex-col justify-between gap-4 sm:flex-row sm:items-center">
           <div className="flex items-center gap-6 text-sm">
@@ -241,7 +204,7 @@ export default function Checklist({
           </button>
         </div>
 
-        {/* Progress Bar */}
+        {/* Progress bar */}
         <div className="mt-4 shrink-0">
           <div className="mb-1 flex justify-between text-xs text-gray-500">
             <span>Collection Progress</span>
@@ -257,6 +220,7 @@ export default function Checklist({
           </div>
         </div>
 
+        {/* Extracted IDs */}
         {extractedIds && (
           <div className="mt-4 flex min-h-0 flex-1 flex-col border-t border-gray-200 pt-3 dark:border-gray-700">
             <button
@@ -279,7 +243,6 @@ export default function Checklist({
                 />
               </svg>
             </button>
-
             {showExtracted && (
               <div className="flex-1 overflow-auto rounded-lg bg-gray-100 p-3 font-mono text-sm break-all dark:bg-gray-800">
                 {extractedIds}
@@ -289,22 +252,20 @@ export default function Checklist({
         )}
       </div>
 
-      {/* Main Content */}
+      {/* Card grid */}
       {currentSection === "all" ||
       currentSection === "unowned" ||
       currentSection === "spare" ? (
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {cardsToShow.map((card) => (
             <CardItem
               key={card.id}
               card={card}
               value={
-                collection[String(card.id)] ?? {
-                  owned: false,
-                  quantity: 1,
-                }
+                collection[String(card.id)] ?? { owned: false, quantity: 1 }
               }
               onChange={(v) => updateCard(card.id, v)}
+              readOnly={readOnly}
             />
           ))}
         </div>
@@ -317,8 +278,7 @@ export default function Checklist({
               cards={cards}
               collection={collection}
             />
-
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-4">
               {cards.map((card) => (
                 <CardItem
                   key={card.id}
@@ -330,6 +290,7 @@ export default function Checklist({
                     }
                   }
                   onChange={(v) => updateCard(card.id, v)}
+                  readOnly={readOnly}
                 />
               ))}
             </div>
