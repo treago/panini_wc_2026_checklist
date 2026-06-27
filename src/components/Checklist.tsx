@@ -14,11 +14,7 @@ type Props = {
   readOnly?: boolean;
 };
 
-type Group = {
-  label: string;
-  code: string;
-  cards: Card[];
-};
+type Group = { label: string; code: string; cards: Card[] };
 
 export default function Checklist({
   title,
@@ -30,9 +26,16 @@ export default function Checklist({
 }: Props) {
   const [query, setQuery] = useState("");
   const deferredQuery = useDeferredValue(query);
-  const [currentSection, setCurrentSection] = useState(section);
-  const [extractedIds, setExtractedIds] = useState<string>("");
-  const [showExtracted, setShowExtracted] = useState(true);
+  const [currentSection, setCurrentSectionInternal] = useState(section);
+
+  const setCurrentSection = useCallback((newSection: ChecklistGroup) => {
+    setCurrentSectionInternal(newSection);
+    // Reset search on tab change
+    setQuery("");
+  }, []);
+
+  const [editMode, setEditMode] = useState(false);
+  const [showCopied, setShowCopied] = useState(false);
 
   const toCode = useCallback((key: string) => {
     const match = key.match(/\((.+?)\)/);
@@ -105,8 +108,8 @@ export default function Checklist({
   const spareCards = useMemo(
     () =>
       filteredFlatCards.filter((card) => {
-        const value = collection[String(card.id)];
-        return value?.quantity && value.quantity > 1;
+        const v = collection[String(card.id)];
+        return v?.quantity && v.quantity > 1;
       }),
     [filteredFlatCards, collection],
   );
@@ -146,7 +149,7 @@ export default function Checklist({
   const totalCards = allCards.length;
 
   const ownedCountGlobal = useMemo(
-    () => allCards.filter((card) => collection[String(card.id)]?.owned).length,
+    () => allCards.filter((c) => collection[String(c.id)]?.owned).length,
     [allCards, collection],
   );
 
@@ -155,15 +158,31 @@ export default function Checklist({
 
   const extractAndCopyIds = useCallback(async () => {
     if (currentCards.length === 0) return;
-    const idsString = currentCards.map((card) => card.id).join(", ");
-    setExtractedIds(idsString);
-    setShowExtracted(true);
+    const idsString = currentCards.map((c) => c.id).join(", ");
     try {
       await navigator.clipboard.writeText(idsString);
+      setShowCopied(true);
+      // Auto-hide after 3 seconds
+      setTimeout(() => setShowCopied(false), 3000);
     } catch (err) {
       console.error("Failed to copy to clipboard", err);
     }
   }, [currentCards]);
+
+  // Shared renderer so both flat and grouped views use identical CardItem props
+  const renderCard = useCallback(
+    (card: Card) => (
+      <CardItem
+        key={card.id}
+        card={card}
+        value={collection[String(card.id)] ?? { owned: false, quantity: 1 }}
+        onChange={(v) => updateCard(card.id, v)}
+        readOnly={readOnly}
+        editMode={editMode}
+      />
+    ),
+    [collection, updateCard, readOnly, editMode],
+  );
 
   return (
     <div className="space-y-10">
@@ -176,10 +195,11 @@ export default function Checklist({
         setCurrentSection={setCurrentSection}
       />
 
-      {/* Stats + progress */}
+      {/* ── STATS + CONTROLS PANEL ──────────────────────────────────────── */}
       <div className="top-4 z-50 flex max-h-[45vh] flex-col rounded-xl border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-900">
-        <div className="flex shrink-0 flex-col justify-between gap-4 sm:flex-row sm:items-center">
-          <div className="flex items-center gap-6 text-sm">
+        {/* Row: counts + action buttons */}
+        <div className="flex shrink-0 flex-col justify-between gap-3 sm:flex-row sm:items-center">
+          <div className="flex items-center gap-5 text-sm">
             <div>
               <span className="text-gray-500">Owned:</span>{" "}
               <span className="font-semibold text-green-600">
@@ -188,24 +208,85 @@ export default function Checklist({
               <span className="text-gray-400"> / {totalCards}</span>
             </div>
             <div>
-              <span className="text-gray-500">Unowned:</span>{" "}
-              <span className="font-semibold text-red-600">
+              <span className="text-gray-500">Missing:</span>{" "}
+              <span className="font-semibold text-red-500">
                 {totalCards - ownedCountGlobal}
               </span>
             </div>
           </div>
 
-          <button
-            onClick={extractAndCopyIds}
-            disabled={currentCards.length === 0}
-            className="flex cursor-pointer items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium whitespace-nowrap text-white transition-colors hover:bg-blue-700 disabled:bg-gray-400"
-          >
-            📋 Copy current IDs
-          </button>
+          <div className="flex shrink-0 items-center gap-2">
+            {/* Edit mode toggle — hidden for read-only shared views */}
+            {!readOnly && (
+              <button
+                onClick={() => setEditMode((v) => !v)}
+                className={[
+                  "flex cursor-pointer items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-semibold transition-colors",
+                  editMode
+                    ? "bg-emerald-600 text-white hover:bg-emerald-700"
+                    : "bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700",
+                ].join(" ")}
+              >
+                {editMode ? (
+                  <>
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                    >
+                      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                      <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4z" />
+                    </svg>
+                    Editing
+                  </>
+                ) : (
+                  <>
+                    <svg
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                    >
+                      <rect x="3" y="11" width="18" height="11" rx="2" />
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg>
+                    Locked
+                  </>
+                )}
+              </button>
+            )}
+
+            <button
+              onClick={extractAndCopyIds}
+              disabled={currentCards.length === 0}
+              className="flex cursor-pointer items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-2 text-sm font-medium whitespace-nowrap text-white transition-colors hover:bg-blue-700 disabled:opacity-40"
+            >
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              >
+                <rect x="9" y="9" width="13" height="13" rx="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+              Copy IDs
+            </button>
+          </div>
         </div>
 
         {/* Progress bar */}
-        <div className="mt-4 shrink-0">
+        <div className="mt-3 shrink-0">
           <div className="mb-1 flex justify-between text-xs text-gray-500">
             <span>Collection Progress</span>
             <span className="font-medium text-gray-700 dark:text-gray-300">
@@ -220,54 +301,27 @@ export default function Checklist({
           </div>
         </div>
 
-        {/* Extracted IDs */}
-        {extractedIds && (
-          <div className="mt-4 flex min-h-0 flex-1 flex-col border-t border-gray-200 pt-3 dark:border-gray-700">
-            <button
-              onClick={() => setShowExtracted(!showExtracted)}
-              className="group mb-2 flex w-full shrink-0 items-center justify-between text-left text-xs text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
-            >
-              <span>Extracted IDs (copied to clipboard)</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className={`h-4 w-4 transition-transform duration-200 ${showExtracted ? "rotate-180" : ""}`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={3}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-            {showExtracted && (
-              <div className="flex-1 overflow-auto rounded-lg bg-gray-100 p-3 font-mono text-sm break-all dark:bg-gray-800">
-                {extractedIds}
-              </div>
-            )}
+        {/* Edit mode hint banner */}
+        {editMode && !readOnly && (
+          <div className="mt-3 shrink-0 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs font-medium text-emerald-700 dark:border-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">
+            ✏️ Editing active — tap any card to mark it as owned
+          </div>
+        )}
+
+        {/* Copied message */}
+        {showCopied && (
+          <div className="mt-3 shrink-0 rounded-lg border border-blue-200 bg-blue-50 px-3 py-2 text-xs font-medium text-blue-700 dark:border-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
+            📋 IDs copied to clipboard!
           </div>
         )}
       </div>
 
-      {/* Card grid */}
+      {/* ── CARD GRID ───────────────────────────────────────────────────── */}
       {currentSection === "all" ||
       currentSection === "unowned" ||
       currentSection === "spare" ? (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {cardsToShow.map((card) => (
-            <CardItem
-              key={card.id}
-              card={card}
-              value={
-                collection[String(card.id)] ?? { owned: false, quantity: 1 }
-              }
-              onChange={(v) => updateCard(card.id, v)}
-              readOnly={readOnly}
-            />
-          ))}
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          {cardsToShow.map(renderCard)}
         </div>
       ) : (
         displayedGroups.map(({ label, code, cards }) => (
@@ -278,21 +332,8 @@ export default function Checklist({
               cards={cards}
               collection={collection}
             />
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-              {cards.map((card) => (
-                <CardItem
-                  key={card.id}
-                  card={card}
-                  value={
-                    collection[String(card.id)] ?? {
-                      owned: false,
-                      quantity: 1,
-                    }
-                  }
-                  onChange={(v) => updateCard(card.id, v)}
-                  readOnly={readOnly}
-                />
-              ))}
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              {cards.map(renderCard)}
             </div>
           </div>
         ))
