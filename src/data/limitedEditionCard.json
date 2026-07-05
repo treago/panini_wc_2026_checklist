@@ -1,0 +1,773 @@
+{
+  "meta": {
+    "title": "FIFA World Cup 2026 Adrenalyn XL Limited Edition Cards",
+    "publisher": "Panini",
+    "total_cards": 108
+  },
+  "data": {
+    "Limited Edition Hologram": [
+      {
+        "id": 1,
+        "name": "LAMINE YAMAL",
+        "position": "Forward",
+        "country": "ES",
+        "image": "71dadd04-8978-4014-85bf-b24cc8306ba0.webp"
+      },
+      {
+        "id": 2,
+        "name": "RAPHINHA",
+        "position": "Forward",
+        "country": "BR",
+        "image": "6cae020a-6f7f-4ba6-8099-03019466a2e6.webp"
+      },
+      {
+        "id": 3,
+        "name": "JULIÁN ÁLVAREZ",
+        "position": "Forward",
+        "country": "AR",
+        "image": "6eed71ee-0451-4233-80ec-dc9ac375831a.webp"
+      },
+      {
+        "id": 4,
+        "name": "CRISTIANO RONALDO",
+        "position": "Forward",
+        "country": "PT",
+        "image": "17ffa207-91bf-48ad-b521-338f6d865644.webp"
+      }
+    ],
+    "Limited Edition": [
+      {
+        "id": 1,
+        "name": "Lionel Messi",
+        "position": "Forward",
+        "country": "AR",
+        "image": "0efec4b7-9ebd-408d-9cb1-7d5cb31d84e3.webp"
+      },
+      {
+        "id": 2,
+        "name": "Julián Álvarez",
+        "position": "Forward",
+        "country": "AR",
+        "image": "7a261133-2344-474a-a90b-eee88b1ce0f5.webp"
+      },
+      {
+        "id": 3,
+        "name": "Kevin De Bruyne",
+        "position": "Midfielder",
+        "country": "BE",
+        "image": "f4d0b0f1-2d19-41ba-a326-5329abfe35ae.webp"
+      },
+      {
+        "id": 4,
+        "name": "Vinícius Júnior",
+        "position": "Forward",
+        "country": "BR",
+        "image": "a51f9220-b4d2-443e-8296-26425a5b8801.webp"
+      },
+      {
+        "id": 5,
+        "name": "Luka Modrić",
+        "position": "Midfielder",
+        "country": "HR",
+        "image": "273785e8-d24d-4cc5-b88c-9c4a39d22a58.webp"
+      },
+      {
+        "id": 6,
+        "name": "Moisés Caicedo",
+        "position": "Midfielder",
+        "country": "EC",
+        "image": "f46614b7-5e0e-43a1-b253-777d9303689e.webp"
+      },
+      {
+        "id": 7,
+        "name": "Mohamed Salah",
+        "position": "Forward",
+        "country": "EG",
+        "image": "3aa4f9ed-28fb-413a-87ed-c45ecfc3f7af.webp"
+      },
+      {
+        "id": 8,
+        "name": "Cole Palmer",
+        "position": "Midfielder",
+        "country": "GB",
+        "image": "0dba104b-3b9e-43ff-ad64-f3fff5513a2d.webp"
+      },
+      {
+        "id": 9,
+        "name": "Harry Kane",
+        "position": "Forward",
+        "country": "GB",
+        "image": "8011d017-af14-4aef-9cc6-70b4d2687cec.webp"
+      },
+      {
+        "id": 10,
+        "name": "Kylian Mbappé",
+        "position": "Forward",
+        "country": "FR",
+        "image": "999f64f9-5513-47b1-98c5-a91a5250162c.webp"
+      },
+      {
+        "id": 11,
+        "name": "Ousmane Dembélé",
+        "position": "Forward",
+        "country": "FR",
+        "image": "5cb367b5-54bb-4284-92ce-ea86babaae76.webp"
+      },
+      {
+        "id": 12,
+        "name": "Florian Wirtz",
+        "position": "Midfielder",
+        "country": "DE",
+        "image": "7ebbcfa2-86b5-428b-821b-e648a7b2963d.webp"
+      },
+      {
+        "id": 13,
+        "name": "Heung-min Son",
+        "position": "Forward",
+        "country": "KR",
+        "image": "078efb89-44b7-4fb1-953b-229dc59a9b6b.webp"
+      },
+      {
+        "id": 14,
+        "name": "Achraf Hakimi",
+        "position": "Defender",
+        "country": "MA",
+        "image": "594b26bc-5fc3-4b84-ad5e-1311e6438790.webp"
+      },
+      {
+        "id": 15,
+        "name": "Tijjani Reijnders",
+        "position": "Midfielder",
+        "country": "NL",
+        "image": "888e70e6-a227-4488-aeb4-46000582a112.webp"
+      },
+      {
+        "id": 16,
+        "name": "Erling Haaland",
+        "position": "Forward",
+        "country": "NO",
+        "image": "5efb20fa-01eb-43a3-918c-92d57e66b6a7.webp"
+      },
+      {
+        "id": 17,
+        "name": "Rafael Leão",
+        "position": "Forward",
+        "country": "PT",
+        "image": "7a0b0dbc-f32f-4f56-a584-c37a322eee3b.webp"
+      },
+      {
+        "id": 18,
+        "name": "Cristiano Ronaldo",
+        "position": "Forward",
+        "country": "PT",
+        "image": "29998c6b-9585-45cd-a030-ce9f119f5769.webp"
+      },
+      {
+        "id": 19,
+        "name": "Pedri",
+        "position": "Midfielder",
+        "country": "ES",
+        "image": "e0c36bdb-921a-4e8d-959d-6a49285489e9.webp"
+      },
+      {
+        "id": 20,
+        "name": "Lamine Yamal",
+        "position": "Forward",
+        "country": "ES",
+        "image": "473b1a0e-ded4-4a66-aaa9-95d9a2e7288f.webp"
+      },
+      {
+        "id": 21,
+        "name": "David Alaba",
+        "position": "Defender",
+        "country": "AT",
+        "image": "fb340379-1812-4808-b2bc-dc5c54b55d51.webp"
+      },
+      {
+        "id": 22,
+        "name": "Mathew Ryan",
+        "position": "Goalkeeper",
+        "country": "AU",
+        "image": "1de2b388-7f3d-4db5-812b-dcea1dc7a78a.webp"
+      },
+      {
+        "id": 23,
+        "name": "Thibaut Courtois",
+        "position": "Goalkeeper",
+        "country": "BE",
+        "image": "ca52bc19-6dd3-47f6-8d1c-d4a05e6c4ad3.webp"
+      },
+      {
+        "id": 24,
+        "name": "Raphinha",
+        "position": "Forward",
+        "country": "BR",
+        "image": "4e7a662d-fbdc-4ff3-a677-a171f704c2a5.webp"
+      },
+      {
+        "id": 25,
+        "name": "Rodrygo",
+        "position": "Forward",
+        "country": "BR",
+        "image": "3b8b3588-42ae-4147-8d2e-7db5580644fe.webp"
+      },
+      {
+        "id": 26,
+        "name": "Jonathan David",
+        "position": "Forward",
+        "country": "CA",
+        "image": "6d321d65-bf41-4fcd-a511-1164c521d110.webp"
+      },
+      {
+        "id": 27,
+        "name": "Scott McTominay",
+        "position": "Midfielder",
+        "country": "GB",
+        "image": "05a09550-8c95-4710-9659-b346cab3146c.webp"
+      },
+      {
+        "id": 28,
+        "name": "Omar Marmoush",
+        "position": "Forward",
+        "country": "EG",
+        "image": "0689bab1-1055-4320-961c-bee0fbc63091.webp"
+      },
+      {
+        "id": 29,
+        "name": "Eberechi Eze",
+        "position": "Midfielder",
+        "country": "GB",
+        "image": "4aca6d11-50dd-4f24-8bac-f431911eeca4.webp"
+      },
+      {
+        "id": 30,
+        "name": "Bukayo Saka",
+        "position": "Forward",
+        "country": "GB",
+        "image": "0e1f98b5-a2a7-437e-bb22-b0bbe2e8c9ea.webp"
+      },
+      {
+        "id": 31,
+        "name": "Michael Olise",
+        "position": "Forward",
+        "country": "FR",
+        "image": "b1bb4a20-cbe1-4b01-b408-d9bd7d383f73.webp"
+      },
+      {
+        "id": 32,
+        "name": "Joshua Kimmich",
+        "position": "Midfielder",
+        "country": "DE",
+        "image": "fcabeb70-7826-4ccc-a5cd-49daf0773e0f.webp"
+      },
+      {
+        "id": 33,
+        "name": "Brahim Díaz",
+        "position": "Midfielder",
+        "country": "MA",
+        "image": "5edd8a7c-4971-4962-8f47-d553d282fb8d.webp"
+      },
+      {
+        "id": 34,
+        "name": "Virgil van Dijk",
+        "position": "Defender",
+        "country": "NL",
+        "image": "c843ba93-51ee-4f95-aee0-16aee70d5719.webp"
+      },
+      {
+        "id": 35,
+        "name": "Martin Ødegaard",
+        "position": "Midfielder",
+        "country": "NO",
+        "image": "da924cb4-7ead-43e3-99a2-fe6c7f1434ae.webp"
+      },
+      {
+        "id": 36,
+        "name": "Vitinha",
+        "position": "Midfielder",
+        "country": "PT",
+        "image": "657e54d8-0d43-4595-a7d0-253c3282e413.webp"
+      },
+      {
+        "id": 37,
+        "name": "Granit Xhaka",
+        "position": "Midfielder",
+        "country": "CH",
+        "image": "5608fce4-827e-4345-87c8-ffadfe806b5b.webp"
+      },
+      {
+        "id": 38,
+        "name": "Rodri",
+        "position": "Midfielder",
+        "country": "ES",
+        "image": "9f906f1e-8d8b-4e45-a589-2990bb046223.webp"
+      },
+      {
+        "id": 39,
+        "name": "Weston McKennie",
+        "position": "Midfielder",
+        "country": "US",
+        "image": "3a61b58f-8b61-4324-949d-a958b66a891d.webp"
+      },
+      {
+        "id": 40,
+        "name": "Federico Valverde",
+        "position": "Midfielder",
+        "country": "UY",
+        "image": "76c8eee7-19b8-4a05-86f2-00cea7f3fab7.webp"
+      },
+      {
+        "id": 41,
+        "name": "Lautaro Martínez",
+        "position": "Forward",
+        "country": "AR",
+        "image": "67b51e61-dddb-4f40-91b1-481fbd526388.webp"
+      },
+      {
+        "id": 42,
+        "name": "Romelu Lukaku",
+        "position": "Forward",
+        "country": "BE",
+        "image": "d52b027e-c71d-47e5-8c56-76849a41e8b7.webp"
+      },
+      {
+        "id": 43,
+        "name": "Marquinhos",
+        "position": "Defender",
+        "country": "BR",
+        "image": "aad6147e-c832-4129-8925-73f75c736943.webp"
+      },
+      {
+        "id": 44,
+        "name": "Luis Díaz",
+        "position": "Forward",
+        "country": "CO",
+        "image": "1e27355d-e5d8-4d7b-8936-df126ba3162f.webp"
+      },
+      {
+        "id": 45,
+        "name": "Ryan Gravenberch",
+        "position": "Midfielder",
+        "country": "NL",
+        "image": "d6a4dc01-d917-4d32-92f8-e3be41fc751f.webp"
+      },
+      {
+        "id": 46,
+        "name": "Willian Pacho",
+        "position": "Defender",
+        "country": "EC",
+        "image": "a37f8285-3019-4b65-ad98-2161397bcce1.webp"
+      },
+      {
+        "id": 47,
+        "name": "Declan Rice",
+        "position": "Midfielder",
+        "country": "GB",
+        "image": "c276e59f-4af7-42b9-8298-5ab8835773db.webp"
+      },
+      {
+        "id": 48,
+        "name": "Jules Koundé",
+        "position": "Defender",
+        "country": "FR",
+        "image": "23f1a940-44ad-4163-ac74-a5167da99d82.webp"
+      },
+      {
+        "id": 49,
+        "name": "Marcus Thuram",
+        "position": "Forward",
+        "country": "FR",
+        "image": "d3d8de9d-0fc4-4676-8d4f-5de76ce12a9a.webp"
+      },
+      {
+        "id": 50,
+        "name": "Antonio Rüdiger",
+        "position": "Defender",
+        "country": "DE",
+        "image": "999e5bc0-d585-44b3-83ab-d4647cdbb3e0.webp"
+      },
+      {
+        "id": 51,
+        "name": "Kai Havertz",
+        "position": "Forward",
+        "country": "DE",
+        "image": "3c751d1b-1385-4919-bafe-52141ad0c797.webp"
+      },
+      {
+        "id": 52,
+        "name": "Minjae Kim",
+        "position": "Defender",
+        "country": "KR",
+        "image": "e3df1c91-acca-4201-9e39-f61600edd6fa.webp"
+      },
+      {
+        "id": 53,
+        "name": "Santiago Giménez",
+        "position": "Forward",
+        "country": "MX",
+        "image": "b12321f5-a121-44b8-93f9-6990ca0d398a.webp"
+      },
+      {
+        "id": 54,
+        "name": "Denzel Dumfries",
+        "position": "Defender",
+        "country": "NL",
+        "image": "ecde87e6-e7c6-4d13-9096-dc5da1a45a17.webp"
+      },
+      {
+        "id": 55,
+        "name": "Chris Wood",
+        "position": "Forward",
+        "country": "NZ",
+        "image": "aba55e5e-34c4-40aa-8cdd-01eedba42d98.webp"
+      },
+      {
+        "id": 56,
+        "name": "Oscar Bobb",
+        "position": "Midfielder",
+        "country": "NO",
+        "image": "3bacdf94-d65a-4488-a12f-0fbc895a17ac.webp"
+      },
+      {
+        "id": 57,
+        "name": "Nuno Mendes",
+        "position": "Defender",
+        "country": "PT",
+        "image": "93d16f75-afd0-446c-a9d5-dfcd4bb234f6.webp"
+      },
+      {
+        "id": 58,
+        "name": "Sadio Mané",
+        "position": "Forward",
+        "country": "SN",
+        "image": "617148db-f7ed-410b-ab98-e65c8bf51772.webp"
+      },
+      {
+        "id": 59,
+        "name": "Nico Williams",
+        "position": "Forward",
+        "country": "ES",
+        "image": "c9268642-ad4b-4f17-b172-8b5909cebf4f.webp"
+      },
+      {
+        "id": 60,
+        "name": "Christian Pulisic",
+        "position": "Midfielder",
+        "country": "US",
+        "image": "4e6e3c09-b6f7-4b9d-86bb-bf9892193f46.webp"
+      },
+      {
+        "id": 61,
+        "name": "Nico Paz",
+        "position": "Midfielder",
+        "country": "AR",
+        "image": "29514c44-a49b-4b7e-8248-76942775df5d.webp"
+      },
+      {
+        "id": 62,
+        "name": "Jérémy Doku",
+        "position": "Forward",
+        "country": "BE",
+        "image": "7066c160-d8fe-4f9e-aeec-86fb4367baf2.webp"
+      },
+      {
+        "id": 63,
+        "name": "Estêvão",
+        "position": "Forward",
+        "country": "BR",
+        "image": "82ec69ef-c1d3-4c56-891e-3978b67cfb15.webp"
+      },
+      {
+        "id": 64,
+        "name": "Alphonso Davies",
+        "position": "Defender",
+        "country": "CA",
+        "image": "56f5fd44-d56d-437a-8953-1a8027eeca02.webp"
+      },
+      {
+        "id": 65,
+        "name": "Joško Gvardiol",
+        "position": "Defender",
+        "country": "HR",
+        "image": "a7f1c3d0-73c9-4eb7-b923-1f8923425a49.webp"
+      },
+      {
+        "id": 66,
+        "name": "Dean Huijsen",
+        "position": "Defender",
+        "country": "ES",
+        "image": "fa50f412-2181-422c-bab3-2b768595e7a9.webp"
+      },
+      {
+        "id": 67,
+        "name": "Nick Woltemade",
+        "position": "Forward",
+        "country": "DE",
+        "image": "97f9c9f2-a9ca-49e3-9e62-254528bebba7.webp"
+      },
+      {
+        "id": 68,
+        "name": "Jude Bellingham",
+        "position": "Midfielder",
+        "country": "GB",
+        "image": "88ec1f23-5cfb-44fb-8670-0b952543fbc8.webp"
+      },
+      {
+        "id": 69,
+        "name": "Aurélien Tchouaméni",
+        "position": "Midfielder",
+        "country": "FR",
+        "image": "f398e6f0-b627-4699-8fd7-9d795b9e3df1.webp"
+      },
+      {
+        "id": 70,
+        "name": "Désiré Doué",
+        "position": "Midfielder",
+        "country": "FR",
+        "image": "5ffdf0da-d5be-49b8-9244-5cccb48f336a.webp"
+      },
+      {
+        "id": 71,
+        "name": "Jamal Musiala",
+        "position": "Midfielder",
+        "country": "DE",
+        "image": "d0cdb0b4-3fb1-4e64-9574-9f525a71a356.webp"
+      },
+      {
+        "id": 72,
+        "name": "Amad Diallo",
+        "position": "Forward",
+        "country": "CI",
+        "image": "fb80e700-898b-4598-ab23-52eb6ed829af.webp"
+      },
+      {
+        "id": 73,
+        "name": "Takefusa Kubo",
+        "position": "Midfielder",
+        "country": "JP",
+        "image": "62fa5ca7-1501-43cf-89b6-8471cad1f310.webp"
+      },
+      {
+        "id": 74,
+        "name": "Gilberto Mora",
+        "position": "Forward",
+        "country": "MX",
+        "image": "50c818ee-d762-4fc2-81c9-d9a014de7447.webp"
+      },
+      {
+        "id": 75,
+        "name": "Xavi Simons",
+        "position": "Midfielder",
+        "country": "NL",
+        "image": "2783af6d-a68f-4b0e-a6a6-237058b68343.webp"
+      },
+      {
+        "id": 76,
+        "name": "Antonio Nusa",
+        "position": "Forward",
+        "country": "NO",
+        "image": "b504432e-2b0a-430a-8eae-a4c68965f022.webp"
+      },
+      {
+        "id": 77,
+        "name": "João Neves",
+        "position": "Midfielder",
+        "country": "PT",
+        "image": "fe95c94e-f9b4-4763-8250-dbbfe120fd39.webp"
+      },
+      {
+        "id": 78,
+        "name": "Pau Cubarsí",
+        "position": "Defender",
+        "country": "ES",
+        "image": "414bf046-ea03-4e1f-a53a-8eb89dfe8ad3.webp"
+      },
+      {
+        "id": 79,
+        "name": "Darwin Núñez",
+        "position": "Forward",
+        "country": "UY",
+        "image": "e33a6810-013e-405b-96c9-121570f05e5b.webp"
+      },
+      {
+        "id": 80,
+        "name": "Abdukodir Khusanov",
+        "position": "Defender",
+        "country": "UZ",
+        "image": "5ff6b890-9480-4a14-b605-b5404b46816c.webp"
+      },
+      {
+        "id": 81,
+        "name": "Marc Cucurella",
+        "position": "Defender",
+        "country": "ES",
+        "image": "a8d7d331-b8f7-44f7-895a-eb384c9c5d07.webp"
+      },
+      {
+        "id": 82,
+        "name": "Giuliano Simeone",
+        "position": "Forward",
+        "country": "AR",
+        "image": "48542249-1ec5-4e72-aee2-f1e6f695654f.webp"
+      },
+      {
+        "id": 83,
+        "name": "Leroy Sané",
+        "position": "Forward",
+        "country": "DE",
+        "image": "ab92dda7-dd87-42fb-9748-f9e1192e83ab.webp"
+      },
+      {
+        "id": 84,
+        "name": "Marc-André ter Stegen",
+        "position": "Goalkeeper",
+        "country": "DE",
+        "image": "8a8ec157-ee21-4bc8-8f84-bf272749c2f8.webp"
+      },
+      {
+        "id": 85,
+        "name": "Leon Goretzka",
+        "position": "Midfielder",
+        "country": "DE",
+        "image": "9a962f6a-0077-4511-b92a-ac2e1e2104f4.webp"
+      },
+      {
+        "id": 86,
+        "name": "Jonathan Tah",
+        "position": "Defender",
+        "country": "DE",
+        "image": "67706089-d008-44e7-8418-857980f1c65a.webp"
+      }
+    ],
+    "Limited Edition Premium": [
+      {
+        "id": 5,
+        "name": "LEROY SANÉ",
+        "position": "Forward",
+        "country": "DE",
+        "image": "133a939e-24f8-44ee-8db7-446544eeb0cb.webp"
+      },
+      {
+        "id": 6,
+        "name": "ERLING HAALAND",
+        "position": "Forward",
+        "country": "NO",
+        "image": "f0cfe6ba-080d-4c1a-ab24-327ccfe2fe76.webp"
+      },
+      {
+        "id": 7,
+        "name": "SOFYAN AMRABAT",
+        "position": "Midfielder",
+        "country": "MA",
+        "image": "77ab1afc-6b23-433f-8700-bea21d0a395a.webp"
+      },
+      {
+        "id": 8,
+        "name": "RAÚL JIMÉNEZ",
+        "position": "Forward",
+        "country": "MX",
+        "image": "af05a9a9-338f-478d-9e67-bbfd6fc6b24f.webp"
+      },
+      {
+        "id": 9,
+        "name": "TAKUMI MINAMINO",
+        "position": "Midfielder",
+        "country": "JP",
+        "image": "cc62bcb2-de9b-477c-9ba6-6095d86eb4f6.webp"
+      },
+      {
+        "id": 10,
+        "name": "EDUARDO CAMAVINGA",
+        "position": "Midfielder",
+        "country": "FR",
+        "image": "960387f5-5e4d-4773-90df-0ddc236c3385.webp"
+      },
+      {
+        "id": 11,
+        "name": "PHIL FODEN",
+        "position": "Midfielder",
+        "country": "GB",
+        "image": "ed86d24c-5575-4fd2-812b-d373ef51984b.webp"
+      },
+      {
+        "id": 12,
+        "name": "VINÍCIUS JÚNIOR",
+        "position": "Forward",
+        "country": "BR",
+        "image": "276ddd1a-ed8d-422c-8ad8-4b0815aa275b.webp"
+      },
+      {
+        "id": 13,
+        "name": "YOURI TIELEMANS",
+        "position": "Midfielder",
+        "country": "BE",
+        "image": "dfa01205-c361-47f1-b956-0aaa040a95a7.webp"
+      },
+      {
+        "id": 14,
+        "name": "FOLARIN BALOGUN",
+        "position": "Forward",
+        "country": "US",
+        "image": "60b30f1c-ddcd-4fcf-81d7-b6367b6c6947.webp"
+      },
+      {
+        "id": 15,
+        "name": "MANUEL AKANJI",
+        "position": "Defender",
+        "country": "CH",
+        "image": "1993f745-26b0-4405-848f-2722611bd17e.jpg"
+      },
+      {
+        "id": 16,
+        "name": "KALIDOU KOULIBALY",
+        "position": "Defender",
+        "country": "SN",
+        "image": "54a177c0-4a2a-439e-8b1a-240c2dc885e4.jpg"
+      }
+    ],
+    "Limited Edition Gold": [
+      {
+        "id": 17,
+        "name": "LAMINE YAMAL",
+        "position": "Forward",
+        "country": "ES",
+        "image": "5aae9270-8ba5-4f94-8bcd-c52d10ff4117.webp"
+      },
+      {
+        "id": 18,
+        "name": "MEMPHIS DEPAY",
+        "position": "Forward",
+        "country": "NL",
+        "image": "e10617e8-d9e2-4bf7-8028-b31078b3628f.webp"
+      },
+      {
+        "id": 19,
+        "name": "MIKE MAIGNAN",
+        "position": "Goalkeeper",
+        "country": "FR",
+        "image": "a116b249-bd21-4650-87cd-8166ccdbb430.webp"
+      },
+      {
+        "id": 20,
+        "name": "MARCUS RASHFORD",
+        "position": "Forward",
+        "country": "GB",
+        "image": "12680bf4-59d9-4395-abdb-07e965ccb911.webp"
+      },
+      {
+        "id": 21,
+        "name": "JAMES RODRÍGUEZ",
+        "position": "Midfielder",
+        "country": "CO",
+        "image": "7c787702-0dbd-46a0-9ba8-1a7b4aaf42dd.webp"
+      },
+      {
+        "id": 22,
+        "name": "LIONEL MESSI",
+        "position": "Forward",
+        "country": "AR",
+        "image": "b55d62c7-d9cc-4ef5-93c6-ae4102c31b4d.webp"
+      }
+    ]
+  }
+}

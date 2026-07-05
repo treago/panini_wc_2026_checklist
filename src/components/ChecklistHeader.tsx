@@ -1,11 +1,11 @@
 import {
   CHECKLIST_GROUPS,
   type ChecklistGroup,
-  type FifaCardsData,
+  type CardsData,
 } from "../types";
 
 type Props = {
-  items: FifaCardsData;
+  items: CardsData;
   title: string;
   query: string;
   setQuery: (v: string) => void;

@@ -1,5 +1,5 @@
 import { useMemo, useState, useDeferredValue, useCallback } from "react";
-import type { Card, CardValue, ChecklistGroup, FifaCardsData } from "../types";
+import type { Card, CardValue, ChecklistGroup, CardsData } from "../types";
 import type { Collection } from "../hooks/useCollection";
 import { CardItem } from "./CardItem";
 import { GroupHeader } from "./GroupHeader";
@@ -7,14 +7,14 @@ import { ChecklistHeader } from "./ChecklistHeader";
 
 type Props = {
   title: string;
-  items: FifaCardsData;
+  items: CardsData;
   section?: ChecklistGroup;
   collection: Collection;
   updateCard: (id: number, value: CardValue) => void;
   readOnly?: boolean;
 };
 
-type Group = { label: string; code: string; cards: Card[] };
+type Group = { label: string; cards: Card[] };
 
 export default function Checklist({
   title,
@@ -37,17 +37,9 @@ export default function Checklist({
   const [editMode, setEditMode] = useState(false);
   const [showCopied, setShowCopied] = useState(false);
 
-  const toCode = useCallback((key: string) => {
-    const match = key.match(/\((.+?)\)/);
-    return match ? match[1] : key.slice(0, 3).toUpperCase();
-  }, []);
-
   const allCards = useMemo<Card[]>(() => {
     const map = new Map<number, Card>();
-    [
-      ...Object.values(items.special || {}),
-      ...Object.values(items.countries || {}),
-    ]
+    Object.values(items.data || {})
       .flat()
       .forEach((card) => map.set(card.id, card));
     return Array.from(map.values()).sort((a, b) => a.id - b.id);
@@ -55,14 +47,13 @@ export default function Checklist({
 
   const groupedData = useMemo<Group[]>(() => {
     const groups: Group[] = [];
-    for (const [key, cards] of Object.entries(items.special || {})) {
-      groups.push({ label: key, code: toCode(key), cards: [...cards] });
+
+    for (const [key, cards] of Object.entries(items.data || {})) {
+      groups.push({ label: key, cards: [...cards] });
     }
-    for (const [key, cards] of Object.entries(items.countries || {})) {
-      groups.push({ label: key, code: toCode(key), cards: [...cards] });
-    }
+
     return groups;
-  }, [items, toCode]);
+  }, [items]);
 
   const formattedQuery = deferredQuery.toLowerCase().trim();
 
@@ -324,14 +315,10 @@ export default function Checklist({
           {cardsToShow.map(renderCard)}
         </div>
       ) : (
-        displayedGroups.map(({ label, code, cards }) => (
+        displayedGroups.map(({ label, cards }) => (
           <div key={label} className="scroll-mt-20">
-            <GroupHeader
-              label={label}
-              code={code}
-              cards={cards}
-              collection={collection}
-            />
+            <GroupHeader label={label} cards={cards} collection={collection} />
+
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
               {cards.map(renderCard)}
             </div>

@@ -1,5 +1,5 @@
 import { memo, useEffect, useRef, useState } from "react";
-import type { Card, CardPosition, CardValue } from "../types";
+import type { Card, CardPosition, CardType, CardValue } from "../types";
 
 type Props = {
   card: Card;
@@ -10,7 +10,7 @@ type Props = {
 };
 
 // Used on the position strip at the bottom of the image section.
-const positionStrip: Record<CardPosition, string> = {
+const positionStrip: Partial<Record<CardType | CardPosition, string>> = {
   "Golden Baller": "bg-wc-gold text-black",
   "Fan Favourite": "bg-wc-gold text-black",
   Icon: "bg-wc-gold text-black",
@@ -97,7 +97,7 @@ export const CardItem = memo(function CardItem({
       <div className="relative aspect-3/4 overflow-hidden bg-linear-to-b from-gray-50 to-gray-100">
         {isVisible && (
           <img
-            src={`${import.meta.env.BASE_URL}images/${card.id}.webp`}
+            src={`${import.meta.env.BASE_URL}images/${card.image}`}
             alt={card.name}
             loading="lazy"
             className={[

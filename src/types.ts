@@ -1,6 +1,9 @@
-export type CardPosition =
-  | "Golden Baller"
+export type CardPosition = "Goalkeeper" | "Defender" | "Midfielder" | "Forward";
+
+export type CardType =
+  | "Common"
   | "Fan Favourite"
+  | "Golden Baller"
   | "Icon"
   | "Team Crest"
   | "Contender Match"
@@ -8,38 +11,34 @@ export type CardPosition =
   | "Official Emblem"
   | "Official Mascot"
   | "Eternos 22"
-  | "Goalkeeper"
   | "Top Keeper"
-  | "Defender"
   | "Defensive Rock"
-  | "Midfielder"
   | "Midfield Maestro"
-  | "Forward"
-  | "Goal Machine";
+  | "Goal Machine"
+  | "Limited Edition"
+  | "Limited Edition Premium"
+  | "Limited Edition Gold"
+  | "Limited Edition Hologram";
 
 export type Card = {
   id: number;
   name: string;
   position: CardPosition;
+  country?: string;
+  image: string;
 };
 
-export type CardValue = {
-  owned: boolean;
-  quantity: number;
-};
-
-export const CHECKLIST_GROUPS = ["all", "unowned", "spare", "grouped"] as const;
-export type ChecklistGroup = (typeof CHECKLIST_GROUPS)[number];
-
-export type FifaCardsData = {
+export type CardsData = {
   meta: {
     title: string;
     publisher: string;
     total_cards: number;
   };
-  special: Record<string, Card[]>;
-  countries: Record<string, Card[]>;
+  data: Record<CardType, Card[]>;
 };
+
+export const CHECKLIST_GROUPS = ["all", "unowned", "spare", "grouped"] as const;
+export type ChecklistGroup = (typeof CHECKLIST_GROUPS)[number];
 
 export type CollectionMeta = {
   id: string;
@@ -50,4 +49,9 @@ export type CollectionMeta = {
   createdAt: number;
   updatedAt: number;
   ownedCount: number;
+};
+
+export type CardValue = {
+  owned: boolean;
+  quantity: number;
 };

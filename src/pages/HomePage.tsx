@@ -6,9 +6,9 @@ import { useAuth } from "../hooks/useAuth";
 import { useCollections } from "../hooks/useCollections";
 import { AuthButton } from "../components/AuthButton";
 import data from "../data/cards.json";
-import type { CollectionMeta, FifaCardsData } from "../types";
+import type { CollectionMeta, CardsData } from "../types";
 
-const cardsData = data as FifaCardsData;
+const cardsData = data as CardsData;
 const TOTAL_CARDS = cardsData.meta.total_cards;
 const OLD_LS_KEY = "fifaChecklists";
 

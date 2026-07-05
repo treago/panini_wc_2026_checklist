@@ -7,9 +7,9 @@ import { useCollection } from "../hooks/useCollection";
 import { AuthButton } from "../components/AuthButton";
 import Checklist from "../components/Checklist";
 import data from "../data/cards.json";
-import type { FifaCardsData } from "../types";
+import type { CardsData } from "../types";
 
-const cardsData = data as FifaCardsData;
+const cardsData = data as CardsData;
 
 export default function CollectionPage() {
   const { collectionId } = useParams<{ collectionId: string }>();

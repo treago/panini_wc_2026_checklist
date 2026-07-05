@@ -1,11 +1,10 @@
 type Props = {
   label: string;
-  code: string;
   cards: { id: number }[];
   collection: Record<string, { owned: boolean }>;
 };
 
-export function GroupHeader({ label, code, cards, collection }: Props) {
+export function GroupHeader({ label, cards, collection }: Props) {
   const owned = cards.filter(
     (card) => collection[String(card.id)]?.owned,
   ).length;
@@ -15,7 +14,7 @@ export function GroupHeader({ label, code, cards, collection }: Props) {
       <div className="text-wc-red text-4xl font-black tracking-widest uppercase">
         {label}
       </div>
-      <div className="text-2xl font-bold text-gray-600">({code})</div>
+
       <div className="bg-wc-gold ml-auto rounded-2xl px-5 py-2 font-mono text-sm font-bold text-black">
         {owned}/{cards.length} CARDS
       </div>
