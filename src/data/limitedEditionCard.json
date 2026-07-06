@@ -5,36 +5,6 @@
     "total_cards": 108
   },
   "data": {
-    "Limited Edition Hologram": [
-      {
-        "id": 1,
-        "name": "LAMINE YAMAL",
-        "position": "Forward",
-        "country": "ES",
-        "image": "71dadd04-8978-4014-85bf-b24cc8306ba0.webp"
-      },
-      {
-        "id": 2,
-        "name": "RAPHINHA",
-        "position": "Forward",
-        "country": "BR",
-        "image": "6cae020a-6f7f-4ba6-8099-03019466a2e6.webp"
-      },
-      {
-        "id": 3,
-        "name": "JULIÁN ÁLVAREZ",
-        "position": "Forward",
-        "country": "AR",
-        "image": "6eed71ee-0451-4233-80ec-dc9ac375831a.webp"
-      },
-      {
-        "id": 4,
-        "name": "CRISTIANO RONALDO",
-        "position": "Forward",
-        "country": "PT",
-        "image": "17ffa207-91bf-48ad-b521-338f6d865644.webp"
-      }
-    ],
     "Limited Edition": [
       {
         "id": 1,
@@ -637,88 +607,125 @@
         "position": "Defender",
         "country": "DE",
         "image": "67706089-d008-44e7-8418-857980f1c65a.webp"
+      },
+      {
+        "id": 109,
+        "name": "Viktor Gyökeres",
+        "position": "Forward",
+        "country": "SE",
+        "image": "eb713ea1-94ef-47f5-a618-f2de975e94d3.webp"
+      }
+    ],
+    "Limited Edition Hologram": [
+      {
+        "id": 87,
+        "name": "LAMINE YAMAL",
+        "position": "Forward",
+        "country": "ES",
+        "image": "71dadd04-8978-4014-85bf-b24cc8306ba0.webp"
+      },
+      {
+        "id": 88,
+        "name": "RAPHINHA",
+        "position": "Forward",
+        "country": "BR",
+        "image": "6cae020a-6f7f-4ba6-8099-03019466a2e6.webp"
+      },
+      {
+        "id": 89,
+        "name": "JULIÁN ÁLVAREZ",
+        "position": "Forward",
+        "country": "AR",
+        "image": "6eed71ee-0451-4233-80ec-dc9ac375831a.webp"
+      },
+      {
+        "id": 90,
+        "name": "CRISTIANO RONALDO",
+        "position": "Forward",
+        "country": "PT",
+        "image": "17ffa207-91bf-48ad-b521-338f6d865644.webp"
       }
     ],
     "Limited Edition Premium": [
       {
-        "id": 5,
+        "id": 91,
         "name": "LEROY SANÉ",
         "position": "Forward",
         "country": "DE",
         "image": "133a939e-24f8-44ee-8db7-446544eeb0cb.webp"
       },
       {
-        "id": 6,
+        "id": 92,
         "name": "ERLING HAALAND",
         "position": "Forward",
         "country": "NO",
         "image": "f0cfe6ba-080d-4c1a-ab24-327ccfe2fe76.webp"
       },
       {
-        "id": 7,
+        "id": 93,
         "name": "SOFYAN AMRABAT",
         "position": "Midfielder",
         "country": "MA",
         "image": "77ab1afc-6b23-433f-8700-bea21d0a395a.webp"
       },
       {
-        "id": 8,
+        "id": 94,
         "name": "RAÚL JIMÉNEZ",
         "position": "Forward",
         "country": "MX",
         "image": "af05a9a9-338f-478d-9e67-bbfd6fc6b24f.webp"
       },
       {
-        "id": 9,
+        "id": 95,
         "name": "TAKUMI MINAMINO",
         "position": "Midfielder",
         "country": "JP",
         "image": "cc62bcb2-de9b-477c-9ba6-6095d86eb4f6.webp"
       },
       {
-        "id": 10,
+        "id": 96,
         "name": "EDUARDO CAMAVINGA",
         "position": "Midfielder",
         "country": "FR",
         "image": "960387f5-5e4d-4773-90df-0ddc236c3385.webp"
       },
       {
-        "id": 11,
+        "id": 97,
         "name": "PHIL FODEN",
         "position": "Midfielder",
         "country": "GB",
         "image": "ed86d24c-5575-4fd2-812b-d373ef51984b.webp"
       },
       {
-        "id": 12,
+        "id": 98,
         "name": "VINÍCIUS JÚNIOR",
         "position": "Forward",
         "country": "BR",
         "image": "276ddd1a-ed8d-422c-8ad8-4b0815aa275b.webp"
       },
       {
-        "id": 13,
+        "id": 99,
         "name": "YOURI TIELEMANS",
         "position": "Midfielder",
         "country": "BE",
         "image": "dfa01205-c361-47f1-b956-0aaa040a95a7.webp"
       },
       {
-        "id": 14,
+        "id": 100,
         "name": "FOLARIN BALOGUN",
         "position": "Forward",
         "country": "US",
         "image": "60b30f1c-ddcd-4fcf-81d7-b6367b6c6947.webp"
       },
       {
-        "id": 15,
+        "id": 101,
         "name": "MANUEL AKANJI",
         "position": "Defender",
         "country": "CH",
         "image": "1993f745-26b0-4405-848f-2722611bd17e.jpg"
       },
       {
-        "id": 16,
+        "id": 102,
         "name": "KALIDOU KOULIBALY",
         "position": "Defender",
         "country": "SN",
@@ -727,42 +734,42 @@
     ],
     "Limited Edition Gold": [
       {
-        "id": 17,
+        "id": 103,
         "name": "LAMINE YAMAL",
         "position": "Forward",
         "country": "ES",
         "image": "5aae9270-8ba5-4f94-8bcd-c52d10ff4117.webp"
       },
       {
-        "id": 18,
+        "id": 104,
         "name": "MEMPHIS DEPAY",
         "position": "Forward",
         "country": "NL",
         "image": "e10617e8-d9e2-4bf7-8028-b31078b3628f.webp"
       },
       {
-        "id": 19,
+        "id": 105,
         "name": "MIKE MAIGNAN",
         "position": "Goalkeeper",
         "country": "FR",
         "image": "a116b249-bd21-4650-87cd-8166ccdbb430.webp"
       },
       {
-        "id": 20,
+        "id": 106,
         "name": "MARCUS RASHFORD",
         "position": "Forward",
         "country": "GB",
         "image": "12680bf4-59d9-4395-abdb-07e965ccb911.webp"
       },
       {
-        "id": 21,
+        "id": 107,
         "name": "JAMES RODRÍGUEZ",
         "position": "Midfielder",
         "country": "CO",
         "image": "7c787702-0dbd-46a0-9ba8-1a7b4aaf42dd.webp"
       },
       {
-        "id": 22,
+        "id": 108,
         "name": "LIONEL MESSI",
         "position": "Forward",
         "country": "AR",
