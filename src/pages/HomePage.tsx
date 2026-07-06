@@ -4,12 +4,13 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../lib/firebase";
 import { useAuth } from "../hooks/useAuth";
 import { useCollections } from "../hooks/useCollections";
+import { useCatalogs } from "../hooks/useCatalogs";
 import { AuthButton } from "../components/AuthButton";
 import data from "../data/cards.json";
 import type { CollectionMeta, CardsData } from "../types";
 
-const cardsData = data as CardsData;
-const TOTAL_CARDS = cardsData.meta.total_cards;
+const defaultCardsData = data as unknown as CardsData;
+const DEFAULT_TOTAL_CARDS = defaultCardsData.meta.total_cards;
 const OLD_LS_KEY = "fifaChecklists";
 
 export default function HomePage() {
@@ -24,9 +25,17 @@ export default function HomePage() {
     renameCollection,
   } = useCollections(user?.uid ?? null);
 
+  // Catalog list for the "New Collection" picker
+  const { catalogs, loading: catalogsLoading } = useCatalogs();
+
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [newName, setNewName] = useState("");
   const [creating, setCreating] = useState(false);
+  // null = use built-in default; string = Firestore catalog ID
+  const [selectedCatalogId, setSelectedCatalogId] = useState<string | null>(
+    null,
+  );
+
   const [migrating, setMigrating] = useState(false);
   const [hasOldFirestoreData, setHasOldFirestoreData] = useState(false);
   const [dismissedMigration, setDismissedMigration] = useState(false);
@@ -35,8 +44,6 @@ export default function HomePage() {
   const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
-  // localStorage is synchronous and side-effect-free to read, so derive this
-  // during render rather than tracking it in an effect + state.
   const hasOldLocalData = useMemo(() => {
     if (
       dismissedMigration ||
@@ -55,9 +62,6 @@ export default function HomePage() {
     }
   }, [dismissedMigration, user, collectionsLoading, collections.length]);
 
-  // Firestore check is async, so an effect is appropriate here.
-  // setState is only called inside the .then() callback — never synchronously
-  // in the effect body — so it does not trigger the linter rule.
   useEffect(() => {
     if (
       dismissedMigration ||
@@ -74,10 +78,23 @@ export default function HomePage() {
           if (Object.keys(cards).length > 0) setHasOldFirestoreData(true);
         }
       })
-      .catch(() => {
-        // May be permission-denied if legacy rules have changed — ignore
-      });
+      .catch(() => {});
   }, [user, collections.length, collectionsLoading, dismissedMigration]);
+
+  // Resolve the selected catalog's total_cards for caching in the collection doc.
+  const selectedTotalCards = useMemo(() => {
+    if (!selectedCatalogId) return DEFAULT_TOTAL_CARDS;
+    return (
+      catalogs.find((c) => c.id === selectedCatalogId)?.total_cards ??
+      DEFAULT_TOTAL_CARDS
+    );
+  }, [selectedCatalogId, catalogs]);
+
+  const resetCreateForm = () => {
+    setShowCreateForm(false);
+    setNewName("");
+    setSelectedCatalogId(null);
+  };
 
   const handleCreate = async () => {
     if (!user || !newName.trim()) return;
@@ -87,6 +104,9 @@ export default function HomePage() {
         newName.trim(),
         user.uid,
         user.displayName ?? undefined,
+        undefined,
+        selectedCatalogId,
+        selectedTotalCards,
       );
       navigate(`/collection/${id}`);
     } catch (err) {
@@ -107,6 +127,8 @@ export default function HomePage() {
         user.uid,
         user.displayName ?? undefined,
         oldCards,
+        null,
+        DEFAULT_TOTAL_CARDS,
       );
       localStorage.removeItem(OLD_LS_KEY);
       navigate(`/collection/${id}`);
@@ -129,6 +151,8 @@ export default function HomePage() {
         user.uid,
         user.displayName ?? undefined,
         oldCards,
+        null,
+        DEFAULT_TOTAL_CARDS,
       );
       setHasOldFirestoreData(false);
       navigate(`/collection/${id}`);
@@ -172,6 +196,9 @@ export default function HomePage() {
   const isLoading = authLoading || (!!user && collectionsLoading);
   const showMigration =
     !dismissedMigration && (hasOldLocalData || hasOldFirestoreData);
+
+  // Whether the Firestore catalog picker should appear.
+  const showCatalogPicker = !catalogsLoading && catalogs.length > 0;
 
   return (
     <main className="to-wc-dark min-h-screen bg-linear-to-br from-emerald-950 via-emerald-900 text-white">
@@ -292,10 +319,7 @@ export default function HomePage() {
                     onChange={(e) => setNewName(e.target.value)}
                     onKeyDown={(e) => {
                       if (e.key === "Enter") handleCreate();
-                      if (e.key === "Escape") {
-                        setShowCreateForm(false);
-                        setNewName("");
-                      }
+                      if (e.key === "Escape") resetCreateForm();
                     }}
                     placeholder="e.g. Main Collection, Trade List…"
                     className="focus:border-wc-gold/50 focus:ring-wc-gold/50 flex-1 rounded-xl border border-white/10 bg-black/40 px-4 py-2.5 text-sm text-white transition placeholder:text-gray-600 focus:ring-1 focus:outline-none"
@@ -308,15 +332,67 @@ export default function HomePage() {
                     {creating ? "Creating…" : "Create"}
                   </button>
                   <button
-                    onClick={() => {
-                      setShowCreateForm(false);
-                      setNewName("");
-                    }}
+                    onClick={resetCreateForm}
                     className="cursor-pointer rounded-xl border border-white/10 px-4 py-2.5 text-sm text-gray-500 transition hover:text-white"
                   >
                     Cancel
                   </button>
                 </div>
+
+                {/* ── Catalog picker (only shown when Firestore has extra catalogs) ── */}
+                {showCatalogPicker && (
+                  <div className="mt-4 border-t border-white/5 pt-4">
+                    <p className="mb-2 text-xs font-bold tracking-widest text-gray-500 uppercase">
+                      Card Set
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {/* Built-in default is always the first option */}
+                      <button
+                        onClick={() => setSelectedCatalogId(null)}
+                        className={[
+                          "rounded-lg px-3 py-1.5 text-xs font-semibold transition",
+                          selectedCatalogId === null
+                            ? "bg-wc-gold text-black"
+                            : "border border-white/10 text-gray-400 hover:border-white/20 hover:text-white",
+                        ].join(" ")}
+                      >
+                        {defaultCardsData.meta.title}
+                      </button>
+
+                      {catalogs.map((cat) => (
+                        <button
+                          key={cat.id}
+                          onClick={() => setSelectedCatalogId(cat.id)}
+                          className={[
+                            "rounded-lg px-3 py-1.5 text-xs font-semibold transition",
+                            selectedCatalogId === cat.id
+                              ? "bg-wc-gold text-black"
+                              : "border border-white/10 text-gray-400 hover:border-white/20 hover:text-white",
+                          ].join(" ")}
+                        >
+                          {cat.title}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Info line for the selected catalog */}
+                    <p className="mt-2 text-xs text-gray-600">
+                      {selectedCatalogId === null ? (
+                        <>
+                          {DEFAULT_TOTAL_CARDS} cards ·{" "}
+                          {defaultCardsData.meta.publisher} · Built-in
+                        </>
+                      ) : (
+                        <>
+                          {selectedTotalCards} cards ·{" "}
+                          {catalogs.find((c) => c.id === selectedCatalogId)
+                            ?.publisher ?? ""}
+                          {" · From Firestore"}
+                        </>
+                      )}
+                    </p>
+                  </div>
+                )}
               </div>
             )}
 
@@ -343,7 +419,6 @@ export default function HomePage() {
                   <CollectionCard
                     key={col.id}
                     col={col}
-                    totalCards={TOTAL_CARDS}
                     renamingId={renamingId}
                     renameValue={renameValue}
                     confirmDeleteId={confirmDeleteId}
@@ -383,7 +458,6 @@ export default function HomePage() {
 
 type CollectionCardProps = {
   col: CollectionMeta;
-  totalCards: number;
   renamingId: string | null;
   renameValue: string;
   confirmDeleteId: string | null;
@@ -401,7 +475,6 @@ type CollectionCardProps = {
 
 function CollectionCard({
   col,
-  totalCards,
   renamingId,
   renameValue,
   confirmDeleteId,
@@ -416,6 +489,8 @@ function CollectionCard({
   onDeleteConfirm,
   onDeleteCancel,
 }: CollectionCardProps) {
+  // Use the per-collection totalCards cached at creation time.
+  const totalCards = col.totalCards;
   const progress =
     totalCards > 0 ? Math.round((col.ownedCount / totalCards) * 100) : 0;
   const isRenaming = renamingId === col.id;

@@ -1,11 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import { useCollection } from "../hooks/useCollection";
+import { useCatalog } from "../hooks/useCatalog";
 import { AuthButton } from "../components/AuthButton";
 import Checklist from "../components/Checklist";
-import data from "../data/cards.json";
-import type { CardsData } from "../types";
-
-const cardsData = data as CardsData;
 
 export default function SharedCollectionPage() {
   const { collectionId } = useParams<{ collectionId: string }>();
@@ -19,10 +16,13 @@ export default function SharedCollectionPage() {
     collectionName,
     ownerName,
     shareEnabled,
+    catalogId,
   } = useCollection(collectionId ?? null, null, true /* readOnly */);
 
+  const { cardsData, loading: catalogLoading } = useCatalog(catalogId);
+
   // ── Loading ──────────────────────────────────────────────────────────────
-  if (loading) {
+  if (loading || catalogLoading || !cardsData) {
     return (
       <main className="to-wc-dark flex min-h-screen items-center justify-center bg-linear-to-br from-emerald-950 via-emerald-900 text-white">
         <span className="animate-pulse text-lg text-emerald-300">Loading…</span>
@@ -64,7 +64,7 @@ export default function SharedCollectionPage() {
               </h1>
               <p className="text-wc-gold/70 mt-0.5 text-sm font-semibold">
                 {ownerName ? `${ownerName}'s collection` : "Shared collection"}{" "}
-                · FIFA WORLD CUP 2026™
+                · {cardsData.meta.publisher.toUpperCase()}
               </p>
             </div>
             <div className="flex items-center gap-3">

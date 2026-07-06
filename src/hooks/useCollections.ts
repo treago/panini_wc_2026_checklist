@@ -13,14 +13,16 @@ import {
 } from "firebase/firestore";
 import { db } from "../lib/firebase";
 import type { CardValue, CollectionMeta } from "../types";
+import defaultRaw from "../data/cards.json";
+
+const DEFAULT_TOTAL_CARDS = (defaultRaw as { meta: { total_cards: number } })
+  .meta.total_cards;
 
 export function useCollections(userId: string | null) {
   const [collections, setCollections] = useState<CollectionMeta[]>([]);
   const [loading, setLoading] = useState(!!userId);
 
   // Reset state during render when userId changes (e.g. user signs out).
-  // This is the React-recommended pattern for adjusting state when a prop changes
-  // (https://react.dev/learn/you-might-not-need-an-effect#adjusting-some-state-when-a-prop-changes).
   const [prevUserId, setPrevUserId] = useState(userId);
   if (userId !== prevUserId) {
     setPrevUserId(userId);
@@ -29,10 +31,7 @@ export function useCollections(userId: string | null) {
   }
 
   useEffect(() => {
-    if (!userId) {
-      // State is already reset during the render phase above; nothing to do here.
-      return;
-    }
+    if (!userId) return;
 
     const q = query(
       collection(db, "collections"),
@@ -47,9 +46,11 @@ export function useCollections(userId: string | null) {
             string,
             { owned?: boolean }
           >;
+
           const ownedCount = Object.values(cards).filter(
             (c) => c?.owned,
           ).length;
+
           return {
             id: d.id,
             name: d.data().name ?? "Untitled",
@@ -61,6 +62,8 @@ export function useCollections(userId: string | null) {
             updatedAt:
               (d.data().updatedAt as Timestamp)?.toMillis?.() ?? Date.now(),
             ownedCount,
+            catalogId: d.data().catalogId ?? null,
+            totalCards: d.data().totalCards ?? DEFAULT_TOTAL_CARDS,
           };
         });
 
@@ -83,6 +86,8 @@ export function useCollections(userId: string | null) {
       ownerId: string,
       ownerName?: string,
       initialCards?: Record<string, CardValue>,
+      catalogId?: string | null,
+      totalCards?: number,
     ): Promise<string> => {
       const docRef = await addDoc(collection(db, "collections"), {
         name,
@@ -90,6 +95,8 @@ export function useCollections(userId: string | null) {
         ownerName: ownerName ?? "Anonymous",
         shareEnabled: false,
         cards: initialCards ?? {},
+        catalogId: catalogId ?? null,
+        totalCards: totalCards ?? DEFAULT_TOTAL_CARDS,
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp(),
       });

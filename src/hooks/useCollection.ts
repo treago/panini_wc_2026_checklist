@@ -10,7 +10,6 @@ export function useCollection(
   userId: string | null,
   readOnly = false,
 ) {
-  // Initialize loading/syncing true only when we actually have an ID to fetch.
   const [collection, setCollection] = useState<Collection>({});
   const [loading, setLoading] = useState(!!collectionId);
   const [syncing, setSyncing] = useState(!!collectionId);
@@ -20,10 +19,16 @@ export function useCollection(
   const [ownerName, setOwnerName] = useState<string | undefined>(undefined);
   const [shareEnabled, setShareEnabled] = useState(false);
   const [ownerId, setOwnerId] = useState<string | null>(null);
+  /**
+   * undefined = still resolving (waiting on Firestore)
+   * null      = collection loaded; no catalogId stored → use built-in default
+   * string    = collection loaded; use this Firestore catalog
+   */
+  const [catalogId, setCatalogId] = useState<string | null | undefined>(
+    collectionId ? undefined : null,
+  );
 
-  // Adjust state during render when collectionId changes — the React-recommended
-  // pattern for prop-driven state resets. All setState calls here are in the
-  // render body (not inside an effect), which is intentional and correct.
+  // React-recommended pattern for adjusting state when a prop changes.
   // https://react.dev/learn/you-might-not-need-an-effect#adjusting-some-state-when-a-prop-changes
   const [prevCollectionId, setPrevCollectionId] = useState(collectionId);
   if (collectionId !== prevCollectionId) {
@@ -38,31 +43,25 @@ export function useCollection(
       setOwnerName(undefined);
       setShareEnabled(false);
       setOwnerId(null);
+      setCatalogId(null);
     } else {
-      // New collectionId — mark as loading/syncing immediately in render
-      // so there's never a flash of stale data.
       setLoading(true);
       setSyncing(true);
+      setCatalogId(undefined); // reset until the new snapshot arrives
     }
   }
 
   useEffect(() => {
-    if (!collectionId) {
-      // All state already reset in the render phase above.
-      return;
-    }
+    if (!collectionId) return;
 
-    // No setState here — loading and syncing were already set to true
-    // during the render phase when collectionId changed, so calling them
-    // again here would be the synchronous-setState-in-effect anti-pattern.
     const docRef = doc(db, "collections", collectionId);
 
     const unsubscribe = onSnapshot(
       docRef,
       (snap) => {
-        // These are all inside an async callback — allowed by the rule.
         if (!snap.exists()) {
           setNotFound(true);
+          setCatalogId(null); // unlock useCatalog so the error state renders
           setLoading(false);
           setSyncing(false);
           return;
@@ -76,11 +75,14 @@ export function useCollection(
         setOwnerName(d?.ownerName);
         setShareEnabled(d?.shareEnabled ?? false);
         setOwnerId(d?.ownerId ?? null);
+        // Fall back to null (built-in default) if no catalogId was stored.
+        setCatalogId(d?.catalogId ?? null);
         setLoading(false);
         setSyncing(false);
       },
       (err) => {
         console.error("Firestore onSnapshot error", err);
+        setCatalogId(null); // unlock useCatalog so the error state renders
         if ((err as { code?: string }).code === "permission-denied") {
           setAccessDenied(true);
         } else {
@@ -94,9 +96,6 @@ export function useCollection(
     return unsubscribe;
   }, [collectionId]);
 
-  // userId is included in deps directly — no ref needed.
-  // Firebase auth keeps uid stable for the lifetime of a session,
-  // so this doesn't cause extra re-subscriptions.
   const updateCard = useCallback(
     (id: number, value: CardValue) => {
       if (readOnly || !collectionId || !userId) return;
@@ -123,5 +122,6 @@ export function useCollection(
     ownerName,
     shareEnabled,
     ownerId,
+    catalogId,
   };
 }

@@ -29,16 +29,23 @@ export type Card = {
 };
 
 export type CardsData = {
-  meta: {
-    title: string;
-    publisher: string;
-    total_cards: number;
-  };
+  meta: Meta;
   data: Record<CardType, Card[]>;
 };
 
 export const CHECKLIST_GROUPS = ["all", "unowned", "spare", "grouped"] as const;
 export type ChecklistGroup = (typeof CHECKLIST_GROUPS)[number];
+
+export interface CatalogMeta extends Meta {
+  id: string;
+  createdAt: number;
+}
+
+export interface Meta {
+  title: string;
+  publisher: string;
+  total_cards: number;
+}
 
 export type CollectionMeta = {
   id: string;
@@ -49,6 +56,8 @@ export type CollectionMeta = {
   createdAt: number;
   updatedAt: number;
   ownedCount: number;
+  catalogId: string;
+  totalCards: number;
 };
 
 export type CardValue = {

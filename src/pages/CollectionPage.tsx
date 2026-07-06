@@ -4,12 +4,9 @@ import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../lib/firebase";
 import { useAuth } from "../hooks/useAuth";
 import { useCollection } from "../hooks/useCollection";
+import { useCatalog } from "../hooks/useCatalog";
 import { AuthButton } from "../components/AuthButton";
 import Checklist from "../components/Checklist";
-import data from "../data/cards.json";
-import type { CardsData } from "../types";
-
-const cardsData = data as CardsData;
 
 export default function CollectionPage() {
   const { collectionId } = useParams<{ collectionId: string }>();
@@ -26,12 +23,16 @@ export default function CollectionPage() {
     ownerName,
     shareEnabled,
     ownerId,
+    catalogId,
   } = useCollection(collectionId ?? null, user?.uid ?? null);
+
+  // catalogId is undefined while the collection is still loading, so useCatalog
+  // stays in loading state too — no stale-data flash.
+  const { cardsData, loading: catalogLoading } = useCatalog(catalogId);
 
   const [copiedLink, setCopiedLink] = useState(false);
 
   const isOwner = !!user && !!ownerId && user.uid === ownerId;
-  // non-owners can view if the collection is shared
   const canView = isOwner || shareEnabled;
 
   const handleToggleShare = async () => {
@@ -50,7 +51,7 @@ export default function CollectionPage() {
   };
 
   // ── Loading ──────────────────────────────────────────────────────────────
-  if (loading) {
+  if (loading || catalogLoading || !cardsData) {
     return (
       <main className="to-wc-dark flex min-h-screen items-center justify-center bg-linear-to-br from-emerald-950 via-emerald-900 text-white">
         <span className="animate-pulse text-lg text-emerald-300">
@@ -116,7 +117,8 @@ export default function CollectionPage() {
                   {collectionName}
                 </h1>
                 <p className="text-wc-gold/70 text-xs font-semibold">
-                  FIFA WORLD CUP 2026™ · ADRENALYN XL
+                  {cardsData.meta.publisher.toUpperCase()} ·{" "}
+                  {cardsData.meta.title.toUpperCase()}
                 </p>
               </div>
             </div>

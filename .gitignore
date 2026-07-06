@@ -26,3 +26,6 @@ dist-ssr
 *.sw?
 *.env.local
 *.env.*
+scripts/serviceAccountKey.json
+scripts/backups/
+
