@@ -644,6 +644,55 @@
         "position": "Forward",
         "country": "PT",
         "image": "17ffa207-91bf-48ad-b521-338f6d865644.webp"
+      },
+      {
+        "id": 110,
+        "name": "Lionel Messi",
+        "position": "Forward",
+        "country": "AR",
+        "image": "01c543c0-46c3-4dd3-a628-2fd371ac48dd.webp"
+      },
+      {
+        "id": 111,
+        "name": "Harry Kane",
+        "position": "Forward",
+        "country": "GB",
+        "image": "4f127c47-c66b-4857-ab54-614a1f317187.webp"
+      },
+      {
+        "id": 112,
+        "name": "Kylian Mbappé",
+        "position": "Forward",
+        "country": "FR",
+        "image": "fd30f3a6-c4ae-45c2-8dc9-a4ab31331fe5.webp"
+      },
+      {
+        "id": 113,
+        "name": "Jude Bellingham",
+        "position": "Midfielder",
+        "country": "GB",
+        "image": "ac8f7ea3-9bcd-4118-8995-cfae3da3fb09.webp"
+      },
+      {
+        "id": 114,
+        "name": "Jamal Musiala",
+        "position": "Forward",
+        "country": "DE",
+        "image": "485c40ee-01a3-44aa-bb2a-28d2a64dd2a0.webp"
+      },
+      {
+        "id": 115,
+        "name": "Mohamed Salah",
+        "position": "Forward",
+        "country": "EG",
+        "image": "38a5e9b2-9d20-4ed2-bfd0-c8fe302bd1b0.webp"
+      },
+      {
+        "id": 116,
+        "name": "Virgil van Dijk",
+        "position": "Defender",
+        "country": "NL",
+        "image": "8af50c76-3503-4dc5-80f2-aeca4841042e.webp"
       }
     ],
     "Limited Edition Premium": [

@@ -162,9 +162,10 @@ export default function Checklist({
 
   // Shared renderer so both flat and grouped views use identical CardItem props
   const renderCard = useCallback(
-    (card: Card) => (
+    (card: Card, index: number) => (
       <CardItem
         key={card.id}
+        index={index}
         card={card}
         value={collection[String(card.id)] ?? { owned: false, quantity: 1 }}
         onChange={(v) => updateCard(card.id, v)}

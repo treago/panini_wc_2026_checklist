@@ -2,6 +2,7 @@ import { memo, useEffect, useRef, useState } from "react";
 import type { Card, CardPosition, CardType, CardValue } from "../types";
 
 type Props = {
+  index: number;
   card: Card;
   value: CardValue;
   onChange: (v: CardValue) => void;
@@ -31,6 +32,7 @@ const positionStrip: Partial<Record<CardType | CardPosition, string>> = {
 };
 
 export const CardItem = memo(function CardItem({
+  index,
   card,
   value,
   onChange,
@@ -152,7 +154,7 @@ export const CardItem = memo(function CardItem({
       {/* ── FOOTER ─────────────────────────────────────────────────────── */}
       <div className="flex flex-col gap-0.5 bg-white px-2.5 py-2">
         <div className="text-wc-red text-sm leading-none font-black">
-          #{card.id}
+          #{index + 1}
         </div>
         <div className="line-clamp-2 text-xs leading-tight font-semibold text-gray-800">
           {card.name}
