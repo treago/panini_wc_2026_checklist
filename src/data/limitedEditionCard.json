@@ -745,148 +745,148 @@
         "country": "AR",
         "image": "b55d62c7-d9cc-4ef5-93c6-ae4102c31b4d.webp"
       }
+    ],
+    "Limited Edition Hologram": [
+      {
+        "id": "f2507da4-5010-451e-a4b4-4c9427583abe",
+        "name": "LAMINE YAMAL",
+        "position": "Forward",
+        "country": "ES",
+        "image": "71dadd04-8978-4014-85bf-b24cc8306ba0.webp"
+      },
+      {
+        "id": "c9432c38-1340-4a98-8e16-e6c6bec2e7e9",
+        "name": "RAPHINHA",
+        "position": "Forward",
+        "country": "BR",
+        "image": "6cae020a-6f7f-4ba6-8099-03019466a2e6.webp"
+      },
+      {
+        "id": "3d178e12-3d75-442d-86e8-75e039104f90",
+        "name": "JULIÁN ÁLVAREZ",
+        "position": "Forward",
+        "country": "AR",
+        "image": "17ffa207-91bf-48ad-b521-338f6d865644.webp"
+      },
+      {
+        "id": "44e7bcb2-0e2a-4608-85de-be96cd5cd378",
+        "name": "CRISTIANO RONALDO",
+        "position": "Forward",
+        "country": "PT",
+        "image": "6eed71ee-0451-4233-80ec-dc9ac375831a.webp"
+      },
+      {
+        "id": "2d692718-01b9-46a0-ba0e-32de5741676c",
+        "name": "Lionel Messi",
+        "position": "Forward",
+        "country": "AR",
+        "image": "01c543c0-46c3-4dd3-a628-2fd371ac48dd.webp"
+      },
+      {
+        "id": "572cf911-bebd-4fc8-a8e9-8f401c6e9b31",
+        "name": "Harry Kane",
+        "position": "Forward",
+        "country": "GB",
+        "image": "4f127c47-c66b-4857-ab54-614a1f317187.webp"
+      },
+      {
+        "id": "2c3dd984-0434-4524-858b-796c6f0920c7",
+        "name": "Kylian Mbappé",
+        "position": "Forward",
+        "country": "FR",
+        "image": "fd30f3a6-c4ae-45c2-8dc9-a4ab31331fe5.webp"
+      },
+      {
+        "id": "8513c235-3274-4573-9391-ef94b809e65d",
+        "name": "Jude Bellingham",
+        "position": "Midfielder",
+        "country": "GB",
+        "image": "ac8f7ea3-9bcd-4118-8995-cfae3da3fb09.webp"
+      },
+      {
+        "id": "13da758b-987c-4d41-83cb-0f73bce7e4ca",
+        "name": "Jamal Musiala",
+        "position": "Forward",
+        "country": "DE",
+        "image": "485c40ee-01a3-44aa-bb2a-28d2a64dd2a0.webp"
+      },
+      {
+        "id": "fa53de96-03e8-46db-936c-c95415203026",
+        "name": "Mohamed Salah",
+        "position": "Forward",
+        "country": "EG",
+        "image": "38a5e9b2-9d20-4ed2-bfd0-c8fe302bd1b0.webp"
+      },
+      {
+        "id": "6de79428-c912-473a-ab92-6a95817b0aad",
+        "name": "Virgil van Dijk",
+        "position": "Defender",
+        "country": "NL",
+        "image": "8af50c76-3503-4dc5-80f2-aeca4841042e.webp"
+      },
+      {
+        "id": "7f96ca37-4c1e-4a3c-8e32-b3fddbc0f5db",
+        "name": "Vitinha",
+        "position": "Midfielder",
+        "country": "PT",
+        "image": "6e9d237e-d26c-48ed-b821-d2f1ce5709da.webp"
+      },
+      {
+        "id": "f50e0979-5ddf-41c6-a768-fef2b73c2691",
+        "name": "Luis Díaz",
+        "position": "Forward",
+        "country": "CO",
+        "image": "f0d2b017-69b4-45ef-8769-d4d844f02738.webp"
+      },
+      {
+        "id": "52eebba3-dc5a-4ef7-8f04-de0658bc8a66",
+        "name": "Vinícius Júnior",
+        "position": "Forward",
+        "country": "BR",
+        "image": "ffc191ae-04ef-44f2-bec7-4fa6d61f70f6.webp"
+      },
+      {
+        "id": "c2e4628c-55f1-42b1-a243-676ad6707658",
+        "name": "Pedri",
+        "position": "Midfielder",
+        "country": "ES",
+        "image": "c0336f1c-4445-47c4-a88e-195bb8bb396c.webp"
+      },
+      {
+        "id": "4b7bdfe6-61ec-47eb-abb9-bd7bde2cb1f9",
+        "name": "Achraf Hakimi",
+        "position": "Defender",
+        "country": "MA",
+        "image": "a06165ae-d238-4b3a-8fbe-764784f2f811.webp"
+      },
+      {
+        "id": "660efd4a-3cca-456d-ad33-2757fef175f3",
+        "name": "Jérémy Doku",
+        "position": "Forward",
+        "country": "BE",
+        "image": "96822f01-0be5-4760-a84f-a7ecfc5cd0cf.webp"
+      },
+      {
+        "id": "1613c64c-fb97-4bcc-a39a-bd011f63acfc",
+        "name": "Heung-min Son",
+        "position": "Forward",
+        "country": "KR",
+        "image": "d4e4cc49-104f-4460-9f23-2afec1155b91.webp"
+      },
+      {
+        "id": "a57f3e7b-893f-4124-be34-823e4c064327",
+        "name": "Antonio Nusa",
+        "position": "Forward",
+        "country": "NO",
+        "image": "9002f581-e6a0-4e56-ad2b-7aa69250d570.webp"
+      },
+      {
+        "id": "ed65822f-aaaa-4a76-96d5-a184cbbec7f6",
+        "name": "Ousmane Dembélé",
+        "position": "Forward",
+        "country": "FR",
+        "image": "8382865f-38f8-432c-a3a6-64e74f2ca9b2.webp"
+      }
     ]
-  },
-  "Limited Edition Hologram": [
-    {
-      "id": "f2507da4-5010-451e-a4b4-4c9427583abe",
-      "name": "LAMINE YAMAL",
-      "position": "Forward",
-      "country": "ES",
-      "image": "71dadd04-8978-4014-85bf-b24cc8306ba0.webp"
-    },
-    {
-      "id": "c9432c38-1340-4a98-8e16-e6c6bec2e7e9",
-      "name": "RAPHINHA",
-      "position": "Forward",
-      "country": "BR",
-      "image": "6cae020a-6f7f-4ba6-8099-03019466a2e6.webp"
-    },
-    {
-      "id": "3d178e12-3d75-442d-86e8-75e039104f90",
-      "name": "JULIÁN ÁLVAREZ",
-      "position": "Forward",
-      "country": "AR",
-      "image": "17ffa207-91bf-48ad-b521-338f6d865644.webp"
-    },
-    {
-      "id": "44e7bcb2-0e2a-4608-85de-be96cd5cd378",
-      "name": "CRISTIANO RONALDO",
-      "position": "Forward",
-      "country": "PT",
-      "image": "6eed71ee-0451-4233-80ec-dc9ac375831a.webp"
-    },
-    {
-      "id": "2d692718-01b9-46a0-ba0e-32de5741676c",
-      "name": "Lionel Messi",
-      "position": "Forward",
-      "country": "AR",
-      "image": "01c543c0-46c3-4dd3-a628-2fd371ac48dd.webp"
-    },
-    {
-      "id": "572cf911-bebd-4fc8-a8e9-8f401c6e9b31",
-      "name": "Harry Kane",
-      "position": "Forward",
-      "country": "GB",
-      "image": "4f127c47-c66b-4857-ab54-614a1f317187.webp"
-    },
-    {
-      "id": "2c3dd984-0434-4524-858b-796c6f0920c7",
-      "name": "Kylian Mbappé",
-      "position": "Forward",
-      "country": "FR",
-      "image": "fd30f3a6-c4ae-45c2-8dc9-a4ab31331fe5.webp"
-    },
-    {
-      "id": "8513c235-3274-4573-9391-ef94b809e65d",
-      "name": "Jude Bellingham",
-      "position": "Midfielder",
-      "country": "GB",
-      "image": "ac8f7ea3-9bcd-4118-8995-cfae3da3fb09.webp"
-    },
-    {
-      "id": "13da758b-987c-4d41-83cb-0f73bce7e4ca",
-      "name": "Jamal Musiala",
-      "position": "Forward",
-      "country": "DE",
-      "image": "485c40ee-01a3-44aa-bb2a-28d2a64dd2a0.webp"
-    },
-    {
-      "id": "fa53de96-03e8-46db-936c-c95415203026",
-      "name": "Mohamed Salah",
-      "position": "Forward",
-      "country": "EG",
-      "image": "38a5e9b2-9d20-4ed2-bfd0-c8fe302bd1b0.webp"
-    },
-    {
-      "id": "6de79428-c912-473a-ab92-6a95817b0aad",
-      "name": "Virgil van Dijk",
-      "position": "Defender",
-      "country": "NL",
-      "image": "8af50c76-3503-4dc5-80f2-aeca4841042e.webp"
-    },
-    {
-      "id": "7f96ca37-4c1e-4a3c-8e32-b3fddbc0f5db",
-      "name": "Vitinha",
-      "position": "Midfielder",
-      "country": "PT",
-      "image": "6e9d237e-d26c-48ed-b821-d2f1ce5709da.webp"
-    },
-    {
-      "id": "f50e0979-5ddf-41c6-a768-fef2b73c2691",
-      "name": "Luis Díaz",
-      "position": "Forward",
-      "country": "CO",
-      "image": "f0d2b017-69b4-45ef-8769-d4d844f02738.webp"
-    },
-    {
-      "id": "52eebba3-dc5a-4ef7-8f04-de0658bc8a66",
-      "name": "Vinícius Júnior",
-      "position": "Forward",
-      "country": "BR",
-      "image": "ffc191ae-04ef-44f2-bec7-4fa6d61f70f6.webp"
-    },
-    {
-      "id": "c2e4628c-55f1-42b1-a243-676ad6707658",
-      "name": "Pedri",
-      "position": "Midfielder",
-      "country": "ES",
-      "image": "c0336f1c-4445-47c4-a88e-195bb8bb396c.webp"
-    },
-    {
-      "id": "4b7bdfe6-61ec-47eb-abb9-bd7bde2cb1f9",
-      "name": "Achraf Hakimi",
-      "position": "Defender",
-      "country": "MA",
-      "image": "a06165ae-d238-4b3a-8fbe-764784f2f811.webp"
-    },
-    {
-      "id": "660efd4a-3cca-456d-ad33-2757fef175f3",
-      "name": "Jérémy Doku",
-      "position": "Forward",
-      "country": "BE",
-      "image": "96822f01-0be5-4760-a84f-a7ecfc5cd0cf.webp"
-    },
-    {
-      "id": "1613c64c-fb97-4bcc-a39a-bd011f63acfc",
-      "name": "Heung-min Son",
-      "position": "Forward",
-      "country": "KR",
-      "image": "d4e4cc49-104f-4460-9f23-2afec1155b91.webp"
-    },
-    {
-      "id": "a57f3e7b-893f-4124-be34-823e4c064327",
-      "name": "Antonio Nusa",
-      "position": "Forward",
-      "country": "NO",
-      "image": "9002f581-e6a0-4e56-ad2b-7aa69250d570.webp"
-    },
-    {
-      "id": "ed65822f-aaaa-4a76-96d5-a184cbbec7f6",
-      "name": "Ousmane Dembélé",
-      "position": "Forward",
-      "country": "FR",
-      "image": "8382865f-38f8-432c-a3a6-64e74f2ca9b2.webp"
-    }
-  ]
+  }
 }
