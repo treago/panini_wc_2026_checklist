@@ -97,15 +97,14 @@ export function useCollection(
   }, [collectionId]);
 
   const updateCard = useCallback(
-    (id: number, value: CardValue) => {
+    (id: string, value: CardValue) => {
       if (readOnly || !collectionId || !userId) return;
 
-      const key = String(id);
-      setCollection((prev) => ({ ...prev, [key]: value }));
+      setCollection((prev) => ({ ...prev, [id]: value }));
 
       const docRef = doc(db, "collections", collectionId);
-      updateDoc(docRef, { [`cards.${key}`]: value }).catch(() => {
-        setDoc(docRef, { cards: { [key]: value } }, { merge: true });
+      updateDoc(docRef, { [`cards.${id}`]: value }).catch(() => {
+        setDoc(docRef, { cards: { [id]: value } }, { merge: true });
       });
     },
     [collectionId, userId, readOnly],

@@ -7,10 +7,11 @@ import { ChecklistHeader } from "./ChecklistHeader";
 
 type Props = {
   title: string;
+  numbered: boolean;
   items: CardsData;
   section?: ChecklistGroup;
   collection: Collection;
-  updateCard: (id: number, value: CardValue) => void;
+  updateCard: (id: string, value: CardValue) => void;
   readOnly?: boolean;
 };
 
@@ -19,6 +20,7 @@ type Group = { label: string; cards: Card[] };
 export default function Checklist({
   title,
   items,
+  numbered,
   section = "all",
   collection,
   updateCard,
@@ -38,11 +40,15 @@ export default function Checklist({
   const [showCopied, setShowCopied] = useState(false);
 
   const allCards = useMemo<Card[]>(() => {
-    const map = new Map<number, Card>();
+    const map = new Map<string, Card>();
     Object.values(items.data || {})
       .flat()
       .forEach((card) => map.set(card.id, card));
-    return Array.from(map.values()).sort((a, b) => a.id - b.id);
+    return Array.from(map.values()).sort(
+      (a, b) =>
+        (a.number ?? Number.MAX_SAFE_INTEGER) -
+        (b.number ?? Number.MAX_SAFE_INTEGER),
+    );
   }, [items]);
 
   const groupedData = useMemo<Group[]>(() => {
@@ -70,12 +76,16 @@ export default function Checklist({
 
   const cardMatchesSearch = useCallback(
     (card: Card) => {
-      if (isIdArraySearch) return targetIds.includes(card.id);
+      if (isIdArraySearch)
+        return card.number && targetIds.includes(card.number);
+
       if (!formattedQuery) return true;
+
       return (
-        String(card.id).includes(formattedQuery) ||
+        String(card.number).includes(formattedQuery) ||
         card.name.toLowerCase().includes(formattedQuery) ||
-        card.position.toLowerCase().includes(formattedQuery)
+        card.position.toLowerCase().includes(formattedQuery) ||
+        card.country?.toLowerCase().includes(formattedQuery)
       );
     },
     [isIdArraySearch, targetIds, formattedQuery],
@@ -99,18 +109,18 @@ export default function Checklist({
   const spareCards = useMemo(
     () =>
       filteredFlatCards.filter((card) => {
-        const v = collection[String(card.id)];
+        const v = collection[card.id];
         return v?.quantity && v.quantity > 1;
       }),
     [filteredFlatCards, collection],
   );
 
   const unownedCards = useMemo(() => {
-    const seen = new Set<number>();
+    const seen = new Set<string>();
     return filteredFlatCards.filter((card) => {
       if (seen.has(card.id)) return false;
       seen.add(card.id);
-      return !collection[String(card.id)]?.owned;
+      return !collection[card.id]?.owned;
     });
   }, [filteredFlatCards, collection]);
 
@@ -132,7 +142,7 @@ export default function Checklist({
       currentSection === "spare"
         ? cardsToShow
         : displayedGroups.flatMap((g) => g.cards);
-    const uniqueMap = new Map<number, Card>();
+    const uniqueMap = new Map<string, Card>();
     for (const card of cards) uniqueMap.set(card.id, card);
     return Array.from(uniqueMap.values());
   }, [currentSection, cardsToShow, displayedGroups]);
@@ -140,34 +150,36 @@ export default function Checklist({
   const totalCards = allCards.length;
 
   const ownedCountGlobal = useMemo(
-    () => allCards.filter((c) => collection[String(c.id)]?.owned).length,
+    () => allCards.filter((c) => collection[c.id]?.owned).length,
     [allCards, collection],
   );
 
   const progressPercentage =
     totalCards > 0 ? Math.round((ownedCountGlobal / totalCards) * 100) : 0;
 
-  const extractAndCopyIds = useCallback(async () => {
-    if (currentCards.length === 0) return;
-    const idsString = currentCards.map((c) => c.id).join(", ");
-    try {
-      await navigator.clipboard.writeText(idsString);
-      setShowCopied(true);
-      // Auto-hide after 3 seconds
-      setTimeout(() => setShowCopied(false), 3000);
-    } catch (err) {
-      console.error("Failed to copy to clipboard", err);
-    }
-  }, [currentCards]);
+  const extractAndCopy = useCallback(
+    async (field: "number" | "name") => {
+      if (currentCards.length === 0) return;
+      const idsString = currentCards.map((c) => c[field]).join(", ");
+      try {
+        await navigator.clipboard.writeText(idsString);
+        setShowCopied(true);
+        // Auto-hide after 3 seconds
+        setTimeout(() => setShowCopied(false), 3000);
+      } catch (err) {
+        console.error("Failed to copy to clipboard", err);
+      }
+    },
+    [currentCards],
+  );
 
   // Shared renderer so both flat and grouped views use identical CardItem props
   const renderCard = useCallback(
-    (card: Card, index: number) => (
+    (card: Card) => (
       <CardItem
         key={card.id}
-        index={index}
         card={card}
-        value={collection[String(card.id)] ?? { owned: false, quantity: 1 }}
+        value={collection[card.id] ?? { owned: false, quantity: 1 }}
         onChange={(v) => updateCard(card.id, v)}
         readOnly={readOnly}
         editMode={editMode}
@@ -255,8 +267,30 @@ export default function Checklist({
               </button>
             )}
 
+            {numbered && (
+              <button
+                onClick={() => extractAndCopy("number")}
+                disabled={currentCards.length === 0}
+                className="flex cursor-pointer items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-2 text-sm font-medium whitespace-nowrap text-white transition-colors hover:bg-blue-700 disabled:opacity-40"
+              >
+                <svg
+                  width="13"
+                  height="13"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                >
+                  <rect x="9" y="9" width="13" height="13" rx="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                Copy IDs
+              </button>
+            )}
+
             <button
-              onClick={extractAndCopyIds}
+              onClick={() => extractAndCopy("name")}
               disabled={currentCards.length === 0}
               className="flex cursor-pointer items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-2 text-sm font-medium whitespace-nowrap text-white transition-colors hover:bg-blue-700 disabled:opacity-40"
             >
@@ -272,7 +306,7 @@ export default function Checklist({
                 <rect x="9" y="9" width="13" height="13" rx="2" />
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
               </svg>
-              Copy IDs
+              Copy names
             </button>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../lib/firebase";
 import type { CardsData } from "../types";
@@ -16,12 +16,19 @@ const defaultCardsData = defaultRaw as unknown as CardsData;
  * Always falls back to the built-in default on any Firestore error.
  */
 export function useCatalog(catalogId: string | null | undefined) {
-  // Initialise synchronously from the first value so there's never a
+  // Initialize synchronously from the first value so there's never a
   // spurious loading flash on the initial render.
   const [cardsData, setCardsData] = useState<CardsData | null>(
     catalogId === null ? defaultCardsData : null,
   );
+  const [numbered, setNumbered] = useState<boolean>(false);
   const [loading, setLoading] = useState(catalogId !== null);
+
+  const isNumbered = useCallback((cardsData: CardsData | null) => {
+    return Object.values(cardsData?.data ?? {}).some((cards) =>
+      cards.some((card) => card.number !== undefined),
+    );
+  }, []);
 
   // React-recommended pattern for adjusting state when a prop changes.
   // setState calls here are in the render body, not inside an effect, which
@@ -38,6 +45,7 @@ export function useCatalog(catalogId: string | null | undefined) {
     } else if (catalogId === null) {
       // Explicitly no catalog — use the built-in default immediately.
       setCardsData(defaultCardsData);
+      setNumbered(isNumbered(defaultCardsData));
       setLoading(false);
     } else {
       // New Firestore catalog ID — reset and let the effect below fetch it.
@@ -65,19 +73,22 @@ export function useCatalog(catalogId: string | null | undefined) {
             data: (raw.data ?? {}) as Record<string, import("../types").Card[]>,
           };
           setCardsData(parsed);
+          setNumbered(isNumbered(parsed));
         } else {
           console.warn(
             `Catalog "${catalogId}" not found — using built-in default.`,
           );
           setCardsData(defaultCardsData);
+          setNumbered(isNumbered(defaultCardsData));
         }
       })
       .catch((err) => {
         console.error("useCatalog fetch error:", err);
         setCardsData(defaultCardsData);
+        setNumbered(isNumbered(defaultCardsData));
       })
       .finally(() => setLoading(false));
-  }, [catalogId]);
+  }, [catalogId, isNumbered]);
 
-  return { cardsData, loading };
+  return { cardsData, numbered, loading };
 }

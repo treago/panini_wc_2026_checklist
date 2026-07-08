@@ -21,7 +21,8 @@ export type CardType =
   | "Limited Edition Hologram";
 
 export type Card = {
-  id: number;
+  id: string;
+  number?: number;
   name: string;
   position: CardPosition;
   country?: string;

@@ -19,7 +19,11 @@ export default function SharedCollectionPage() {
     catalogId,
   } = useCollection(collectionId ?? null, null, true /* readOnly */);
 
-  const { cardsData, loading: catalogLoading } = useCatalog(catalogId);
+  const {
+    cardsData,
+    numbered,
+    loading: catalogLoading,
+  } = useCatalog(catalogId);
 
   // ── Loading ──────────────────────────────────────────────────────────────
   if (loading || catalogLoading || !cardsData) {
@@ -90,6 +94,7 @@ export default function SharedCollectionPage() {
         <Checklist
           title={cardsData.meta.title}
           items={cardsData}
+          numbered={numbered}
           section="all"
           collection={collection}
           updateCard={updateCard}

@@ -28,7 +28,11 @@ export default function CollectionPage() {
 
   // catalogId is undefined while the collection is still loading, so useCatalog
   // stays in loading state too — no stale-data flash.
-  const { cardsData, loading: catalogLoading } = useCatalog(catalogId);
+  const {
+    cardsData,
+    numbered,
+    loading: catalogLoading,
+  } = useCatalog(catalogId);
 
   const [copiedLink, setCopiedLink] = useState(false);
 
@@ -173,6 +177,7 @@ export default function CollectionPage() {
       <div className="mx-auto max-w-7xl px-6 py-8">
         <Checklist
           title={cardsData.meta.title}
+          numbered={numbered}
           items={cardsData}
           section="all"
           collection={collection}
