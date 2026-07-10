@@ -614,6 +614,13 @@
         "position": "Forward",
         "country": "SE",
         "image": "eb713ea1-94ef-47f5-a618-f2de975e94d3.webp"
+      },
+      {
+        "id": "fc8ca518-7386-4492-b4db-4cab04c07970",
+        "name": "Arda Güler",
+        "position": "Forward",
+        "country": "TR",
+        "image": "8a343c28-0a9c-4239-b400-7e59264946fb.webp"
       }
     ],
     "Limited Edition Premium": [
@@ -886,13 +893,6 @@
         "position": "Forward",
         "country": "FR",
         "image": "8382865f-38f8-432c-a3a6-64e74f2ca9b2.webp"
-      },
-      {
-        "id": "fc8ca518-7386-4492-b4db-4cab04c07970",
-        "name": "Arda Güler",
-        "position": "Forward",
-        "country": "TR",
-        "image": "8a343c28-0a9c-4239-b400-7e59264946fb.webp"
       }
     ]
   }
