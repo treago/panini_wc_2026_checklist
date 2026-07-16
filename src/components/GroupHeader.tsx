@@ -1,3 +1,5 @@
+import { Badge } from "./ui/Badge";
+
 type Props = {
   label: string;
   cards: { id: string }[];
@@ -13,9 +15,9 @@ export function GroupHeader({ label, cards, collection }: Props) {
         {label}
       </div>
 
-      <div className="bg-wc-gold ml-auto rounded-2xl px-5 py-2 font-mono text-sm font-bold text-black">
+      <Badge tone="gold" className="ml-auto font-mono">
         {owned}/{cards.length} CARDS
-      </div>
+      </Badge>
     </div>
   );
 }

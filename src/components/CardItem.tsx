@@ -1,5 +1,8 @@
 import { memo, useEffect, useRef, useState } from "react";
-import type { Card, CardPosition, CardType, CardValue } from "../types";
+import type { Card, CardValue } from "../types";
+import { getPositionStripStyle } from "../constants/cardStyles";
+import { IconCheck, IconMinus, IconPlus } from "./icons/Icons";
+import { cn } from "../utils/cn";
 
 type Props = {
   card: Card;
@@ -7,27 +10,6 @@ type Props = {
   onChange: (v: CardValue) => void;
   readOnly?: boolean;
   editMode?: boolean;
-};
-
-// Used on the position strip at the bottom of the image section.
-const positionStrip: Partial<Record<CardType | CardPosition, string>> = {
-  "Golden Baller": "bg-wc-gold text-black",
-  "Fan Favourite": "bg-wc-gold text-black",
-  Icon: "bg-wc-gold text-black",
-  "Team Crest": "bg-wc-gold text-black",
-  "Contender Match": "bg-wc-gold text-black",
-  "Master Rookie": "bg-wc-gold text-black",
-  "Official Emblem": "bg-wc-gold text-black",
-  "Official Mascot": "bg-wc-gold text-black",
-  "Eternos 22": "bg-wc-gold text-black",
-  Goalkeeper: "bg-purple-700 text-white",
-  "Top Keeper": "bg-purple-700 text-white",
-  Defender: "bg-wc-red text-white",
-  "Defensive Rock": "bg-wc-red text-white",
-  Midfielder: "bg-orange-500 text-white",
-  "Midfield Maestro": "bg-orange-500 text-white",
-  Forward: "bg-wc-green text-white",
-  "Goal Machine": "bg-wc-green text-white",
 };
 
 export const CardItem = memo(function CardItem({
@@ -83,13 +65,13 @@ export const CardItem = memo(function CardItem({
       ref={ref}
       data-card-id={card.id}
       onClick={toggleOwned}
-      className={[
+      className={cn(
         "group flex flex-col overflow-hidden rounded-2xl border-2 bg-white shadow-sm transition-all duration-200 select-none",
         canEdit ? "cursor-pointer active:scale-[0.97]" : "cursor-default",
         isOwned
           ? "border-emerald-400 shadow-md shadow-emerald-200/60"
           : "border-gray-200",
-      ].join(" ")}
+      )}
     >
       {/* ── IMAGE SECTION ──────────────────────────────────────────────── */}
       {/* aspect-[3/4] is on this inner div only, so the image is always   */}
@@ -100,31 +82,20 @@ export const CardItem = memo(function CardItem({
             src={`${import.meta.env.BASE_URL}images/${card.image}`}
             alt={card.name}
             loading="lazy"
-            className={[
+            className={cn(
               "absolute inset-0 h-full w-full object-contain p-2 transition-all duration-300",
-              !isOwned ? "opacity-45 grayscale" : "",
-              canEdit && !isOwned
-                ? "group-hover:opacity-75 group-hover:grayscale-0"
-                : "",
-            ].join(" ")}
+              !isOwned && "opacity-45 grayscale",
+              canEdit &&
+                !isOwned &&
+                "group-hover:opacity-75 group-hover:grayscale-0",
+            )}
           />
         )}
 
         {/* Owned checkmark — top-left, small, never overlaps anything */}
         {isOwned && (
           <div className="absolute top-1.5 left-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500 shadow-sm">
-            <svg
-              width="10"
-              height="10"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="white"
-              strokeWidth="3.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M5 12l5 5 9-9" />
-            </svg>
+            <IconCheck />
           </div>
         )}
 
@@ -140,10 +111,10 @@ export const CardItem = memo(function CardItem({
         {/* Position strip — sits at the very bottom of the image section.  */}
         {/* Always visible, never overlaps with the owned badge above.       */}
         <div
-          className={[
+          className={cn(
             "absolute inset-x-0 bottom-0 truncate px-2 py-1 text-center text-[10px] leading-tight font-bold tracking-wide",
-            positionStrip[card.position],
-          ].join(" ")}
+            getPositionStripStyle(card.position),
+          )}
         >
           {card.position}
         </div>
@@ -173,17 +144,7 @@ export const CardItem = memo(function CardItem({
               className="flex h-6 w-6 cursor-pointer items-center justify-center rounded-lg border border-gray-200 bg-gray-50 text-gray-600 transition hover:bg-gray-100 disabled:opacity-30"
               aria-label="Decrease quantity"
             >
-              <svg
-                width="10"
-                height="10"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="round"
-              >
-                <line x1="5" y1="12" x2="19" y2="12" />
-              </svg>
+              <IconMinus />
             </button>
 
             <span className="w-5 text-center text-xs font-bold text-gray-800">
@@ -196,18 +157,7 @@ export const CardItem = memo(function CardItem({
               className="flex h-6 w-6 cursor-pointer items-center justify-center rounded-lg border border-gray-200 bg-gray-50 text-gray-600 transition hover:bg-gray-100"
               aria-label="Increase quantity"
             >
-              <svg
-                width="10"
-                height="10"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="round"
-              >
-                <line x1="12" y1="5" x2="12" y2="19" />
-                <line x1="5" y1="12" x2="19" y2="12" />
-              </svg>
+              <IconPlus />
             </button>
 
             <span className="ml-0.5 text-[10px] text-gray-400">copies</span>
