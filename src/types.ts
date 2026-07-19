@@ -24,10 +24,6 @@ export type Card = {
   id: string;
   number?: number;
   name: string;
-  // NOTE: in practice this field also carries special-card labels (e.g.
-  // "Golden Baller", "Icon") for insert cards, so it is treated as a plain
-  // string wherever it's used for filtering/lookup rather than narrowed to
-  // CardPosition. See src/constants/cardStyles.ts.
   position: CardPosition;
   country?: string;
   image: string;
@@ -41,7 +37,6 @@ export type CardsData = {
 export const CHECKLIST_GROUPS = ["all", "unowned", "spare", "grouped"] as const;
 export type ChecklistGroup = (typeof CHECKLIST_GROUPS)[number];
 
-// How cards are bucketed when the "grouped" tab is active.
 export const GROUP_BY_MODES = ["type", "country"] as const;
 export type GroupByMode = (typeof GROUP_BY_MODES)[number];
 
