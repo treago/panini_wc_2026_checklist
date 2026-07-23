@@ -2,7 +2,7 @@
   "meta": {
     "title": "FIFA World Cup 2026 Adrenalyn XL",
     "publisher": "Panini",
-    "total_cards": 630
+    "total_cards": 648
   },
   "data": {
     "Golden Baller": [
@@ -6072,6 +6072,152 @@
         "country": "UZ",
         "image": "6b2284b2-156d-4173-a122-e56c9bf6c805.webp",
         "number": 513
+      }
+    ],
+    "Nordic Edition": [
+      {
+        "id": "643fc951-a408-409d-baa7-330405c31066",
+        "name": "Sander Berge",
+        "position": "Midfielder",
+        "country": "NO",
+        "image": "c6e60403-47a4-442a-a5e4-1945896b22f1.webp",
+        "number": 631
+      },
+      {
+        "id": "b5585e40-8eca-4e71-aa08-5ff9fe065393",
+        "name": "Thelo Aasgaard",
+        "position": "Midfielder",
+        "country": "NO",
+        "image": "15e65f39-c213-4c45-89a3-22b8eae93249.webp",
+        "number": 632
+      },
+      {
+        "id": "db6d4b17-598d-4fb3-8094-b8ab224a9091",
+        "name": "Erling Haaland",
+        "position": "Forward",
+        "country": "NO",
+        "image": "064c5e44-8636-4d8d-bf8d-bc861e4a3c8d.webp",
+        "number": 633
+      },
+      {
+        "id": "6b9d56ff-9248-49c0-a32d-4587e2d06272",
+        "name": "Martin Ødegaard",
+        "position": "Midfielder",
+        "country": "NO",
+        "image": "2e589e6f-8abf-4f85-8214-85e497fa3c1d.webp",
+        "number": 634
+      },
+      {
+        "id": "6a89145a-eeb9-40a2-99fe-6d892c18aea6",
+        "name": "Antonio Nusa",
+        "position": "Forward",
+        "country": "NO",
+        "image": "44fec764-fe71-47ec-9add-321f88ba82f3.webp",
+        "number": 635
+      },
+      {
+        "id": "e50b5cf5-fd5f-4fc1-ab6e-a41bb6dcdc31",
+        "name": "Erling Haaland",
+        "position": "Forward",
+        "country": "NO",
+        "image": "990784cc-bcef-43eb-9984-7ac79b54e533.webp",
+        "number": 636
+      },
+      {
+        "id": "b5db1a6c-5507-4a43-b8f0-55bca3dbf7b1",
+        "name": "Alexander Sørloth",
+        "position": "Forward",
+        "country": "NO",
+        "image": "afd13068-8b2a-4c77-8df0-6016d3571c30.webp",
+        "number": 637
+      },
+      {
+        "id": "1b7e4796-c5ab-4a17-b374-c1b6e6fb63d1",
+        "name": "Oscar Bobb",
+        "position": "Forward",
+        "country": "NO",
+        "image": "4645a9b0-328f-4ed6-95cc-1b753222e625.webp",
+        "number": 638
+      },
+      {
+        "id": "61e1f3cf-3451-4a32-af39-f3e2ab07f6e6",
+        "name": "Erling Haaland",
+        "position": "Forward",
+        "country": "NO",
+        "image": "d3ec7332-8198-43f7-9c40-86dc8fd6f76c.webp",
+        "number": 639
+      },
+      {
+        "id": "f80fbad4-6cb5-4a22-9087-26d5794ea245",
+        "name": "Kasper Schmeichel",
+        "position": "Goalkeeper",
+        "country": "DK",
+        "image": "0b4fbaca-e43d-4db6-b89a-ec93070a69e6.webp",
+        "number": 640
+      },
+      {
+        "id": "8d8f6e16-03d5-43c2-93e6-7cc5f6243b6d",
+        "name": "Andreas Christensen",
+        "position": "Defender",
+        "country": "DK",
+        "image": "18d30332-bc0c-4180-aedd-567cb81b0e74.webp",
+        "number": 641
+      },
+      {
+        "id": "53f3e792-79f5-49a2-aa3d-456a4947fcf8",
+        "name": "Rasmus Højlund",
+        "position": "Forward",
+        "country": "DK",
+        "image": "c9972be4-c763-4ecb-8f2b-5b16f21ce480.webp",
+        "number": 642
+      },
+      {
+        "id": "bf859360-4295-45e7-9b29-42e0598ffde0",
+        "name": "Patrick Dorgu",
+        "position": "Defender",
+        "country": "DK",
+        "image": "fadd081f-9d66-4553-b7d8-5eebce5feca9.webp",
+        "number": 643
+      },
+      {
+        "id": "22507be3-276c-4d09-bad9-2ab7b43b4d4f",
+        "name": "Victor Froholdt",
+        "position": "Midfielder",
+        "country": "DK",
+        "image": "02ba8e5e-70d2-4d63-ba9a-2ca952e9b83a.webp",
+        "number": 644
+      },
+      {
+        "id": "7d908d18-5706-4002-b645-2918ce4732e3",
+        "name": "Victor Gyökeres",
+        "position": "Forward",
+        "country": "SE",
+        "image": "3b0fa729-602a-4752-9d67-32d76c2eb1bd.webp",
+        "number": 645
+      },
+      {
+        "id": "be48a103-d4b3-47a5-97b3-3ecb338d21ed",
+        "name": "Alexander Isak",
+        "position": "Forward",
+        "country": "SE",
+        "image": "a360edff-0c11-4389-bdf4-96438d083d1a.webp",
+        "number": 646
+      },
+      {
+        "id": "e8f159a5-e365-4683-8ac1-35438580e24a",
+        "name": "LucasLucas Bergvall",
+        "position": "Midfielder",
+        "country": "SE",
+        "image": "2b73cbd5-aa20-40ca-bc9a-d25004526536.webp",
+        "number": 647
+      },
+      {
+        "id": "1a421d54-92d1-46bb-ac49-388b068c8921",
+        "name": "Erling Haaland",
+        "position": "Forward",
+        "country": "NO",
+        "image": "c7875e5e-6f2b-4ed7-837b-a7b0963ce9cd.webp",
+        "number": 648
       }
     ]
   }

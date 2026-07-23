@@ -13,10 +13,8 @@ import {
 } from "firebase/firestore";
 import { db } from "../lib/firebase";
 import type { CardValue, CollectionMeta } from "../types";
-import defaultRaw from "../data/cards.json";
 
-const DEFAULT_TOTAL_CARDS = (defaultRaw as { meta: { total_cards: number } })
-  .meta.total_cards;
+const DEFAULT_TOTAL_CARDS = 0;
 
 export function useCollections(userId: string | null) {
   const [collections, setCollections] = useState<CollectionMeta[]>([]);

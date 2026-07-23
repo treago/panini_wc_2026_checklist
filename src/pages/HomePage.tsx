@@ -6,11 +6,9 @@ import { useAuth } from "../hooks/useAuth";
 import { useCollections } from "../hooks/useCollections";
 import { useCatalogs } from "../hooks/useCatalogs";
 import { AuthButton } from "../components/AuthButton";
-import data from "../data/cards.json";
-import type { CollectionMeta, CardsData } from "../types";
+import type { CollectionMeta } from "../types";
 
-const defaultCardsData = data as unknown as CardsData;
-const DEFAULT_TOTAL_CARDS = defaultCardsData.meta.total_cards;
+const DEFAULT_TOTAL_CARDS = 0;
 const OLD_LS_KEY = "fifaChecklists";
 
 export default function HomePage() {
@@ -346,19 +344,6 @@ export default function HomePage() {
                       Card Set
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      {/* Built-in default is always the first option */}
-                      <button
-                        onClick={() => setSelectedCatalogId(null)}
-                        className={[
-                          "rounded-lg px-3 py-1.5 text-xs font-semibold transition",
-                          selectedCatalogId === null
-                            ? "bg-wc-gold text-black"
-                            : "border border-white/10 text-gray-400 hover:border-white/20 hover:text-white",
-                        ].join(" ")}
-                      >
-                        {defaultCardsData.meta.title}
-                      </button>
-
                       {catalogs.map((cat) => (
                         <button
                           key={cat.id}
@@ -377,19 +362,10 @@ export default function HomePage() {
 
                     {/* Info line for the selected catalog */}
                     <p className="mt-2 text-xs text-gray-600">
-                      {selectedCatalogId === null ? (
-                        <>
-                          {DEFAULT_TOTAL_CARDS} cards ·{" "}
-                          {defaultCardsData.meta.publisher} · Built-in
-                        </>
-                      ) : (
-                        <>
-                          {selectedTotalCards} cards ·{" "}
-                          {catalogs.find((c) => c.id === selectedCatalogId)
-                            ?.publisher ?? ""}
-                          {" · From Firestore"}
-                        </>
-                      )}
+                      {selectedTotalCards} cards ·{" "}
+                      {catalogs.find((c) => c.id === selectedCatalogId)
+                        ?.publisher ?? ""}
+                      {" · From Firestore"}
                     </p>
                   </div>
                 )}
